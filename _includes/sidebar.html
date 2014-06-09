@@ -1,0 +1,10 @@
+<h3>About Seemant</h3>
+
+<p>Something and other things and possibly even other things than those.  Surprised?</p>
+
+<h3>Recent Work</h3>
+<ul>
+{% for post in site.posts limit: 5 %}
+	<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>
