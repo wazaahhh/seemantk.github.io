@@ -1,16 +1,21 @@
-<section class="portfolio" id="writing">
+<section class="content-section-a" id="writing">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-2"></div>
-			<div class="col-lg-8 text-center">
-				<h2>Writing</h2>
-				<hr class="star-primary">
-			</div><!--.col-lg-12-->
-			<div class="col-lg-2"></div>
-		</div><!--.row-->
-		<div class="row">
-			<div class="col-lg-2"></div>
-			<div class="col-lg-8">
+			<div class="col-lg-5 col-sm-6">
+				<hr class="section-heading-spacer">
+				<div class="clearfix"></div>
+				<h2 class="section-heading">Writing</h2>
+				<p class="lead">I write to tell stories:</p>
+				<ul>
+					<li>product management</li>
+					<li>linux &amp; open source</li>
+					<li>leadership &amp; team-building</li>
+					<li>data visualization</li>
+					<li>creative writing</li>
+				</ul>
+			</div><!--.col-lg-5 .col-sm-6-->
+			<!--<div class="col-lg-5 col-lg-offset-2 col-sm-6">-->
+			<div class="col-lg-7 col-sm-6">
 				<div class="carousel slide" id="carousel-writing" data-ride="carousel-writing">
 					<ol class="carousel-indicators">
 					{% for article in site.data.writing.medium %}
@@ -39,8 +44,7 @@
 						<span class="fa fa-chevron-right icon-next"></span>
 					</a>
 				</div><!--.carousel-->
-			</div><!--.col-lg-8-->
-			<div class="col-lg-2"></div>
+			</div><!--.col-lg-5 .col-lg-offset-2 .col-sm-6-->
 		</div><!--.row-->
 	</div><!--.container-->
-</section><!--.portfolio #writing-->
+</section><!--.#writing-->
