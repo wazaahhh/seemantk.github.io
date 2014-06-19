@@ -1,25 +1,25 @@
-<section class="content-section-a" id="writing">
+<article class="content-section-a" id="writing">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-5 col-sm-6">
 				<hr class="section-heading-spacer">
 				<div class="clearfix"></div>
-				<h2 class="section-heading">Writing</h2>
-				<p class="lead">I write to tell stories:</p>
-				<ul>
+				<h2 class="section-heading">Words</h2>
+				<ul class="lead">
 					<li>product management</li>
 					<li>linux &amp; open source</li>
 					<li>leadership &amp; team-building</li>
 					<li>data visualization</li>
-					<li>creative writing</li>
+					<li>personal growth</li>
+					<li>fun</li>
 				</ul>
 			</div><!--.col-lg-5 .col-sm-6-->
 			<!--<div class="col-lg-5 col-lg-offset-2 col-sm-6">-->
 			<div class="col-lg-7 col-sm-6">
-				<div class="carousel slide" id="carousel-writing" data-ride="carousel-writing">
+				<div class="carousel slide" id="carousel-words" data-ride="carousel-words">
 					<ol class="carousel-indicators">
 					{% for article in site.data.writing.medium %}
-					<li {% if forloop.first %}class="active"{% endif %}data-slide-to="{{ forloop.index0 }}" data-target="#carousel-writing">
+					<li {% if forloop.first %}class="active"{% endif %}data-slide-to="{{ forloop.index0 }}" data-target="#carousel-words">
 					{% endfor %}
 					</ol>
 					<div class="carousel-inner">
@@ -35,11 +35,11 @@
 					{% endfor %}
 					</div><!--.carousel-inner-->
 					<!-- Next and Previous controls -->
-					<a href="#carousel-writing" class="carousel-control left"
+					<a href="#carousel-words" class="carousel-control left"
 					   data-slide="prev">
 						<span class="fa fa-chevron-left icon-prev"></span>
 					</a>
-					<a href="#carousel-writing" class="carousel-control right"
+					<a href="#carousel-words" class="carousel-control right"
 					   data-slide="next">
 						<span class="fa fa-chevron-right icon-next"></span>
 					</a>
@@ -47,4 +47,4 @@
 			</div><!--.col-lg-5 .col-lg-offset-2 .col-sm-6-->
 		</div><!--.row-->
 	</div><!--.container-->
-</section><!--.#writing-->
+</article><!--.#writing-->
