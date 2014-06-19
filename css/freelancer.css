@@ -235,10 +235,6 @@ section.success {
     margin: 0;
 }
 
-.portfolio * {
-    z-index: 2;
-}
-
 @media(min-width:767px) {
     .portfolio .portfolio-item {
         margin: 0 0 30px;
@@ -436,4 +432,12 @@ footer .footer-below {
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
+}
+
+.carousel-indicators {
+	top: 90%;
+}
+
+.carousel-control {
+	top: 90%;
 }
