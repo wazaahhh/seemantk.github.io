@@ -1,0 +1,100 @@
+<!doctype html>
+<head lang="en">
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Visualization of the voting results of a question's choices."
+	<meta name="author" content="Seemant Kulleen">
+	<title></title>
+
+    <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/united/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+	<style>
+		div.tooltip {
+    		position: absolute;
+    		text-align: center;
+    		padding: 10px;
+    		font: 12px sans-serif;
+    		background: #ffb;
+    		border: 0px;
+    		border-radius: 8px;
+    		pointer-events: none;
+		}
+
+		#legend {
+			overflow: hidden;
+		}
+
+		#legend th {
+			white-space: nowrap;
+		}
+
+		table {
+			text-align: left;
+		}
+	
+		.lossfill {
+			fill-opacity: 0.6;
+		}
+
+		td.wins,
+		td.votes {
+			text-align: right;
+		}
+
+		td.losses {
+			text-align: left;
+		}
+
+		path {
+			stroke: #fff;
+			stroke-width: 1.5;
+		}
+
+		circle {
+			stroke-width: 0;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="container">
+		<!--<div class="page-header text-center">
+			<h1>Question Scores</h1>
+			<h3 id="question-statement"></h3>
+		</div>--><!--page-header-->
+		<div class="row">
+			<h3 class="text-center" id="question-statement"></h3>
+			<div class="col-sm-4 metadata table-responsive text-center">
+				<form id="control-box">
+					<table id="legend" class="table table-condensed">
+						<thead></thead>
+						<tbody></tbody>
+					</table><!--/#headers-->
+				</form>
+			</div><!--..col-sm-4 .metadata-->
+			<div class="col-sm-8 viz text-center"></div><!--.col-sm-8 .viz-->
+		</div><!--.row-->
+		<div class="row">
+			<div class="col-sm-4"></div>
+			<div class"col-sm-8 nav text-center">
+				<ul class="pagination" id="questions-nav"></ul>
+			</div><!--.col-sm-4 .nav-->
+		</div><!--.row-->
+	</div><!--.container-->
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.5/d3.min.js"
+        	charset="utf-8">
+	</script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.4/queue.min.js"
+        	charset="utf-8">
+	</script>
+
+	<script src="js/scorify.js" charset="utf-8"></script>
+
+	<script>
+		scorify();
+		d3.select("#button6")
+			.each(function(d) { this.click(); });
+	</script>
+</body>
