@@ -1,16 +1,29 @@
-<section class="portfolio" id="vizard">
+<article class="content-section-b" id="dataviz">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2>Toys</h2>
-        <hr class="star-primary">
-      </div><!--.col-lg-12-->
-    </div><!--.row-->
-    <div class="row">
-      <div id="carousel-writing" class="carousel slide" data-ride="vizard">
-        <div class="carousel-inner">
-        </div><!--.carousel-inner-->
-      </div><!--.carousel .slide-->
+      	<div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
+        	<hr class="section-heading-spacer">
+			<div class="clearfix"></div>
+			<h2 class="section-heading">Data</h2>
+			<p class="lead">Turning numbers into pictures.</p>
+      	</div><!--.col-lg-5 .col-lg-offset-1 .col-sm-push-6 .col-sm-6-->
+		<div class="col-lg-5 col-sm-pull-6 col-sm-6">
+			<div class="carousel slide" id="carousel-viz" data-ride="carousel-viz">
+				<ol class="carousel-indicators">
+					<!-- placeholder for now -->
+				</ol>
+				<div class="carousel-inner">
+				{% for viz in site.viz %}
+				<div class="item{% if viz.active %} active {% endif %}">
+					{{ viz }}
+					<a href="{{ viz.url }}">><img src="images/tortilla.png"></a>
+						<div class="carousel-caption">
+						</div><!--.carousel-caption-->
+					</div><!--.item-->
+				{% endfor %}
+				</div><!--.carousel-inner-->
+			</div><!--.carousel-slide .#carousel-viz-->
+		</div><!--.col-lg-5 .col-sm-pull-6 .col-sm-6-->
     </div><!--.row-->
   </div><!--.container-->
-</section>
+</article><!--dataviz-->
