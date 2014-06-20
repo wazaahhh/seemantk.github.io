@@ -1,16 +1,15 @@
+    - href: "https://github.com/seemantk/"
+      title: Github
+      icon: fa-github
+
     - href: "https://twitter.com/#!/seemantk"
       title: Twitter
       icon: fa-twitter
-
-    - href: "https://www.linkedin.com/in/seemantk"
-      title: LinkedIn
-      icon: fa-linkedin
 
     - href: "https://www.google.com/+SeemantKulleen"
       title: Google+
       icon: fa-google-plus
 
-    - href: "https://github.com/seemantk/"
-      title: Github
-      icon: fa-github
-
+    - href: "https://www.linkedin.com/in/seemantk"
+      title: LinkedIn
+      icon: fa-linkedin
