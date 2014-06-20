@@ -154,8 +154,9 @@ p.copyright {
 	margin: 15px 0 0;
 }
 
-.carousel-caption {
-	float: left;
+.carousel-caption h3,
+.carousel-caption p {
+	color: #2c3e50;
 }
 
 .carousel-control,
