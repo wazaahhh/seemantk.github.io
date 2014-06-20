@@ -1,0 +1,13 @@
+Other Visualizations:
+1. rsync + distfiles + commits + tree size + # of developers =~> # of users
+
+Galaxy:
+1. http://prefix.gentooexperimental.org/hg/prefix-tree -- from redlizard
+2. Switch to Open Sans font (which is the new Gentoo default).
+3. Zoom to time scale of commits, open bugs, recruitment
+4. Select multiple devs (?dev=leio,eva,dang) -- from leio
+5. Color scheme improvement
+6. Months -> axis, just like in elevator.  Months will only be visible on hover.
+   a. How will this affect touchpad users?
+   b. Is that necessarily better? Or is this hybrid display ok?
+

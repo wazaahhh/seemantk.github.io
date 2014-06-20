@@ -1,0 +1,72 @@
+<!doctype html>
+<head lang="en">
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gentoo Galaxy</title>
+
+	<!-- local copies
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.css" rel="stylesheet">
+	-->
+	<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/united/bootstrap.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+	<link href="css/galaxy.css" rel="stylesheet">
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.5/d3.min.js" charset="utf-8"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.4/queue.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>Gentoo Development Activity</h1>
+		</div><!--.page-header-->
+		<div class="row">
+			<div class="col-sm-10 visualization">
+				<div class="col-sm-12 tardis">
+					<!-- trying seismograph -->
+				</div><!--.col-sm-12 .tardis-->
+				<div id="dynamic" class="col-sm-12 viz">
+				</div><!--.col-sm-12 .viz-->
+				<script>document.getElementById('dynamic').style.display='';</script>
+				<!-- fallback for no js -->
+				<noscript>
+					<div id="static" class="col-sm-12 viz">
+						<img src="graph.svg">
+					</div>
+				</noscript>
+			</div><!--.col-sm-10 .visualization-->
+			<div class="col-sm-2">
+				<div class="panel panel-info">
+					<div class="panel-heading text-center">
+						<div class="btn-group">
+							<button type="button" class="btn btn-sm btn-info" id="yalp">
+								<i class="fa fa-play fa-flip-horizontal"></i>
+							</button>
+							<button type="button" class="btn btn-sm btn-info" id="pause">
+								<i class="fa fa-stop"></i>
+							</button>
+							<button type="button" class="btn btn-sm btn-info" id="play">
+								<i class="fa fa-play"></i>
+							</button>
+						</div><!--.btn-group-->
+					</div>
+					<div class="panel-body legend">
+					</div><!--.panel-body .legend-->
+					<div class="panel-footer">
+						<p>Details in tooltips.</p>
+					</div><!--panel-footer-->
+				</div><!--.panel .panel-info-->
+			</div><!--.col-lg-2-->
+		</div><!--.row-->
+		<div class="row">
+			<div class="col-sm-12">
+				<p>Gentoo Linux activity since the first CVS commit in July 2000.  To pause the activity you can either click the pause/stop button or click on a date (month or year).  There will be a slight difference in the paused display depending on which you hit.  The pause button literally pauses the action.  The date strip shows the entire historical snapshot per the date clicked.</p>
+				<p>Data is hard.  And incomplete.  If you see anything inaccurate or that you don't agree with, please contact us.  File a bug or send us a message on the forums, mailing lists or social media.</p>
+			</div><!--.col-sm-12-->
+		</div><!--.row-->
+	</div><!--.container-->
+
+	<script type="text/javascript" src="js/galaxy.js"></script>
+</body>

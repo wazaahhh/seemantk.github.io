@@ -1,0 +1,3128 @@
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="graph" width="960" height="500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs class="svg-crowbar"><style type="text/css">
+<![CDATA[
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #ccc;
+    shape-rendering: crispEdges;
+}
+
+.label,
+text {
+    fill: #ccc;
+}
+
+circle {
+    opacity: 0.8;
+    stroke: #301060;
+    stroke-width: 1;
+}
+
+.recruit {
+    fill: #00dd00;
+}
+
+.active {
+    fill: #e5dff0;
+}
+
+.retired {
+    fill: #6048a8;
+}
+
+.joinpart {
+    fill: #6048a8;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #ccc;
+    shape-rendering: crispEdges;
+}
+
+.label,
+text {
+    fill: #ccc;
+}
+
+circle {
+    opacity: 0.8;
+    stroke: #301060;
+    stroke-width: 1;
+}
+
+/* Gentoo color scheme for the circles */
+.recruit {
+    fill: #00dd00;
+}
+
+.active {
+    fill: #e5dff0;
+}
+
+.retired {
+    fill: #6048a8;
+}
+
+.joinpart {
+    fill: #6048a8;
+}
+.current {
+    color: #c0c0c0;
+}
+
+.inactive {
+    color: #404040;
+}]]></style></defs><g><title>Gentoo Developers by Month</title><g transform="translate(0,430)" class="x-axis"><g class="x axis"><g class="tick" transform="translate(125,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">1</text></g><g class="tick" transform="translate(167.93160933518968,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">2</text></g><g class="tick" transform="translate(193.04499089188596,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">3</text></g><g class="tick" transform="translate(210.86321867037935,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(224.68410987410545,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(235.97660022707564,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(245.5242647789989,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(253.79482800556903,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(261.0899817837719,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(267.61571920929515,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">10</text></g><g class="tick" transform="translate(310.5473285444848,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">20</text></g><g class="tick" transform="translate(335.6607101011811,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">30</text></g><g class="tick" transform="translate(353.4789378796745,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(367.2998290834006,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(378.59231943637076,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(388.1399839882941,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(396.41054721486415,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(403.70570099306707,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(410.2314384185903,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">100</text></g><g class="tick" transform="translate(453.16304775377995,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">200</text></g><g class="tick" transform="translate(478.2764293104762,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">300</text></g><g class="tick" transform="translate(496.0946570889696,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(509.9155482926957,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(521.2080386456659,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(530.7557031975891,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(539.0262664241593,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(546.3214202023622,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(552.8471576278854,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">1k</text></g><g class="tick" transform="translate(595.778766963075,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">2k</text></g><g class="tick" transform="translate(620.8921485197714,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">3k</text></g><g class="tick" transform="translate(638.7103762982648,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(652.5312675019909,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(663.823757854961,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(673.3714224068843,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(681.6419856334544,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(688.9371394116573,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(695.4628768371806,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">10k</text></g><g class="tick" transform="translate(738.3944861723701,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">20k</text></g><g class="tick" transform="translate(763.5078677290664,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">30k</text></g><g class="tick" transform="translate(781.3260955075599,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(795.146986711286,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(806.4394770642562,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(815.9871416161794,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(824.2577048427495,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(831.5528586209524,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;"/></g><g class="tick" transform="translate(838.0785960464757,0)" style="opacity: 1;"><line y2="8" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">100k</text></g><path class="domain" d="M125,0V0H870V0"/></g><g class="xzero axis"><g class="tick" transform="translate(100,0)" style="opacity: 1;"><line y2="6" x2="0"/><text y="20" x="9" dy=".35em" style="text-anchor: middle;">0</text></g><path class="domain" d="M100,6V0H100V6"/></g></g><text class="x label" x="445" y="416.6666666666667" style="text-anchor: end;">commits</text><g transform="translate(50,0)" class="y-axis"><g class="y axis"><g class="tick" transform="translate(0,350)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">1</text></g><g class="tick" transform="translate(0,327.72239792773144)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">2</text></g><g class="tick" transform="translate(0,314.69083610946643)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">3</text></g><g class="tick" transform="translate(0,305.44479585546287)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">4</text></g><g class="tick" transform="translate(0,298.2730098616787)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,292.41323403719787)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,287.4588641707762)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,283.16719378319436)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,279.38167221893286)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,275.99540778941014)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">10</text></g><g class="tick" transform="translate(0,253.71780571714163)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">20</text></g><g class="tick" transform="translate(0,240.6862438988766)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">30</text></g><g class="tick" transform="translate(0,231.44020364487307)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">40</text></g><g class="tick" transform="translate(0,224.2684176510889)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,218.40864182660806)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,213.45427196018636)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,209.16260157260453)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,205.37708000834303)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,201.99081557882033)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">100</text></g><g class="tick" transform="translate(0,179.71321350655182)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">200</text></g><g class="tick" transform="translate(0,166.6816516882868)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">300</text></g><g class="tick" transform="translate(0,157.43561143428326)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">400</text></g><g class="tick" transform="translate(0,150.2638254404991)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,144.4040496160182)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,139.44967974959656)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,135.1580093620147)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,131.3724877977532)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,127.98622336823055)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">1k</text></g><g class="tick" transform="translate(0,105.70862129596196)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">2k</text></g><g class="tick" transform="translate(0,92.67705947769696)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">3k</text></g><g class="tick" transform="translate(0,83.4310192236934)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">4k</text></g><g class="tick" transform="translate(0,76.25923322990923)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,70.3994574054284)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,65.44508753900675)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,61.15341715142483)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,57.36789558716333)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;"/></g><g class="tick" transform="translate(0,53.98163115764066)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">10k</text></g><g class="tick" transform="translate(0,31.704029085372156)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">20k</text></g><path class="domain" d="M0,30H0V350H0"/></g><g class="yzero axis"><g class="tick" transform="translate(0,390)" style="opacity: 1;"><line x2="-6" y2="0"/><text x="-9" y="0" dy=".32em" style="text-anchor: end;">0</text></g><path class="domain" d="M-6,390H0V390H-6"/></g></g><text class="y label" transform="translate(75,215) rotate(-90)" style="text-anchor: middle;">bugs RESOLVED</text></g><circle cx="511.38448401670706" cy="192.345518190078" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Rob Holland (tigger/robh)
+Tenure: May 2003 to May 2006
+Bugs to date: 135
+Commits to date: 512
+</title></circle><circle cx="566.8659314915787" cy="175.22129458311926" r="4" class="active" style="opacity: 1;"><title>Ioannis Aslanidis (deathwing00)
+Tenure: Jul 2005 to present
+Bugs to date: 230
+Commits to date: 1254
+</title></circle><circle cx="768.3051993882552" cy="112.32282576571544" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jeremy Huddleston (eradicator)
+Tenure: Jan 2004 to Oct 2008
+Bugs to date: 1628
+Commits to date: 32416
+</title></circle><circle cx="590.7824213131032" cy="166.57469722674693" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jason Huebel (jhuebel)
+Tenure: Feb 2004 to Oct 2006
+Bugs to date: 301
+Commits to date: 1845
+</title></circle><circle cx="535.3583839234353" cy="172.67024446289844" r="4" class="active" style="opacity: 1;"><title>Jan Kundrát (jkt)
+Tenure: Jul 2005 to present
+Bugs to date: 249
+Commits to date: 754
+</title></circle><circle cx="557.211158983664" cy="241.77583251590477" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Daniel Ostrow (dostrow)
+Tenure: May 2004 to Nov 2010
+Bugs to date: 29
+Commits to date: 1073
+</title></circle><circle cx="567.7973358085138" cy="207.59449613570553" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stephen Bennett (spb)
+Tenure: Oct 2004 to Apr 2008
+Bugs to date: 84
+Commits to date: 1273
+</title></circle><circle cx="613.3487490389642" cy="212.99838082659494" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Petre Rodan (kaiowas)
+Tenure: Sep 2004 to Sep 2007
+Bugs to date: 71
+Commits to date: 2656
+</title></circle><circle cx="695.9318199730357" cy="127.12995740811832" r="4" class="active" style="opacity: 1;"><title>Mark Loeser (halcy0n)
+Tenure: Mar 2005 to present
+Bugs to date: 1027
+Commits to date: 10076
+</title></circle><circle cx="552.2871990384388" cy="205.73618749884423" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Kito Danya Dietrich (kito)
+Tenure: Sep 2004 to Oct 2006
+Bugs to date: 89
+Commits to date: 991
+</title></circle><circle cx="481.49467108580836" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Andrés Pereira (anpereir)
+Tenure: Feb 2005 to Oct 2006
+Bugs to date: 0
+Commits to date: 316
+</title></circle><circle cx="694.167320632592" cy="110.81871008615559" r="4" class="active" style="opacity: 1;"><title>Donnie Berkholz (dberkholz/spyderous)
+Tenure: Jun 2003 to present
+Bugs to date: 1706
+Commits to date: 9793
+</title></circle><circle cx="708.1234115090788" cy="139.12987824502255" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Andrej Kacian (ticho)
+Tenure: Aug 2004 to May 2008
+Bugs to date: 707
+Commits to date: 12268
+</title></circle><circle cx="563.2035512725483" cy="210.39102317455058" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Eric Edgar (rocket)
+Tenure: Feb 2005 to May 2007
+Bugs to date: 77
+Commits to date: 1182
+</title></circle><circle cx="568.474780904564" cy="182.9214177242204" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Camille Huot (cam)
+Tenure: Mar 2004 to Feb 2013
+Bugs to date: 181
+Commits to date: 1287
+</title></circle><circle cx="614.7779555976513" cy="167.66060409956663" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Chris Aniszczyk (zx)
+Tenure: Jan 2004 to Mar 2007
+Bugs to date: 291
+Commits to date: 2718
+</title></circle><circle cx="638.7258586680205" cy="187.69870843176446" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Christian Zoffoli (xmerlin)
+Tenure: Dec 2004 to Jul 2010
+Bugs to date: 156
+Commits to date: 4001
+</title></circle><circle cx="374.31909278456794" cy="195.59979152636" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Benjamin Coles (sj7trunks)
+Tenure: Sep 2003 to Aug 2004
+Bugs to date: 122
+Commits to date: 56
+</title></circle><circle cx="675.0560021753624" cy="161.91146448083407" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Marcus D. Hanwell (cryos)
+Tenure: Dec 2004 to May 2011
+Bugs to date: 348
+Commits to date: 7193
+</title></circle><circle cx="722.0129267455068" cy="118.8690000643578" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Alin Năstac (mrness)
+Tenure: Nov 2004 to Nov 2011
+Bugs to date: 1328
+Commits to date: 15352
+</title></circle><circle cx="721.2742656075922" cy="98.61406349960697" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Carsten Lohrke (carlo)
+Tenure: May 2004 to Feb 2012
+Bugs to date: 2494
+Commits to date: 15170
+</title></circle><circle cx="427.89462927036266" cy="230.64658835963365" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Alex Howells (astinus)
+Tenure: Feb 2005 to Jun 2008
+Bugs to date: 41
+Commits to date: 133
+</title></circle><circle cx="193.04499089188596" cy="314.69083610946643" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Vibhav Garg (vgarg)
+Tenure: Apr 2005 to Jul 2005
+Bugs to date: 3
+Commits to date: 3
+</title></circle><circle cx="560.6904319733987" cy="208.3689862873651" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Andres Loeh (kosmikus)
+Tenure: Apr 2003 to Jan 2008
+Bugs to date: 82
+Commits to date: 1135
+</title></circle><circle cx="544.0077066372139" cy="194.05678549412016" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Maurice van der Pot (griffon26)
+Tenure: Jul 2004 to Nov 2010
+Bugs to date: 128
+Commits to date: 867
+</title></circle><circle cx="403.0136578170768" cy="287.4588641707762" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Gerald J. Normandin Jr. (gerrynjr)
+Tenure: Jul 2003 to Oct 2006
+Bugs to date: 7
+Commits to date: 89
+</title></circle><circle cx="544.0077066372139" cy="262.96384597114513" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael McCabe (randy)
+Tenure: Oct 2003 to May 2004
+Bugs to date: 15
+Commits to date: 867
+</title></circle><circle cx="611.8141101004654" cy="186.2879584427635" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Lukasz Strzygowski (lucass)
+Tenure: Apr 2004 to Oct 2008
+Bugs to date: 163
+Commits to date: 2591
+</title></circle><circle cx="623.9730354030133" cy="258.94112933744077" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stephen Becker (geoman)
+Tenure: Mar 2004 to Mar 2007
+Bugs to date: 17
+Commits to date: 3153
+</title></circle><circle cx="267.61571920929515" cy="327.72239792773144" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Erik Swanson (erik_swanson)
+Tenure: Jul 2004 to Nov 2005
+Bugs to date: 2
+Commits to date: 10
+</title></circle><circle cx="457.9298006812269" cy="233.94587090647815" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Peter Bienstman (pbienst)
+Tenure: Feb 2004 to Mar 2008
+Bugs to date: 37
+Commits to date: 216
+</title></circle><circle cx="569.7135665962269" cy="193.80666916543714" r="4" class="active" style="opacity: 1;"><title>Joe Sapp (nixphoeni)
+Tenure: Apr 2005 to present
+Bugs to date: 129
+Commits to date: 1313
+</title></circle><circle cx="508.28387569943493" cy="218.40864182660806" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joel Martin (kanaka)
+Tenure: Mar 2004 to Nov 2010
+Bugs to date: 60
+Commits to date: 487
+</title></circle><circle cx="393.233583161743" cy="265.18126209850766" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Josh Grebe (squash)
+Tenure: May 2004 to Sep 2006
+Bugs to date: 14
+Commits to date: 76
+</title></circle><circle cx="427.89462927036266" cy="265.18126209850766" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tiemo Kieft (blubber)
+Tenure: Aug 2003 to Nov 2005
+Bugs to date: 14
+Commits to date: 133
+</title></circle><circle cx="581.1395677772903" cy="201.99081557882033" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ian Leitch (port001)
+Tenure: Sep 2003 to May 2006
+Bugs to date: 100
+Commits to date: 1579
+</title></circle><circle cx="770.9020418639079" cy="162.3765925123286" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Gustavo Zacarias (gustavoz)
+Tenure: Dec 2003 to Sep 2007
+Bugs to date: 343
+Commits to date: 33804
+</title></circle><circle cx="540.9321774132361" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Shigehiro Idani (idani)
+Tenure: Feb 2005 to Dec 2007
+Bugs to date: 1
+Commits to date: 825
+</title></circle><circle cx="585.7856207792269" cy="195.33742446910009" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Anders Rune Jensen (arj)
+Tenure: Jun 2004 to Mar 2007
+Bugs to date: 123
+Commits to date: 1702
+</title></circle><circle cx="682.8912721664996" cy="144.35052789501918" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Leonardo Boshell (leonardop)
+Tenure: Jul 2002 to Oct 2008
+Bugs to date: 601
+Commits to date: 8163
+</title></circle><circle cx="604.0841600808418" cy="170.79018889643518" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Brian Jackson (iggy)
+Tenure: Jun 2003 to Mar 2007
+Bugs to date: 264
+Commits to date: 2287
+</title></circle><circle cx="589.321810466203" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>YiDa Chiang (ccpz)
+Tenure: Aug 2004 to Apr 2006
+Bugs to date: 0
+Commits to date: 1802
+</title></circle><circle cx="341.56395766502527" cy="305.44479585546287" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Arun Thomas (sindian/arun)
+Tenure: Mar 2003 to Oct 2005
+Bugs to date: 4
+Commits to date: 33
+</title></circle><circle cx="541.4554883587907" cy="188.3228015563736" r="4" class="active" style="opacity: 1;"><title>Rajiv Aaron Manglani (rajiv)
+Tenure: Sep 2002 to present
+Bugs to date: 153
+Commits to date: 832
+</title></circle><circle cx="210.86321867037935" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Christopher Hotchkiss (chotchki)
+Tenure: Jun 2005 to Jul 2005
+Bugs to date: 0
+Commits to date: 4
+</title></circle><circle cx="682.0663469439153" cy="148.0892909552985" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Thomas Matthijs (axxo)
+Tenure: Jul 2004 to Aug 2007
+Bugs to date: 535
+Commits to date: 8055
+</title></circle><circle cx="587.3309869635718" cy="184.74803344259544" r="4" class="active" style="opacity: 1;"><title>Thomas Raschbacher (lordvan)
+Tenure: Dec 2002 to present
+Bugs to date: 171
+Commits to date: 1745
+</title></circle><circle cx="833.240499918467" cy="85.44533514171661" r="4" class="active" style="opacity: 1;"><title>Robin H. Johnson (robbat2)
+Tenure: Apr 2003 to present
+Bugs to date: 3757
+Commits to date: 92486
+</title></circle><circle cx="451.5949331136442" cy="195.59979152636" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Benjamin Judas (beejay)
+Tenure: Dec 2003 to Feb 2011
+Bugs to date: 122
+Commits to date: 195
+</title></circle><circle cx="517.5948951850805" cy="193.80666916543714" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Kathryn Kulick (gothgirl)
+Tenure: Jul 2005 to Mar 2007
+Bugs to date: 129
+Commits to date: 566
+</title></circle><circle cx="698.5908911488975" cy="152.66542422683057" r="4" class="active" style="opacity: 1;"><title>Matthias Schwarzott (zzam)
+Tenure: Jun 2005 to present
+Bugs to date: 464
+Commits to date: 10518
+</title></circle><circle cx="521.3111814170209" cy="223.00787232229806" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tal Peer (coredumb)
+Tenure: Apr 2003 to Nov 2005
+Bugs to date: 52
+Commits to date: 601
+</title></circle><circle cx="570.6034171972224" cy="207.21413919911947" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Rainer Groesslinger (scandium)
+Tenure: Apr 2003 to Feb 2005
+Bugs to date: 85
+Commits to date: 1332
+</title></circle><circle cx="621.9768194429623" cy="163.61840290265098" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Rob Cakebread (pythonhead)
+Tenure: Oct 2003 to Feb 2012
+Bugs to date: 330
+Commits to date: 3053
+</title></circle><circle cx="564.1396479808556" cy="149.50158134958303" r="4" class="active" style="opacity: 1;"><title>Paul Varner (fuzzyray)
+Tenure: May 2005 to present
+Bugs to date: 512
+Commits to date: 1200
+</title></circle><circle cx="489.39663243167433" cy="226.25707988726646" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Erwin Luo (erwin)
+Tenure: Jul 2003 to Oct 2004
+Bugs to date: 47
+Commits to date: 359
+</title></circle><circle cx="406.3990479330138" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Katsuyuki Konno (katuyuki)
+Tenure: Mar 2004 to Oct 2004
+Bugs to date: 0
+Commits to date: 94
+</title></circle><circle cx="550.7687437478173" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Andrew Bevitt (cyfred)
+Tenure: Jan 2004 to Feb 2005
+Bugs to date: 0
+Commits to date: 967
+</title></circle><circle cx="594.4958587511555" cy="150.3926423906299" r="4" class="active" style="opacity: 1;"><title>John Christian Stoddart (chiguire)
+Tenure: Dec 2002 to present
+Bugs to date: 498
+Commits to date: 1959
+</title></circle><circle cx="593.6042021402016" cy="176.21465622397585" r="4" class="active" style="opacity: 1;"><title>Stephanie J. Lockwood-Childs (wormo)
+Tenure: Jan 2005 to present
+Bugs to date: 223
+Commits to date: 1931
+</title></circle><circle cx="378.59231943637076" cy="202.31383122270725" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Luke Macken (lewk)
+Tenure: Sep 2004 to Oct 2005
+Bugs to date: 99
+Commits to date: 60
+</title></circle><circle cx="677.4295603268348" cy="152.80425721174848" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Marcelo Góes (vanquirius)
+Tenure: Mar 2005 to Feb 2013
+Bugs to date: 462
+Commits to date: 7474
+</title></circle><circle cx="568.9541735445971" cy="177.53867902135124" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Dominik Stadler (centic)
+Tenure: Mar 2004 to Feb 2008
+Bugs to date: 214
+Commits to date: 1297
+</title></circle><circle cx="624.50116269472" cy="155.86750599738423" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jon Portnoy (avenj)
+Tenure: Dec 2002 to Jul 2007
+Bugs to date: 420
+Commits to date: 3180
+</title></circle><circle cx="321.83981889745496" cy="279.38167221893286" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>James Harlow (hythloday)
+Tenure: Oct 2003 to Jan 2004
+Bugs to date: 9
+Commits to date: 24
+</title></circle><circle cx="569.7607209341612" cy="182.21888076815688" r="4" class="active" style="opacity: 1;"><title>Bjarke Istrup Pedersen (gurligebis)
+Tenure: Jul 2005 to present
+Bugs to date: 185
+Commits to date: 1314
+</title></circle><circle cx="581.4915958666895" cy="147.79031404554087" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Brad Laue (brad)
+Tenure: Jun 2003 to Jun 2006
+Bugs to date: 540
+Commits to date: 1588
+</title></circle><circle cx="644.1473439694496" cy="162.65893505458237" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Travis Tilley (lv)
+Tenure: Dec 2002 to Jun 2004
+Bugs to date: 340
+Commits to date: 4367
+</title></circle><circle cx="550.8327615518476" cy="262.96384597114513" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ulrich Plate (plate)
+Tenure: Dec 2002 to Sep 2007
+Bugs to date: 15
+Commits to date: 968
+</title></circle><circle cx="695.0215540194575" cy="130.07762342028497" r="4" class="active" style="opacity: 1;"><title>Daniel Gryniewicz (dang)
+Tenure: May 2005 to present
+Bugs to date: 937
+Commits to date: 9929
+</title></circle><circle cx="125" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>David Bryson (mutex)
+Tenure: May 2004 to Dec 2005
+Bugs to date: 0
+Commits to date: 1
+</title></circle><circle cx="446.2922552860379" cy="231.44020364487307" r="4" class="active" style="opacity: 1;"><title>Homer Parker (hparker)
+Tenure: Mar 2005 to present
+Bugs to date: 40
+Commits to date: 179
+</title></circle><circle cx="493.8880087533945" cy="226.94828472144056" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Chad Huneycutt (chadh)
+Tenure: Jul 2001 to Apr 2003
+Bugs to date: 46
+Commits to date: 386
+</title></circle><circle cx="580.1112122789016" cy="201.67101407424633" r="4" class="active" style="opacity: 1;"><title>Christian Parpart (trapni)
+Tenure: Oct 2004 to present
+Bugs to date: 101
+Commits to date: 1553
+</title></circle><circle cx="410.84773424857406" cy="238.61198963865723" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Glauche (mglauche)
+Tenure: May 2004 to Jul 2005
+Bugs to date: 32
+Commits to date: 101
+</title></circle><circle cx="522.6366375269065" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jan Seidel (tuxus)
+Tenure: Dec 2002 to Dec 2005
+Bugs to date: 1
+Commits to date: 614
+</title></circle><circle cx="686.4159068057893" cy="131.62344111092906" r="4" class="active" style="opacity: 1;"><title>Benedikt Boehm (hollow)
+Tenure: Nov 2004 to present
+Bugs to date: 893
+Commits to date: 8641
+</title></circle><circle cx="441.6223116982056" cy="262.96384597114513" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Kyle Manna (nitro)
+Tenure: May 2002 to Jun 2004
+Bugs to date: 15
+Commits to date: 166
+</title></circle><circle cx="500.429790012678" cy="138.0130255635579" r="4" class="active" style="opacity: 1;"><title>Sune Kloppenborg Jeppesen (jaervosz)
+Tenure: May 2004 to present
+Bugs to date: 732
+Commits to date: 429
+</title></circle><circle cx="672.2463965641288" cy="236.66352726517218" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Curtis Napier (curtis119)
+Tenure: Jul 2005 to Sep 2006
+Bugs to date: 34
+Commits to date: 6874
+</title></circle><circle cx="657.9256715110595" cy="144.78121823991552" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Chris White (chriswhite)
+Tenure: Jul 2004 to Nov 2006
+Bugs to date: 593
+Commits to date: 5455
+</title></circle><circle cx="100" cy="275.99540778941014" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Robert Paskowitz (r2d2)
+Tenure: Apr 2005 to May 2006
+Bugs to date: 10
+Commits to date: 0
+</title></circle><circle cx="343.4129672078537" cy="327.72239792773144" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jay Maynard (jmaynard)
+Tenure: Mar 2004 to Nov 2005
+Bugs to date: 2
+Commits to date: 34
+</title></circle><circle cx="484.36708161603934" cy="279.38167221893286" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Rob Romans (killsoft)
+Tenure: Jun 2004 to Oct 2005
+Bugs to date: 9
+Commits to date: 331
+</title></circle><circle cx="716.3295705783946" cy="174.12239143594837" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Hanselmann (hansmi)
+Tenure: May 2004 to Jan 2008
+Bugs to date: 238
+Commits to date: 14006
+</title></circle><circle cx="100" cy="270.1356319649293" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Roger Miliker (roger55)
+Tenure: Apr 2004 to Aug 2006
+Bugs to date: 12
+Commits to date: 0
+</title></circle><circle cx="235.97660022707564" cy="270.1356319649293" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Dan Margolis (krispykringle)
+Tenure: May 2004 to Apr 2005
+Bugs to date: 12
+Commits to date: 6
+</title></circle><circle cx="720.9754962668023" cy="106.53881639652991" r="4" class="active" style="opacity: 1;"><title>Doug Goldstein (cardoe)
+Tenure: Jun 2002 to present
+Bugs to date: 1949
+Commits to date: 15097
+</title></circle><circle cx="620.3321899303246" cy="172.28533224517196" r="4" class="active" style="opacity: 1;"><title>Wolfram Schlich (wschlich)
+Tenure: Sep 2003 to present
+Bugs to date: 252
+Commits to date: 2973
+</title></circle><circle cx="700.6525671163816" cy="114.69856628236982" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stefan Schweizer (genstef)
+Tenure: Nov 2004 to Jul 2010
+Bugs to date: 1512
+Commits to date: 10874
+</title></circle><circle cx="496.7109529189534" cy="305.44479585546287" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Will Woods (wwoods)
+Tenure: Oct 2002 to Jul 2004
+Bugs to date: 4
+Commits to date: 404
+</title></circle><circle cx="100" cy="327.72239792773144" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Bob Ketterhagen (horton)
+Tenure: Feb 2004 to Nov 2005
+Bugs to date: 2
+Commits to date: 0
+</title></circle><circle cx="460.18231145494724" cy="247.85802989266077" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joel Hill (hillster)
+Tenure: Oct 2003 to Apr 2005
+Bugs to date: 24
+Commits to date: 224
+</title></circle><circle cx="583.4872675349004" cy="189.39066676194102" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Nguyen Thai Ngoc Duy (pclouds)
+Tenure: Jun 2004 to Aug 2008
+Bugs to date: 148
+Commits to date: 1640
+</title></circle><circle cx="663.0132944957846" cy="267.5630764668351" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tom Gall (tgall)
+Tenure: Feb 2004 to Nov 2010
+Bugs to date: 13
+Commits to date: 5922
+</title></circle><circle cx="562.2530893493445" cy="205.37708000834303" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Lim Swee Tat (st_lim)
+Tenure: Mar 2004 to Jun 2006
+Bugs to date: 90
+Commits to date: 1164
+</title></circle><circle cx="635.955750025543" cy="158.24932036571172" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Don Seiler (rizzo)
+Tenure: Jul 2003 to Jan 2006
+Bugs to date: 390
+Commits to date: 3826
+</title></circle><circle cx="671.2289244860397" cy="156.25241821511077" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Peter Johanson (latexer)
+Tenure: Jan 2003 to Jul 2006
+Bugs to date: 415
+Commits to date: 6762
+</title></circle><circle cx="626.1539448809388" cy="140.61852805175673" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ryan Phillips (rphillips)
+Tenure: Apr 2002 to Jul 2006
+Bugs to date: 675
+Commits to date: 3266
+</title></circle><circle cx="689.6691612453088" cy="173.1907382032311" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Olivier Fisette (ribosome)
+Tenure: Jun 2004 to Jul 2010
+Bugs to date: 245
+Commits to date: 9107
+</title></circle><circle cx="485.1110811912555" cy="233.08875915139404" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Julien Allanos (dju)
+Tenure: Jun 2005 to May 2008
+Bugs to date: 38
+Commits to date: 335
+</title></circle><circle cx="685.7384391870952" cy="137.1039609127937" r="4" class="active" style="opacity: 1;"><title>Luca Barbato (lu_zero)
+Tenure: Nov 2002 to present
+Bugs to date: 753
+Commits to date: 8547
+</title></circle><circle cx="633.9485781502201" cy="136.47001953131803" r="4" class="active" style="opacity: 1;"><title>William Hubbs (williamh)
+Tenure: Apr 2004 to present
+Bugs to date: 768
+Commits to date: 3704
+</title></circle><circle cx="701.3998991286917" cy="130.45716368314794" r="4" class="active" style="opacity: 1;"><title>Matsuu Takuto (matsuu)
+Tenure: Jul 2003 to present
+Bugs to date: 926
+Commits to date: 11006
+</title></circle><circle cx="743.189907103053" cy="137.31808419667803" r="4" class="active" style="opacity: 1;"><title>Sven Wegener (swegener)
+Tenure: Jun 2004 to present
+Bugs to date: 748
+Commits to date: 21610
+</title></circle><circle cx="706.9974808044428" cy="174.66714661349948" r="4" class="active" style="opacity: 1;"><title>Joshua Kinard (kumba)
+Tenure: Apr 2003 to present
+Bugs to date: 234
+Commits to date: 12047
+</title></circle><circle cx="645.7849164153145" cy="138.58894341100398" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Karl Trygve Kalleberg (karltk)
+Tenure: Aug 2001 to Mar 2006
+Bugs to date: 719
+Commits to date: 4484
+</title></circle><circle cx="488.3527219921343" cy="267.5630764668351" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Andrea Luzzardi (scox)
+Tenure: Nov 2003 to Mar 2007
+Bugs to date: 13
+Commits to date: 353
+</title></circle><circle cx="467.23119365666395" cy="225.58042782039223" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Patrick Dawson (pkdawson)
+Tenure: Aug 2004 to Jan 2006
+Bugs to date: 48
+Commits to date: 251
+</title></circle><circle cx="649.1060577462655" cy="173.7198001255717" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Konstantin V. Arkhipov (voxus)
+Tenure: May 2004 to Nov 2010
+Bugs to date: 241
+Commits to date: 4731
+</title></circle><circle cx="640.7512758330777" cy="172.54142751276765" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Masatomo Nakano (nakano)
+Tenure: Oct 2002 to Mar 2008
+Bugs to date: 250
+Commits to date: 4134
+</title></circle><circle cx="400.1654677467695" cy="327.72239792773144" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Omkhar Arasaratnam (omkhar)
+Tenure: May 2005 to Aug 2005
+Bugs to date: 2
+Commits to date: 85
+</title></circle><circle cx="585.1638660817908" cy="143.61043433077882" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jason Stubbs (jstubbs)
+Tenure: Feb 2004 to Sep 2007
+Bugs to date: 615
+Commits to date: 1685
+</title></circle><circle cx="647.5953189507935" cy="161.18098335430716" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Fernando J. Pereda (ferdy)
+Tenure: Jan 2005 to Mar 2009
+Bugs to date: 356
+Commits to date: 4617
+</title></circle><circle cx="543.7930193516063" cy="327.72239792773144" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jesper Brodersen (broeman)
+Tenure: Nov 2003 to Nov 2005
+Bugs to date: 2
+Commits to date: 864
+</title></circle><circle cx="578.8623544791529" cy="173.1907382032311" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tuan Van (langthang)
+Tenure: Jun 2004 to Sep 2007
+Bugs to date: 245
+Commits to date: 1522
+</title></circle><circle cx="562.1465764772045" cy="198.63670701594455" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Matthieu Sozeau (mattam)
+Tenure: Jan 2004 to Sep 2006
+Bugs to date: 111
+Commits to date: 1162
+</title></circle><circle cx="506.0831578071193" cy="242.9036600262391" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jodok Batlogg (batlogg)
+Tenure: Mar 2004 to Oct 2007
+Bugs to date: 28
+Commits to date: 470
+</title></circle><circle cx="353.4789378796745" cy="239.63238600930012" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Corey Shields (cshields)
+Tenure: Jul 2003 to May 2006
+Bugs to date: 31
+Commits to date: 40
+</title></circle><circle cx="624.598471779756" cy="169.9490997679517" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Grant Goodyear (g2boojum/grant)
+Tenure: Apr 2001 to Nov 2010
+Bugs to date: 271
+Commits to date: 3185
+</title></circle><circle cx="710.6752338112469" cy="124.83543993193732" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Gregorio Guidi (greg_g)
+Tenure: Dec 2004 to Mar 2007
+Bugs to date: 1103
+Commits to date: 12784
+</title></circle><circle cx="100" cy="327.72239792773144" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Chris Russell (cjr)
+Tenure: Aug 2002 to Dec 2005
+Bugs to date: 2
+Commits to date: 0
+</title></circle><circle cx="558.468230581191" cy="199.51730418386217" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Kevin F. Quinn (kevquinn)
+Tenure: May 2005 to Mar 2008
+Bugs to date: 108
+Commits to date: 1095
+</title></circle><circle cx="461.549634529517" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Eric Shattow (jnc)
+Tenure: Dec 2004 to May 2005
+Bugs to date: 0
+Commits to date: 229
+</title></circle><circle cx="544.5765944013152" cy="199.51730418386217" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Frank van de Pol (fvdpol)
+Tenure: Jun 2004 to Nov 2007
+Bugs to date: 108
+Commits to date: 875
+</title></circle><circle cx="576.5404732880442" cy="149.75365939499582" r="4" class="active" style="opacity: 1;"><title>Greg Kroah-Hartman (gregkh)
+Tenure: Mar 2004 to present
+Bugs to date: 508
+Commits to date: 1466
+</title></circle><circle cx="472.43508801853767" cy="224.9177283415524" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Brandy Westcott (brandy)
+Tenure: Jul 2003 to Dec 2003
+Bugs to date: 49
+Commits to date: 273
+</title></circle><circle cx="505.81903280180404" cy="217.87739359862857" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Philip Walls (malverian)
+Tenure: Mar 2003 to Jul 2007
+Bugs to date: 61
+Commits to date: 468
+</title></circle><circle cx="745.1616174262498" cy="124.71909668803289" r="4" class="active" style="opacity: 1;"><title>Joseph Jezak (josejx)
+Tenure: Oct 2004 to present
+Bugs to date: 1107
+Commits to date: 22309
+</title></circle><circle cx="400.8898879333689" cy="258.94112933744077" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Adam Mondl (tocharian)
+Tenure: Jan 2005 to Aug 2007
+Bugs to date: 17
+Commits to date: 86
+</title></circle><circle cx="581.2571329246766" cy="181.5313724991755" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Max Kalika (max)
+Tenure: Jul 2003 to Dec 2005
+Bugs to date: 189
+Commits to date: 1582
+</title></circle><circle cx="575.6039476531067" cy="180.69216591783163" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Stewart (vericgar)
+Tenure: Nov 2004 to Mar 2007
+Bugs to date: 194
+Commits to date: 1444
+</title></circle><circle cx="500.57399780747437" cy="241.77583251590477" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Enderson Tadeu S. Maia (enderson)
+Tenure: Jun 2003 to Oct 2006
+Bugs to date: 29
+Commits to date: 430
+</title></circle><circle cx="629.6562380219857" cy="193.312201165808" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Christian Hartmann (ian)
+Tenure: Nov 2003 to Feb 2013
+Bugs to date: 131
+Commits to date: 3456
+</title></circle><circle cx="611.4063902397538" cy="154.59224801737173" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Karol Wojtaszek (sekretarz)
+Tenure: Aug 2004 to Mar 2008
+Bugs to date: 437
+Commits to date: 2574
+</title></circle><circle cx="767.7659523207924" cy="148.5125868241666" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Dan Armak (danarmak)
+Tenure: Jul 2001 to Jun 2006
+Bugs to date: 528
+Commits to date: 32135
+</title></circle><circle cx="594.3692624477355" cy="237.62299511324082" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Otavio Rodolfo Piske (angusyoung)
+Tenure: Aug 2004 to Aug 2006
+Bugs to date: 33
+Commits to date: 1955
+</title></circle><circle cx="549.7353563581396" cy="241.77583251590477" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Guillaume Destuynder (kang)
+Tenure: Jun 2004 to Aug 2008
+Bugs to date: 29
+Commits to date: 951
+</title></circle><circle cx="474.88175951516234" cy="249.2258867937091" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Aaron Kulbe (superlag)
+Tenure: Dec 2004 to Sep 2007
+Bugs to date: 23
+Commits to date: 284
+</title></circle><circle cx="583.713453616648" cy="169.9490997679517" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jose Alberto Suarez Lopez (bass)
+Tenure: Jan 2002 to Feb 2013
+Bugs to date: 271
+Commits to date: 1646
+</title></circle><circle cx="870" cy="32.160425276712374" r="4" class="active" style="opacity: 1;"><title>Mike Frysinger (vapier/SpanKY)
+Tenure: Sep 2002 to present
+Bugs to date: 19718
+Commits to date: 167428
+</title></circle><circle cx="704.1516496378188" cy="122.36840441571005" r="4" class="active" style="opacity: 1;"><title>Tony Vroon (chainsaw)
+Tenure: Jun 2004 to present
+Bugs to date: 1191
+Commits to date: 11506
+</title></circle><circle cx="732.2084700765931" cy="169.59526368734134" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jason Wever (weeve)
+Tenure: Oct 2002 to Jun 2007
+Bugs to date: 274
+Commits to date: 18099
+</title></circle><circle cx="550.4476584259135" cy="186.2879584427635" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Malcolm Lashley (malc)
+Tenure: Jun 2004 to Dec 2007
+Bugs to date: 163
+Commits to date: 962
+</title></circle><circle cx="828.3968989518116" cy="120.68613466500597" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Aron Griffis (agriffis)
+Tenure: Aug 2001 to Jul 2007
+Bugs to date: 1255
+Commits to date: 85529
+</title></circle><circle cx="541.4554883587907" cy="207.59449613570553" r="4" class="active" style="opacity: 1;"><title>Matthew Marlowe (mattm)
+Tenure: Dec 2004 to present and Feb 2011 to present
+Bugs to date: 84
+Commits to date: 832
+</title></circle><circle cx="626.8329224221675" cy="186.09138421509653" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Herbie Hopkins (herbs)
+Tenure: Apr 2005 to Sep 2007
+Bugs to date: 164
+Commits to date: 3302
+</title></circle><circle cx="561.1796271263611" cy="210.81115707912548" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Marineau (marineam)
+Tenure: Nov 2004 to Nov 2010
+Bugs to date: 76
+Commits to date: 1144
+</title></circle><circle cx="100" cy="314.69083610946643" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Mark Dierolf (smark)
+Tenure: Dec 2004 to Jul 2005
+Bugs to date: 3
+Commits to date: 0
+</title></circle><circle cx="682.5107277162352" cy="121.3067129673266" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tim Yamin (plasmaroo)
+Tenure: Aug 2003 to Mar 2007
+Bugs to date: 1231
+Commits to date: 8113
+</title></circle><circle cx="609.02719837237" cy="173.1907382032311" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>José Luis Rivero (yoswink)
+Tenure: Feb 2005 to Jul 2010
+Bugs to date: 245
+Commits to date: 2477
+</title></circle><circle cx="790.8556186456801" cy="115.19122176570755" r="4" class="active" style="opacity: 1;"><title>Brent Baude (ranger)
+Tenure: Jun 2005 to present
+Bugs to date: 1489
+Commits to date: 46653
+</title></circle><circle cx="664.9185716128402" cy="125.06939755126092" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Marius Mauch (genone)
+Tenure: Sep 2003 to Mar 2009
+Bugs to date: 1095
+Commits to date: 6107
+</title></circle><circle cx="651.9087776403118" cy="151.77733963056627" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Renat Lumpau (rl03)
+Tenure: Aug 2003 to Jul 2010
+Bugs to date: 477
+Commits to date: 4950
+</title></circle><circle cx="550.3187567771295" cy="199.8162810936198" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Lina Pezzella (j4rg0n)
+Tenure: Jul 2004 to Jan 2006
+Bugs to date: 107
+Commits to date: 960
+</title></circle><circle cx="614.4351920228993" cy="267.5630764668351" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jan Hendrik Grahl (grahl)
+Tenure: Jun 2005 to Mar 2009
+Bugs to date: 13
+Commits to date: 2703
+</title></circle><circle cx="778.7686547782292" cy="159.76801797422948" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Markus Rothe (corsair)
+Tenure: Oct 2004 to Jul 2010
+Bugs to date: 372
+Commits to date: 38382
+</title></circle><circle cx="532.6723383179169" cy="204.32322211876655" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Bryan Stine (battousai)
+Tenure: Jan 2004 to Feb 2012
+Bugs to date: 93
+Commits to date: 722
+</title></circle><circle cx="637.5064595775841" cy="133.5516650318095" r="4" class="active" style="opacity: 1;"><title>Jory Pratt (anarchy)
+Tenure: Apr 2005 to Jul 2006 and Aug 2009 to present
+Bugs to date: 841
+Commits to date: 3923
+</title></circle><circle cx="657.7437371929548" cy="159.2537704269069" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stuart Herbert (stuart)
+Tenure: Jul 2003 to Nov 2006
+Bugs to date: 378
+Commits to date: 5439
+</title></circle><circle cx="545.210408890696" cy="239.63238600930012" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Damien Krotkine (dams)
+Tenure: Sep 2002 to Nov 2010
+Bugs to date: 31
+Commits to date: 884
+</title></circle><circle cx="566.8165200650368" cy="233.08875915139404" r="4" class="active" style="opacity: 1;"><title>Flammie Pirinen (flammie)
+Tenure: Aug 2004 to present
+Bugs to date: 38
+Commits to date: 1253
+</title></circle><circle cx="535.1938759385828" cy="189.17423640849623" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Benjamin Smee (strerror)
+Tenure: May 2005 to Aug 2008
+Bugs to date: 149
+Commits to date: 752
+</title></circle><circle cx="697.3777962212823" cy="191.63912083090696" r="4" class="active" style="opacity: 1;"><title>Tom Knight (tomk)
+Tenure: Jul 2004 to present
+Bugs to date: 138
+Commits to date: 10314
+</title></circle><circle cx="520.3766540838299" cy="201.99081557882033" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Kristopher Kersey (augustus)
+Tenure: Jan 2004 to Nov 2007
+Bugs to date: 100
+Commits to date: 592
+</title></circle><circle cx="410.84773424857406" cy="250.65455693150585" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Benjamin Schindler (config)
+Tenure: Nov 2004 to Jun 2007
+Bugs to date: 22
+Commits to date: 101
+</title></circle><circle cx="643.2329139636921" cy="148.57351534674086" r="4" class="active" style="opacity: 1;"><title>George Shapovalov (george)
+Tenure: Dec 2001 to present
+Bugs to date: 527
+Commits to date: 4303
+</title></circle><circle cx="498.52387902360107" cy="211.2368558328239" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Bart Lauwers (blauwers)
+Tenure: May 2002 to Dec 2005
+Bugs to date: 75
+Commits to date: 416
+</title></circle><circle cx="535.8493023710382" cy="240.6862438988766" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jason Anthony Mobarak (aether)
+Tenure: Jul 2003 to Jul 2004
+Bugs to date: 30
+Commits to date: 760
+</title></circle><circle cx="658.3781828928885" cy="147.67149769568317" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>D.M.D. Ljungmark (spider)
+Tenure: Mar 2002 to Oct 2006
+Bugs to date: 542
+Commits to date: 5495
+</title></circle><circle cx="507.77305037185096" cy="212.99838082659494" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Fernando Serboncini (fserb)
+Tenure: Jan 2005 to Oct 2006
+Bugs to date: 71
+Commits to date: 483
+</title></circle><circle cx="684.3238006345119" cy="166.2559529345884" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Pieter van den Abeele (pvdabeel)
+Tenure: Apr 2002 to Feb 2013
+Bugs to date: 304
+Commits to date: 8354
+</title></circle><circle cx="261.0899817837719" cy="279.38167221893286" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Wernfried Haas (amne)
+Tenure: Jul 2005 to Feb 2013
+Bugs to date: 9
+Commits to date: 9
+</title></circle><circle cx="125" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Felix De Vliegher (popsickle)
+Tenure: Jun 2004 to Oct 2005
+Bugs to date: 0
+Commits to date: 1
+</title></circle><circle cx="799.8862058663813" cy="122.83046426620001" r="4" class="active" style="opacity: 1;"><title>Torsten Veller (tove)
+Tenure: Dec 2004 to present
+Bugs to date: 1174
+Commits to date: 53976
+</title></circle><circle cx="628.2056513485854" cy="175.7851649413885" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tavis Ormandy (taviso)
+Tenure: Apr 2003 to Dec 2007
+Bugs to date: 226
+Commits to date: 3376
+</title></circle><circle cx="495.00115948302897" cy="227.65468208061156" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Hasan Khalil (gongloo)
+Tenure: Jul 2004 to Dec 2007
+Bugs to date: 45
+Commits to date: 393
+</title></circle><circle cx="614.641077707943" cy="187.49334168807871" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Armando Di Cianno (fafhrd)
+Tenure: Jul 2004 to Jan 2006
+Bugs to date: 157
+Commits to date: 2712
+</title></circle><circle cx="570.1835022336558" cy="272.9321590037744" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Hardave Rior (hardave)
+Tenure: Jun 2004 to Nov 2007
+Bugs to date: 11
+Commits to date: 1323
+</title></circle><circle cx="615.2320428213318" cy="174.12239143594837" r="4" class="active" style="opacity: 1;"><title>Stefan Briesenick (sbriesen)
+Tenure: Jun 2005 to present
+Bugs to date: 238
+Commits to date: 2738
+</title></circle><circle cx="631.3881190570471" cy="156.79915923010154" r="4" class="active" style="opacity: 1;"><title>Michele Noberasco (s4t4n)
+Tenure: Jun 2004 to present
+Bugs to date: 408
+Commits to date: 3554
+</title></circle><circle cx="382.58965601113806" cy="292.41323403719787" r="4" class="active" style="opacity: 1;"><title>Nicholas D. Wolfwood (blackace)
+Tenure: Mar 2004 to present
+Bugs to date: 6
+Commits to date: 64
+</title></circle><circle cx="417.8012588104881" cy="298.2730098616787" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Keith Wesolowski (wesolows)
+Tenure: Jul 2003 to Jan 2006
+Bugs to date: 5
+Commits to date: 113
+</title></circle><circle cx="737.8126488180709" cy="125.36426004175502" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Mamoru Komachi (usata)
+Tenure: Jul 2003 to Oct 2007
+Bugs to date: 1085
+Commits to date: 19813
+</title></circle><circle cx="607.5852620907633" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Markus Nigbur (pyrania)
+Tenure: Sep 2003 to Dec 2007
+Bugs to date: 0
+Commits to date: 2420
+</title></circle><circle cx="778.7654272844226" cy="125.33465176141829" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Cummings (mcummings)
+Tenure: Jun 2002 to Aug 2007
+Bugs to date: 1086
+Commits to date: 38380
+</title></circle><circle cx="699.4679550805893" cy="139.2665465701631" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ciaran McCreesh (ciaranm)
+Tenure: Nov 2003 to Mar 2006
+Bugs to date: 704
+Commits to date: 10668
+</title></circle><circle cx="723.2313769562668" cy="105.88587802320873" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Caleb Tennis (caleb)
+Tenure: Apr 2003 to Jul 2010
+Bugs to date: 1989
+Commits to date: 15657
+</title></circle><circle cx="652.5312675019909" cy="151.77733963056627" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Brandon Low (lostlogic)
+Tenure: Jun 2002 to Oct 2006
+Bugs to date: 477
+Commits to date: 5000
+</title></circle><circle cx="465.7326394321033" cy="238.61198963865723" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jungmin Seo (seo)
+Tenure: Nov 2002 to May 2003
+Bugs to date: 32
+Commits to date: 245
+</title></circle><circle cx="531.1086227842773" cy="244.0725083283993" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ilya Volynets (iluxa)
+Tenure: Nov 2003 to Mar 2012
+Bugs to date: 27
+Commits to date: 704
+</title></circle><circle cx="471.2901899875294" cy="265.18126209850766" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Abhishek Amit (abhishek/andrd)
+Tenure: Jun 2003 to Jun 2004
+Bugs to date: 14
+Commits to date: 268
+</title></circle><circle cx="591.4502145193976" cy="156.6419961490438" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joe McCann (joem)
+Tenure: Nov 2004 to Dec 2007
+Bugs to date: 410
+Commits to date: 1865
+</title></circle><circle cx="544.718003640561" cy="167.00466733217365" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jay Pfeifer (pfeifer)
+Tenure: Feb 2003 to Jan 2007
+Bugs to date: 297
+Commits to date: 877
+</title></circle><circle cx="638.9267780852604" cy="193.55848425624532" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Dylan Carlson (absinthe)
+Tenure: Mar 2003 to Jan 2006
+Bugs to date: 130
+Commits to date: 4014
+</title></circle><circle cx="529.4140503084094" cy="200.1180653393649" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Marc Hildebrand (zypher)
+Tenure: Jan 2004 to Dec 2007
+Bugs to date: 106
+Commits to date: 685
+</title></circle><circle cx="100" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joe Rinkovsky (jrinkovs)
+Tenure: Jan 2004 to Nov 2010
+Bugs to date: 1
+Commits to date: 0
+</title></circle><circle cx="341.56395766502527" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jaroslaw Swierad (messer)
+Tenure: Jun 2003 to Jul 2003
+Bugs to date: 0
+Commits to date: 33
+</title></circle><circle cx="100" cy="283.16719378319436" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jean-Francois Brunette (formula7)
+Tenure: Jun 2005 to Sep 2007
+Bugs to date: 8
+Commits to date: 0
+</title></circle><circle cx="668.5235671274395" cy="132.46207641478136" r="4" class="active" style="opacity: 1;"><title>Patrick Kursawe (phosphan)
+Tenure: Mar 2003 to present
+Bugs to date: 870
+Commits to date: 6473
+</title></circle><circle cx="484.5539210333952" cy="194.56293431744052" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stefan Cornelius (dercorny)
+Tenure: Jun 2005 to Mar 2008
+Bugs to date: 126
+Commits to date: 332
+</title></circle><circle cx="509.16780617420613" cy="238.61198963865723" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Greg Fitzgerald (gregf)
+Tenure: Jul 2003 to Dec 2005
+Bugs to date: 32
+Commits to date: 494
+</title></circle><circle cx="467.47746523315016" cy="216.3343875663887" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Nazaroff (naz)
+Tenure: May 2002 to Dec 2005
+Bugs to date: 64
+Commits to date: 252
+</title></circle><circle cx="483.61403623176346" cy="267.5630764668351" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Douglas Russel (puggy)
+Tenure: Sep 2002 to Sep 2007
+Bugs to date: 13
+Commits to date: 327
+</title></circle><circle cx="531.8084858226458" cy="197.49889665538785" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jared H.Hudson (jhhudso)
+Tenure: Mar 2002 to Jul 2005
+Bugs to date: 115
+Commits to date: 712
+</title></circle><circle cx="759.572162424063" cy="99.343952133074" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Chris Gianelloni (wolf31o2)
+Tenure: Jul 2003 to Aug 2008
+Bugs to date: 2438
+Commits to date: 28153
+</title></circle><circle cx="715.6403098426795" cy="100.75884315553321" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Marinus Schraal (foser)
+Tenure: Oct 2002 to Nov 2007
+Bugs to date: 2333
+Commits to date: 13851
+</title></circle><circle cx="551.3425357866314" cy="188.53355500685694" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Christian Andreetta (satya)
+Tenure: May 2004 to Feb 2008
+Bugs to date: 152
+Commits to date: 976
+</title></circle><circle cx="571.5722873202511" cy="192.345518190078" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Chris Bainbridge (chrb)
+Tenure: Jun 2004 to Jan 2008
+Bugs to date: 135
+Commits to date: 1353
+</title></circle><circle cx="561.0169910069571" cy="204.670682649172" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Alexander Gabert (pappy)
+Tenure: Aug 2003 to Feb 2005 and Nov 2006 to May 2008
+Bugs to date: 92
+Commits to date: 1141
+</title></circle><circle cx="606.0827380740245" cy="152.04799205974513" r="4" class="active" style="opacity: 1;"><title>Paul de Vrieze (pauldv)
+Tenure: Apr 2003 to present
+Bugs to date: 473
+Commits to date: 2362
+</title></circle><circle cx="549.2777705943301" cy="137.06130691047136" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Thierry Carrez (koon)
+Tenure: Mar 2004 to Oct 2006
+Bugs to date: 754
+Commits to date: 944
+</title></circle><circle cx="681.1288841032734" cy="151.91238094702004" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Lars Weiler (pylon)
+Tenure: Mar 2003 to Mar 2008
+Bugs to date: 475
+Commits to date: 7934
+</title></circle><circle cx="573.1541337462507" cy="205.02194063761135" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Elfyn McBratney (beu)
+Tenure: Feb 2005 to Mar 2006
+Bugs to date: 91
+Commits to date: 1388
+</title></circle><circle cx="516.713211686329" cy="283.16719378319436" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Todd Sunderlin (todd)
+Tenure: Apr 2003 to Dec 2005
+Bugs to date: 8
+Commits to date: 558
+</title></circle><circle cx="502.41877073346166" cy="222.39566741163344" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Sascha Schwabbauer (cybersystem)
+Tenure: Jul 2001 to Aug 2006
+Bugs to date: 53
+Commits to date: 443
+</title></circle><circle cx="503.6644774808675" cy="218.94881901312044" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Yi Quang (khai)
+Tenure: Apr 2004 to Oct 2004
+Bugs to date: 59
+Commits to date: 452
+</title></circle><circle cx="666.6586079489332" cy="166.6816516882868" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Sebastian Bergmann (sebastian)
+Tenure: Feb 2005 to Jan 2007
+Bugs to date: 300
+Commits to date: 6281
+</title></circle><circle cx="599.32932221921" cy="207.21413919911947" r="4" class="active" style="opacity: 1;"><title>Christian Birchinger (joker)
+Tenure: Nov 2002 to present
+Bugs to date: 85
+Commits to date: 2118
+</title></circle><circle cx="649.0012348401199" cy="155.4116148637928" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jon Hood (squinky86)
+Tenure: Apr 2004 to Jan 2007
+Bugs to date: 426
+Commits to date: 4723
+</title></circle><circle cx="720.4977548526098" cy="115.95571075553795" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Daniel Black (dragonheart)
+Tenure: Jan 2004 to Feb 2012
+Bugs to date: 1454
+Commits to date: 14981
+</title></circle><circle cx="679.5315380211568" cy="121.62155420534259" r="4" class="active" style="opacity: 1;"><title>Hanno Boeck (hanno)
+Tenure: Aug 2002 to present
+Bugs to date: 1219
+Commits to date: 7732
+</title></circle><circle cx="447.9986227065352" cy="279.38167221893286" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Tindal (urilith)
+Tenure: Nov 2004 to Apr 2006
+Bugs to date: 9
+Commits to date: 184
+</title></circle><circle cx="610.4851934718226" cy="194.56293431744052" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stefan Knoblich (stkn)
+Tenure: Sep 2003 to Aug 2008
+Bugs to date: 126
+Commits to date: 2536
+</title></circle><circle cx="621.3036930231746" cy="171.2808821839768" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Gustavo Felisberto (humpback)
+Tenure: Jan 2004 to Jul 2010
+Bugs to date: 260
+Commits to date: 3020
+</title></circle><circle cx="412.66066035322183" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Scott Myron (samyron)
+Tenure: Apr 2004 to Oct 2006
+Bugs to date: 0
+Commits to date: 104
+</title></circle><circle cx="388.1399839882941" cy="279.38167221893286" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Alexander Plank (alexander)
+Tenure: Jul 2004 to Jan 2006
+Bugs to date: 9
+Commits to date: 70
+</title></circle><circle cx="668.8480463712709" cy="161.36205305031834" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Brad Teaford Cowan (bcowan)
+Tenure: Sep 2002 to Aug 2007
+Bugs to date: 354
+Commits to date: 6507
+</title></circle><circle cx="547.7500190836029" cy="185.1261529336703" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stefan Jones (cretin)
+Tenure: Oct 2002 to Nov 2006
+Bugs to date: 169
+Commits to date: 921
+</title></circle><circle cx="575.6896739226887" cy="227.65468208061156" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Bartosch Pixa (darkspecter)
+Tenure: Feb 2003 to Mar 2004
+Bugs to date: 45
+Commits to date: 1446
+</title></circle><circle cx="606.05651015922" cy="258.94112933744077" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>René Nussbaumer (killerfox)
+Tenure: May 2005 to Jul 2010
+Bugs to date: 17
+Commits to date: 2361
+</title></circle><circle cx="611.0927833931255" cy="190.0488423775835" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Francesco Riosa (vivo)
+Tenure: Jun 2005 to Mar 2007
+Bugs to date: 145
+Commits to date: 2561
+</title></circle><circle cx="636.0042965099761" cy="118.05650123801547" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Daniel Drake (dsd)
+Tenure: Apr 2004 to Feb 2012
+Bugs to date: 1362
+Commits to date: 3829
+</title></circle><circle cx="493.8880087533945" cy="241.77583251590477" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Torben Hohn (torbenh)
+Tenure: May 2003 to Mar 2004
+Bugs to date: 29
+Commits to date: 386
+</title></circle><circle cx="446.6373103282567" cy="253.71780571714163" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Bryon Roche (kain)
+Tenure: Apr 2002 to Jan 2006
+Bugs to date: 20
+Commits to date: 180
+</title></circle><circle cx="712.5458991270996" cy="116.40086726300814" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Alastair Tse (liquidx)
+Tenure: Feb 2003 to Mar 2007
+Bugs to date: 1434
+Commits to date: 13176
+</title></circle><circle cx="476.81409987092377" cy="234.82646807439576" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Josh Glover (jmglov)
+Tenure: May 2004 to Oct 2008
+Bugs to date: 36
+Commits to date: 293
+</title></circle><circle cx="397.9399389904156" cy="252.14970028024263" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Amir Guindehi (amir)
+Tenure: Sep 2003 to Oct 2006
+Bugs to date: 21
+Commits to date: 82
+</title></circle><circle cx="389.8848097893409" cy="265.18126209850766" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ray Russell Reese III (anti)
+Tenure: Dec 2003 to Jan 2006
+Bugs to date: 14
+Commits to date: 72
+</title></circle><circle cx="100" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Gabor Veszi (veszig)
+Tenure: May 2004 to Aug 2005
+Bugs to date: 1
+Commits to date: 0
+</title></circle><circle cx="100" cy="327.72239792773144" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>David Gumbel (ganymede)
+Tenure: Feb 2005 to Jan 2006
+Bugs to date: 2
+Commits to date: 0
+</title></circle><circle cx="674.8489983234025" cy="126.84953093271724" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jan Brinkmann (luckyduck)
+Tenure: Jan 2005 to Dec 2005
+Bugs to date: 1036
+Commits to date: 7169
+</title></circle><circle cx="703.5621017236219" cy="202.64012626928383" r="4" class="active" style="opacity: 1;"><title>Guy Martin (gmsoft)
+Tenure: Feb 2003 to present
+Bugs to date: 98
+Commits to date: 11397
+</title></circle><circle cx="356.50086500607455" cy="283.16719378319436" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Fred Van Andel (fava)
+Tenure: Apr 2003 to Jan 2006
+Bugs to date: 8
+Commits to date: 42
+</title></circle><circle cx="319.2037947009661" cy="187.69870843176446" r="4" class="active" style="opacity: 1;"><title>Peter Penkala (pjp)
+Tenure: Aug 2002 to present
+Bugs to date: 156
+Commits to date: 23
+</title></circle><circle cx="459.9051869662988" cy="314.69083610946643" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Scott Hadfield (hadfield)
+Tenure: Jun 2004 to Jun 2006
+Bugs to date: 3
+Commits to date: 223
+</title></circle><circle cx="348.65021674307104" cy="275.99540778941014" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Kai Zimmermann (kzimmerm)
+Tenure: Jan 2005 to Jan 2006
+Bugs to date: 10
+Commits to date: 37
+</title></circle><circle cx="536.4171656012243" cy="187.90539587097885" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Simone Gotti (motaboy)
+Tenure: Oct 2004 to Jan 2006
+Bugs to date: 155
+Commits to date: 767
+</title></circle><circle cx="602.9085342080685" cy="192.10832312063508" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Brandon Hale (tseng)
+Tenure: Aug 2003 to Jan 2006
+Bugs to date: 136
+Commits to date: 2244
+</title></circle><circle cx="397.17996356754384" cy="258.94112933744077" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Nathaniel McCallum (npmccallum)
+Tenure: Jan 2004 to Sep 2006
+Bugs to date: 17
+Commits to date: 81
+</title></circle><circle cx="535.9307451439632" cy="236.66352726517218" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stuart Longland (redhatter)
+Tenure: May 2005 to Feb 2013
+Bugs to date: 34
+Commits to date: 761
+</title></circle><circle cx="369.7290510180321" cy="279.38167221893286" r="2.8284271247461903" class="joinpart" style="opacity: 1;"><title>Thomas Veith (xtv)
+Tenure: May 2004 to May 2004
+Bugs to date: 9
+Commits to date: 52
+</title></circle><circle cx="605.3706565935536" cy="177.2397021115936" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Eldad Zack (eldad)
+Tenure: Jun 2004 to Feb 2008
+Bugs to date: 216
+Commits to date: 2335
+</title></circle><circle cx="739.4142035916622" cy="133.62818836803754" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tobias Scherbaum (dertobi123)
+Tenure: Dec 2003 to Feb 2013
+Bugs to date: 839
+Commits to date: 20332
+</title></circle><circle cx="647.1645432442474" cy="143.6627366792334" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Mike Gardiner (obz)
+Tenure: Aug 2003 to Sep 2006
+Bugs to date: 614
+Commits to date: 4585
+</title></circle><circle cx="671.9211712083774" cy="150.52197772022592" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Henrik Brix Andersen (brix)
+Tenure: Aug 2004 to Aug 2006
+Bugs to date: 496
+Commits to date: 6838
+</title></circle><circle cx="652.2332530382635" cy="179.07676130237007" r="4" class="active" style="opacity: 1;"><title>Akinori Hattori (hattya)
+Tenure: Jan 2004 to present
+Bugs to date: 204
+Commits to date: 4976
+</title></circle><circle cx="485.84624970237405" cy="230.64658835963365" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Alex Veber (coronalvr)
+Tenure: Jun 2003 to Jan 2006
+Bugs to date: 41
+Commits to date: 339
+</title></circle><circle cx="525.108522628555" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Bret Curtis (psi29a)
+Tenure: Mar 2004 to Mar 2008
+Bugs to date: 0
+Commits to date: 639
+</title></circle><circle cx="438.95383415023525" cy="238.61198963865723" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael J. Cohen (mjc)
+Tenure: May 2002 to Jun 2003
+Bugs to date: 32
+Commits to date: 159
+</title></circle><circle cx="690.4396691159277" cy="173.05982239683152" r="4" class="active" style="opacity: 1;"><title>Chris PeBenito (pebenito)
+Tenure: Apr 2003 to present
+Bugs to date: 246
+Commits to date: 9221
+</title></circle><circle cx="641.8795977149754" cy="128.40678016750905" r="4" class="active" style="opacity: 1;"><title>Andreas Proschofsky (suka)
+Tenure: Jan 2004 to present
+Bugs to date: 987
+Commits to date: 4210
+</title></circle><circle cx="528.2273023468332" cy="220.62605795397053" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Colin Morey (peitolm)
+Tenure: Jun 2002 to Jul 2010
+Bugs to date: 56
+Commits to date: 672
+</title></circle><circle cx="464.4555381067501" cy="252.14970028024263" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joshua Charles Campbell (warpzero)
+Tenure: Jun 2003 to May 2006
+Bugs to date: 21
+Commits to date: 240
+</title></circle><circle cx="576.7934507121042" cy="191.40706360593708" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Radoslaw Stachowiak (radek)
+Tenure: Aug 2004 to Aug 2011
+Bugs to date: 139
+Commits to date: 1472
+</title></circle><circle cx="723.7709752389197" cy="113.02132734151971" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Martin Schlemmer (azarah)
+Tenure: Sep 2001 to Sep 2007
+Bugs to date: 1593
+Commits to date: 15794
+</title></circle><circle cx="407.05447436546916" cy="270.1356319649293" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Hallgrimur H. Gunnarsson (hhg)
+Tenure: Sep 2003 to Sep 2005
+Bugs to date: 12
+Commits to date: 95
+</title></circle><circle cx="433.2450521146983" cy="228.3769548592373" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stoyan Zhekov (zhware)
+Tenure: Sep 2002 to Jan 2006
+Bugs to date: 44
+Commits to date: 145
+</title></circle><circle cx="630.3867012606208" cy="146.44974786722213" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>John P. Davis (zhen)
+Tenure: Aug 2002 to Jan 2005
+Bugs to date: 563
+Commits to date: 3497
+</title></circle><circle cx="449.65923745465676" cy="241.77583251590477" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Colin Kingsley (tercel)
+Tenure: May 2005 to Dec 2012
+Bugs to date: 29
+Commits to date: 189
+</title></circle><circle cx="675.1420500078816" cy="195.59979152636" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ferris McCormick (fmccor)
+Tenure: Apr 2004 to Jul 2010
+Bugs to date: 122
+Commits to date: 7203
+</title></circle><circle cx="604.596598091121" cy="210.39102317455058" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Duncan Coutts (dcoutts)
+Tenure: May 2005 to Apr 2008
+Bugs to date: 77
+Commits to date: 2306
+</title></circle><circle cx="604.4352331195564" cy="191.63912083090696" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Robert Coie (rac)
+Tenure: Feb 2003 to Jan 2006
+Bugs to date: 138
+Commits to date: 2300
+</title></circle><circle cx="351.91082323953873" cy="305.44479585546287" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ming Zhao (ming)
+Tenure: Dec 2004 to Aug 2007
+Bugs to date: 4
+Commits to date: 39
+</title></circle><circle cx="585.6763519125121" cy="168.5565446515693" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Harald van Dijk (truedfx)
+Tenure: Apr 2005 to Feb 2013
+Bugs to date: 283
+Commits to date: 1699
+</title></circle><circle cx="521.8243344756497" cy="239.63238600930012" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Sven Blumenstein (bazik)
+Tenure: Oct 2003 to Sep 2006
+Bugs to date: 31
+Commits to date: 606
+</title></circle><circle cx="636.0366397064737" cy="126.44874183649034" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Nicholas Jones (carpaski)
+Tenure: Jun 2002 to Sep 2006
+Bugs to date: 1049
+Commits to date: 3831
+</title></circle><circle cx="710.9845339290977" cy="191.8728657596099" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>David Holm (dholm)
+Tenure: Aug 2003 to Nov 2007
+Bugs to date: 137
+Commits to date: 12848
+</title></circle><circle cx="537.6959149162508" cy="305.44479585546287" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Yuta Satoh (nigoro)
+Tenure: Dec 2004 to Aug 2007
+Bugs to date: 4
+Commits to date: 783
+</title></circle><circle cx="825.3809097044718" cy="84.07213203475209" r="4" class="active" style="opacity: 1;"><title>Diego Elio Pettenò (flameeyes)
+Tenure: Apr 2005 to present
+Bugs to date: 3921
+Commits to date: 81464
+</title></circle><circle cx="541.8265932430253" cy="227.65468208061156" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joshua Brindle (method)
+Tenure: Aug 2002 to Nov 2004
+Bugs to date: 45
+Commits to date: 837
+</title></circle><circle cx="464.713073695613" cy="231.44020364487307" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jeremy Maitin-Shepard (jbms)
+Tenure: Oct 2003 to Feb 2005
+Bugs to date: 40
+Commits to date: 241
+</title></circle><circle cx="530.1332133359101" cy="226.94828472144056" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Scott W Taylor (swtaylor)
+Tenure: Mar 2004 to Oct 2006
+Bugs to date: 46
+Commits to date: 693
+</title></circle><circle cx="739.4172498092889" cy="93.15193399487737" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Martin Holzer (mholzer)
+Tenure: Nov 2002 to Mar 2007
+Bugs to date: 2956
+Commits to date: 20333
+</title></circle><circle cx="608.7264099873623" cy="177.38884291764947" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tom William Payne (twp)
+Tenure: Mar 2003 to Aug 2007
+Bugs to date: 215
+Commits to date: 2465
+</title></circle><circle cx="245.5242647789989" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Matt Jarjoura (eklipse)
+Tenure: Jun 2004 to Jan 2006
+Bugs to date: 1
+Commits to date: 7
+</title></circle><circle cx="590.8830504495932" cy="216.84053638970906" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Alin Dobre (alin)
+Tenure: Feb 2005 to Feb 2008
+Bugs to date: 63
+Commits to date: 1848
+</title></circle><circle cx="689.2118060253522" cy="160.1154785046349" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joshua Baergen (joshuabaergen)
+Tenure: Jun 2005 to Jul 2007
+Bugs to date: 368
+Commits to date: 9040
+</title></circle><circle cx="374.31909278456794" cy="265.18126209850766" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Zack Gilburd (klasikahl)
+Tenure: Aug 2003 to Jul 2005
+Bugs to date: 14
+Commits to date: 56
+</title></circle><circle cx="491.43310803734823" cy="233.94587090647815" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Arne Mejholm (aaby)
+Tenure: Nov 2003 to Nov 2005
+Bugs to date: 37
+Commits to date: 371
+</title></circle><circle cx="400.8898879333689" cy="267.5630764668351" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Nick Dimiduk (ndimiduk)
+Tenure: Aug 2004 to Aug 2006
+Bugs to date: 13
+Commits to date: 86
+</title></circle><circle cx="462.62216730150897" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Nicholas Wourms (dragon)
+Tenure: Jan 2003 to Feb 2011
+Bugs to date: 0
+Commits to date: 233
+</title></circle><circle cx="523.2389491118522" cy="199.51730418386217" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Matthew Turk (satai)
+Tenure: Aug 2002 to May 2006
+Bugs to date: 108
+Commits to date: 620
+</title></circle><circle cx="544.0791040167456" cy="212.5488660021272" r="4" class="active" style="opacity: 1;"><title>Luis Francisco Araujo (araujo)
+Tenure: Feb 2005 to present
+Bugs to date: 72
+Commits to date: 868
+</title></circle><circle cx="803.809915544839" cy="78.4881299025028" r="4" class="active" style="opacity: 1;"><title>Michael Sterrett (mr_bones_/msterret)
+Tenure: Apr 2003 to present
+Bugs to date: 4665
+Commits to date: 57506
+</title></circle><circle cx="764.8940846337894" cy="125.63196920113381" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Daniel Robbins (drobbins)
+Tenure: Jul 2000 to May 2005 and Feb 2007 to Mar 2007
+Bugs to date: 0
+Commits to date: 1201
+</title></circle><circle cx="720.3238668216043" cy="125.96222679774013" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Daniel Ahlberg (aliz)
+Tenure: Jul 2002 to Jul 2006
+Bugs to date: 1065
+Commits to date: 14939
+</title></circle><circle cx="513.2903950057839" cy="227.65468208061156" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Boman (mboman)
+Tenure: Jul 2003 to May 2004
+Bugs to date: 45
+Commits to date: 528
+</title></circle><circle cx="712.4894642986983" cy="113.9630699750521" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Xavier Neys (neysx)
+Tenure: Oct 2002 to Nov 2010
+Bugs to date: 1547
+Commits to date: 13164
+</title></circle><circle cx="224.68410987410545" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Leandro Dorileo (dorileo)
+Tenure: Jan 2004 to Jan 2006
+Bugs to date: 0
+Commits to date: 5
+</title></circle><circle cx="475.53259443422485" cy="203.30282574812367" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Albert Hopkins (marduk)
+Tenure: Feb 2004 to Jul 2007
+Bugs to date: 96
+Commits to date: 287
+</title></circle><circle cx="592.5691957915988" cy="163.61840290265098" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stefano Pacella (so)
+Tenure: Feb 2005 to Jan 2007
+Bugs to date: 330
+Commits to date: 1899
+</title></circle><circle cx="378.59231943637076" cy="236.66352726517218" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Robert Moss (robmoss)
+Tenure: Jul 2004 to Aug 2005
+Bugs to date: 34
+Commits to date: 60
+</title></circle><circle cx="473.3360089192794" cy="231.44020364487307" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Wout Mertens (wmertens)
+Tenure: May 2002 to Sep 2005
+Bugs to date: 40
+Commits to date: 277
+</title></circle><circle cx="544.9998572322315" cy="230.64658835963365" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Preston Cody (codeman)
+Tenure: Oct 2004 to Nov 2010
+Bugs to date: 41
+Commits to date: 881
+</title></circle><circle cx="527.3921811122027" cy="221.79490625613073" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jason Shoemaker (kutsuya)
+Tenure: Jan 2002 to Jan 2008
+Bugs to date: 54
+Commits to date: 663
+</title></circle><circle cx="613.6047364102099" cy="141.48722379904865" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Andrew Gaffney (agaffney)
+Tenure: Nov 2004 to Mar 2013
+Bugs to date: 657
+Commits to date: 2667
+</title></circle><circle cx="618.1914604372432" cy="184.3743107894538" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Daniel Goller (morfic)
+Tenure: Jun 2004 to May 2006
+Bugs to date: 173
+Commits to date: 2872
+</title></circle><circle cx="100" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Scott Shawcroft (tannewt)
+Tenure: Jul 2005 to Sep 2006
+Bugs to date: 1
+Commits to date: 0
+</title></circle><circle cx="687.2206212984365" cy="139.726351065291" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Olivier Crête (tester)
+Tenure: Jul 2003 to Jun 2013
+Bugs to date: 694
+Commits to date: 8754
+</title></circle><circle cx="609.9701710556628" cy="173.32218945409147" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Imhof (tantive)
+Tenure: Aug 2002 to Jul 2010
+Bugs to date: 244
+Commits to date: 2515
+</title></circle><circle cx="672.1832919026484" cy="139.03908782862402" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Saleem Abdulrasool (compnerd)
+Tenure: Jan 2005 to Mar 2009
+Bugs to date: 709
+Commits to date: 6867
+</title></circle><circle cx="690.0015196811416" cy="144.1373278692275" r="4" class="active" style="opacity: 1;"><title>Ned Ludd (solar)
+Tenure: May 2003 to present
+Bugs to date: 605
+Commits to date: 9156
+</title></circle><circle cx="625.0248247891561" cy="141.73275429822638" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>John N. Laliberte (allanonjl)
+Tenure: Mar 2005 to Jan 2007
+Bugs to date: 652
+Commits to date: 3207
+</title></circle><circle cx="682.5565166931004" cy="126.5715300891157" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Roy Marples (uberlord)
+Tenure: Oct 2004 to Nov 2007
+Bugs to date: 1045
+Commits to date: 8119
+</title></circle><circle cx="570.4637616253476" cy="218.94881901312044" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Benny Chuang (bennyc)
+Tenure: Aug 2003 to May 2005
+Bugs to date: 59
+Commits to date: 1329
+</title></circle><circle cx="630.9157809574592" cy="158.74762160358657" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Donny Davies (woodchip)
+Tenure: Aug 2001 to Mar 2004
+Bugs to date: 384
+Commits to date: 3527
+</title></circle><circle cx="568.714941034407" cy="215.34539304097228" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Kohl (citizen428)
+Tenure: Jul 2004 to Feb 2006
+Bugs to date: 66
+Commits to date: 1292
+</title></circle><circle cx="389.018540844783" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Senno During (st3vie)
+Tenure: Jun 2005 to Dec 2007
+Bugs to date: 0
+Commits to date: 71
+</title></circle><circle cx="605.5031426759094" cy="164.30749056110332" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Chuck Short (zul)
+Tenure: Aug 2003 to Dec 2005
+Bugs to date: 323
+Commits to date: 2340
+</title></circle><circle cx="482.85172236402764" cy="283.16719378319436" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stephen Diener (sediener)
+Tenure: May 2003 to Aug 2005
+Bugs to date: 8
+Commits to date: 323
+</title></circle><circle cx="530.578486424656" cy="207.21413919911947" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Carlos Silva (r3pek)
+Tenure: Mar 2005 to May 2008
+Bugs to date: 85
+Commits to date: 698
+</title></circle><circle cx="544.0791040167456" cy="165.31825895642854" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Bob Johnson (livewire)
+Tenure: Jan 2003 to Jul 2005
+Bugs to date: 313
+Commits to date: 868
+</title></circle><circle cx="100" cy="327.72239792773144" r="4" class="active" style="opacity: 1;"><title>Barry Shaw (baz)
+Tenure: Oct 2003 to present
+Bugs to date: 2
+Commits to date: 0
+</title></circle><circle cx="456.18497488018" cy="235.73187403245493" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Cory Visi (merlin)
+Tenure: Jun 2004 to Jul 2007
+Bugs to date: 35
+Commits to date: 210
+</title></circle><circle cx="631.6316243070575" cy="151.64286334219332" r="4" class="active" style="opacity: 1;"><title>Steve Arnold (nerdboy)
+Tenure: Jul 2003 to present
+Bugs to date: 479
+Commits to date: 3568
+</title></circle><circle cx="429.276185878233" cy="192.58447680782353" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Matthias Geerdsen (vorlon)
+Tenure: Sep 2004 to Dec 2011
+Bugs to date: 134
+Commits to date: 136
+</title></circle><circle cx="564.5511924842588" cy="175.22129458311926" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Lisa M. Seelye (lisa)
+Tenure: Jul 2003 to Sep 2007
+Bugs to date: 230
+Commits to date: 1208
+</title></circle><circle cx="711.3162768663371" cy="142.22951513081765" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Matthew Kennedy (mkennedy)
+Tenure: Feb 2002 to Jan 2007
+Bugs to date: 642
+Commits to date: 12917
+</title></circle><circle cx="659.073106511569" cy="134.87800945513737" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Januszewski (spock)
+Tenure: Jan 2004 to Jan 2013
+Bugs to date: 807
+Commits to date: 5557
+</title></circle><circle cx="592.9593527975364" cy="178.76319992712982" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jonathan Smith (smithj)
+Tenure: Jun 2005 to Jul 2010
+Bugs to date: 206
+Commits to date: 1911
+</title></circle><circle cx="691.1409660984996" cy="115.60397224042902" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Heinrich Wendel (lanius)
+Tenure: Apr 2003 to May 2006
+Bugs to date: 1470
+Commits to date: 9326
+</title></circle><circle cx="472.2077952134227" cy="220.057197333129" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Eric Sammer (esammer)
+Tenure: Jan 2004 to Jun 2007
+Bugs to date: 57
+Commits to date: 272
+</title></circle><circle cx="345.20837465310433" cy="287.4588641707762" r="4" class="active" style="opacity: 1;"><title>Anders Hellgren (kallamej)
+Tenure: Jul 2005 to present
+Bugs to date: 7
+Commits to date: 35
+</title></circle><circle cx="100" cy="305.44479585546287" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Robert Muchacki (muchar)
+Tenure: Jul 2005 to Aug 2007
+Bugs to date: 4
+Commits to date: 0
+</title></circle><circle cx="424.0523296223164" cy="314.69083610946643" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jonathan Coome (maedhros)
+Tenure: Jul 2005 to Nov 2010
+Bugs to date: 3
+Commits to date: 125
+</title></circle><circle cx="730.8942131860699" cy="94.64293561860418" r="4" class="active" style="opacity: 1;"><title>Fabian Groffen (grobian)
+Tenure: Jul 2005 to present
+Bugs to date: 2822
+Commits to date: 17719
+</title></circle><circle cx="666.5105153784555" cy="136.1784057326576" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Luis Medinas (metalgod)
+Tenure: Aug 2005 to Nov 2007
+Bugs to date: 775
+Commits to date: 6266
+</title></circle><circle cx="245.5242647789989" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jeff Walter (jeffw)
+Tenure: Jul 2005 to Sep 2007
+Bugs to date: 1
+Commits to date: 7
+</title></circle><circle cx="632.3907529394435" cy="179.234696686681" r="4" class="active" style="opacity: 1;"><title>Łukasz Damentko (rane)
+Tenure: Aug 2005 to present
+Bugs to date: 203
+Commits to date: 3612
+</title></circle><circle cx="100" cy="292.41323403719787" r="4" class="active" style="opacity: 1;"><title>Mauricio Lima Pilla (pilla)
+Tenure: Aug 2005 to present
+Bugs to date: 6
+Commits to date: 0
+</title></circle><circle cx="471.05864870896283" cy="188.11342110228202" r="4" class="active" style="opacity: 1;"><title>Sergey Kuleshov (svyatogor/sergey)
+Tenure: Aug 2005 to present and May 2003 to present
+Bugs to date: 154
+Commits to date: 267
+</title></circle><circle cx="622.7229385537509" cy="202.31383122270725" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Zaheer Abbas Merali (zaheerm)
+Tenure: Mar 2005 to Oct 2008
+Bugs to date: 99
+Commits to date: 3090
+</title></circle><circle cx="422.0379335462786" cy="253.71780571714163" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Marco Morales (soulse)
+Tenure: Aug 2005 to Jan 2006
+Bugs to date: 20
+Commits to date: 121
+</title></circle><circle cx="400.1654677467695" cy="327.72239792773144" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Edgar Hucek (gimli)
+Tenure: Aug 2005 to Sep 2006
+Bugs to date: 2
+Commits to date: 85
+</title></circle><circle cx="585.2373384746119" cy="191.40706360593708" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stefaan De Roeck (stefaan)
+Tenure: Aug 2005 to Feb 2013
+Bugs to date: 139
+Commits to date: 1687
+</title></circle><circle cx="556.3391987371219" cy="180.85826337294665" r="4" class="active" style="opacity: 1;"><title>Stephen Klimaszewski (steev)
+Tenure: Sep 2005 to present
+Bugs to date: 193
+Commits to date: 1058
+</title></circle><circle cx="530.2225244110612" cy="198.63670701594455" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Marcin Kryczek (mkay)
+Tenure: Sep 2005 to Apr 2006
+Bugs to date: 111
+Commits to date: 694
+</title></circle><circle cx="688.5574729017118" cy="134.9977108450214" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Krzysztof Pawlik (nelchael)
+Tenure: Sep 2005 to Feb 2013
+Bugs to date: 804
+Commits to date: 8945
+</title></circle><circle cx="472.66154976949366" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tomoyuki Sakurai (trombik)
+Tenure: Nov 2004 to Dec 2007
+Bugs to date: 1
+Commits to date: 274
+</title></circle><circle cx="357.9582785981793" cy="314.69083610946643" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Chris Lee (labmonkey)
+Tenure: Sep 2005 to Sep 2006
+Bugs to date: 3
+Commits to date: 43
+</title></circle><circle cx="664.6645011118296" cy="167.9936618575901" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Luca Longinotti (chtekk)
+Tenure: Oct 2005 to Jul 2010
+Bugs to date: 288
+Commits to date: 6082
+</title></circle><circle cx="636.8238176667535" cy="147.31766161507278" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Markus Dittrich (markusle)
+Tenure: Oct 2005 to Feb 2013
+Bugs to date: 548
+Commits to date: 3880
+</title></circle><circle cx="577.3797438514953" cy="202.96976799010022" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Alexey Chumakov (achumakov)
+Tenure: Nov 2005 to Dec 2007
+Bugs to date: 97
+Commits to date: 1486
+</title></circle><circle cx="746.1667785505334" cy="129.7364335278652" r="4" class="active" style="opacity: 1;"><title>Gysbert Wassenaar (nixnut)
+Tenure: Nov 2005 to present
+Bugs to date: 947
+Commits to date: 22674
+</title></circle><circle cx="664.654316581693" cy="153.29495049929008" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joshua Nichols (nichoj)
+Tenure: Nov 2005 to Mar 2009
+Bugs to date: 455
+Commits to date: 6081
+</title></circle><circle cx="521.5169531009219" cy="198.63670701594455" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Marco Mascherpa (mascherpa/m.mascherpa)
+Tenure: Aug 2005 to Jun 2007
+Bugs to date: 111
+Commits to date: 603
+</title></circle><circle cx="253.79482800556903" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Damian Florczyk (thunder)
+Tenure: Nov 2005 to Jan 2008
+Bugs to date: 1
+Commits to date: 8
+</title></circle><circle cx="709.1597695612822" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Achim Gottinger (achim)
+Tenure: Jul 2000 to Feb 2003
+Bugs to date: 0
+Commits to date: 1167
+</title></circle><circle cx="100" cy="201.04080199939835" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Andrew Cooks (acooks)
+Tenure: Jan 2004 to Feb 2004
+Bugs to date: 103
+Commits to date: 0
+</title></circle><circle cx="210.86321867037935" cy="283.16719378319436" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Aida Escriva-Sammer (aescriva)
+Tenure: Mar 2004 to Apr 2004
+Bugs to date: 8
+Commits to date: 4
+</title></circle><circle cx="591.0504032125415" cy="166.46809750702457" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Arcady Genkin (agenkin)
+Tenure: Feb 2002 to Jan 2004
+Bugs to date: 302
+Commits to date: 1853
+</title></circle><circle cx="100" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>James Boddington (aiken)
+Tenure: Feb 2002 to Jun 2003
+Bugs to date: 1
+Commits to date: 0
+</title></circle><circle cx="483.80315766079497" cy="262.96384597114513" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Dean Bailey (alron)
+Tenure: Nov 2002 to Jun 2003
+Bugs to date: 15
+Commits to date: 328
+</title></circle><circle cx="375.4153553832497" cy="253.71780571714163" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ken Nowack (antifa)
+Tenure: Feb 2003 to Jul 2003
+Bugs to date: 20
+Commits to date: 57
+</title></circle><circle cx="100" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Geoff Cant (archaelus/geoff)
+Tenure: Mar 2004 to Mar 2004
+Bugs to date: 1
+Commits to date: 0
+</title></circle><circle cx="267.61571920929515" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ulf Bartelt (bartelt)
+Tenure: Jul 2002 to Feb 2007
+Bugs to date: 1
+Commits to date: 10
+</title></circle><circle cx="584.1259949048958" cy="305.44479585546287" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Bjoern Brauel (bjb)
+Tenure: Sep 2002 to Feb 2003
+Bugs to date: 4
+Commits to date: 1657
+</title></circle><circle cx="304.02159111896157" cy="272.9321590037744" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joe Kallar (blademan)
+Tenure: Mar 2003 to Nov 2003
+Bugs to date: 11
+Commits to date: 18
+</title></circle><circle cx="613.1619096216084" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Maik Schreiber (blizzy)
+Tenure: Jul 2002 to Jan 2003
+Bugs to date: 0
+Commits to date: 2648
+</title></circle><circle cx="560.581195225709" cy="192.345518190078" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Bruce A. Locke (blocke)
+Tenure: Jul 2001 to Feb 2003
+Bugs to date: 135
+Commits to date: 1133
+</title></circle><circle cx="746.4991453400069" cy="106.52233022739046" r="4" class="active" style="opacity: 1;"><title>Patrick Lauer (patrick/bonsaikitten)
+Tenure: Apr 2004 to Oct 2006 and Oct 2008 to present
+Bugs to date: 1950
+Commits to date: 22796
+</title></circle><circle cx="611.1169634519472" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Brad House (brad_mssw)
+Tenure: Oct 2003 to Mar 2004
+Bugs to date: 0
+Commits to date: 2562
+</title></circle><circle cx="469.41316089213757" cy="215.34539304097228" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michele Balistreri (brain)
+Tenure: Apr 2003 to Nov 2003
+Bugs to date: 66
+Commits to date: 260
+</title></circle><circle cx="253.79482800556903" cy="292.41323403719787" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Carl Anderson (carl)
+Tenure: Mar 2002 to Jan 2010
+Bugs to date: 6
+Commits to date: 8
+</title></circle><circle cx="436.16519249693266" cy="292.41323403719787" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Chris Houser (chouser)
+Tenure: Sep 2001 to Sep 2003
+Bugs to date: 6
+Commits to date: 152
+</title></circle><circle cx="300.48135787266403" cy="255.36636122366258" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joshua J. Berry (condordes)
+Tenure: Mar 2004 to Sep 2004
+Bugs to date: 19
+Commits to date: 17
+</title></circle><circle cx="416.13468598243446" cy="327.72239792773144" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>David Chamberlain (daybird)
+Tenure: Apr 2002 to Nov 2002
+Bugs to date: 2
+Commits to date: 110
+</title></circle><circle cx="458.7841207070856" cy="275.99540778941014" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Olivier Reisch (doctomoe)
+Tenure: Jun 2002 to Mar 2003
+Bugs to date: 10
+Commits to date: 219
+</title></circle><circle cx="363.4674385978242" cy="314.69083610946643" r="4" class="active" style="opacity: 1;"><title>Carl Perry (edolnx)
+Tenure: May 2002 to present and Jul 2003 to present
+Bugs to date: 3
+Commits to date: 47
+</title></circle><circle cx="465.98492988230146" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Matt Rickard (frogger)
+Tenure: Apr 2003 to Nov 2003
+Bugs to date: 0
+Commits to date: 246
+</title></circle><circle cx="620.2696586580923" cy="205.37708000834303" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Geert Bevin (gbevin)
+Tenure: Dec 2001 to Apr 2002
+Bugs to date: 90
+Commits to date: 2970
+</title></circle><circle cx="591.2506314684449" cy="191.17666988791783" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Mark Guertin (gerk)
+Tenure: Jun 2002 to Mar 2003
+Bugs to date: 140
+Commits to date: 1859
+</title></circle><circle cx="619.6197783291253" cy="212.99838082659494" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Mikael Hallendal (hallski)
+Tenure: Jun 2001 to Apr 2002
+Bugs to date: 71
+Commits to date: 2939
+</title></circle><circle cx="355.0083296552259" cy="287.4588641707762" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Todd Heim (heim)
+Tenure: Apr 2003 to Aug 2003
+Bugs to date: 7
+Commits to date: 41
+</title></circle><circle cx="366.0485295579978" cy="305.44479585546287" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Blake Matheny (jake)
+Tenure: Jan 2004 to Feb 2004
+Bugs to date: 4
+Commits to date: 49
+</title></circle><circle cx="100" cy="30" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jakub Moc (jakub)
+Tenure: Jun 2005 to Oct 2008
+Bugs to date: 21089
+Commits to date: 0
+</title></circle><circle cx="416.695207634957" cy="298.2730098616787" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jae Yang Kwak (jayskwak)
+Tenure: May 2002 to Apr 2004
+Bugs to date: 5
+Commits to date: 111
+</title></circle><circle cx="558.2983066889169" cy="177.2397021115936" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>John J. Ellis (jje)
+Tenure: Feb 2003 to Jan 2004
+Bugs to date: 216
+Commits to date: 1092
+</title></circle><circle cx="459.3471902203167" cy="237.62299511324082" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>J Robert Ray (jrray)
+Tenure: Oct 2002 to May 2003
+Bugs to date: 33
+Commits to date: 221
+</title></circle><circle cx="100" cy="350" r="2.8284271247461903" class="joinpart" style="opacity: 1;"><title>David Olsen (lude)
+Tenure: Jan 2004 to Jan 2004
+Bugs to date: 1
+Commits to date: 0
+</title></circle><circle cx="513.757847940742" cy="197.77959526086048" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Matt Keadle (mkeadle)
+Tenure: Sep 2002 to Jun 2003
+Bugs to date: 114
+Commits to date: 532
+</title></circle><circle cx="464.96954288146827" cy="275.99540778941014" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Meir Kriheili (mksoft)
+Tenure: Apr 2003 to May 2004
+Bugs to date: 10
+Commits to date: 242
+</title></circle><circle cx="316.45057610832896" cy="327.72239792773144" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Nate Underwood (natey)
+Tenure: Mar 2003 to Jun 2003
+Bugs to date: 2
+Commits to date: 22
+</title></circle><circle cx="360.77409165787736" cy="250.65455693150585" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jorge Paulo (peesh)
+Tenure: Mar 2002 to Jun 2003
+Bugs to date: 22
+Commits to date: 45
+</title></circle><circle cx="100" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tim Haynes (piglet)
+Tenure: Jan 2003 to Mar 2004
+Bugs to date: 1
+Commits to date: 0
+</title></circle><circle cx="496.4035715442257" cy="279.38167221893286" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Preston A. Elder (prez)
+Tenure: Apr 2002 to Nov 2003
+Bugs to date: 9
+Commits to date: 402
+</title></circle><circle cx="636.1497080751274" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Nick Hadaway (raker)
+Tenure: Jul 2002 to Jun 2004
+Bugs to date: 0
+Commits to date: 3838
+</title></circle><circle cx="100" cy="305.44479585546287" r="2.8284271247461903" class="joinpart" style="opacity: 1;"><title>Thomas Schlesinger (schlesi)
+Tenure: Jun 2004 to Jun 2004
+Bugs to date: 4
+Commits to date: 0
+</title></circle><circle cx="431.5124294897101" cy="197.22062837136767" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jason Cox (steel300)
+Tenure: Mar 2004 to Jun 2004
+Bugs to date: 116
+Commits to date: 141
+</title></circle><circle cx="410.84773424857406" cy="252.14970028024263" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Eric Stockbridge (stocke2)
+Tenure: Sep 2002 to Feb 2003
+Bugs to date: 21
+Commits to date: 101
+</title></circle><circle cx="583.1464320805078" cy="180.85826337294665" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Adrian Almenar (strider)
+Tenure: Nov 2002 to Feb 2004
+Bugs to date: 193
+Commits to date: 1631
+</title></circle><circle cx="425.03548073932507" cy="253.71780571714163" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joachim Blaabjerg (styx)
+Tenure: Jun 2002 to May 2003
+Bugs to date: 20
+Commits to date: 127
+</title></circle><circle cx="443.09707708195907" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Phil Bordelon (sunflare)
+Tenure: Jun 2002 to Jul 2003
+Bugs to date: 0
+Commits to date: 170
+</title></circle><circle cx="497.16918351621035" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Troy Dack (tad)
+Tenure: Jun 2002 to Mar 2004
+Bugs to date: 1
+Commits to date: 407
+</title></circle><circle cx="512.1060908572597" cy="210.39102317455058" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Todd Berman (tberman)
+Tenure: Apr 2002 to Apr 2004
+Bugs to date: 77
+Commits to date: 518
+</title></circle><circle cx="443.82149726855863" cy="226.94828472144056" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tod Neidt (tod)
+Tenure: Jan 2002 to Apr 2004
+Bugs to date: 46
+Commits to date: 172
+</title></circle><circle cx="406.3990479330138" cy="272.9321590037744" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Kevyn Shortell (trance)
+Tenure: Jun 2002 to Feb 2004
+Bugs to date: 11
+Commits to date: 94
+</title></circle><circle cx="433.6707391503893" cy="252.14970028024263" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stanislav Brabec (utx)
+Tenure: Apr 2003 to Aug 2003
+Bugs to date: 21
+Commits to date: 146
+</title></circle><circle cx="100" cy="230.64658835963365" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Graham Forest (vitaminmoo/vladimir)
+Tenure: Feb 2003 to Jun 2003
+Bugs to date: 41
+Commits to date: 0
+</title></circle><circle cx="439.3421565500538" cy="279.38167221893286" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Yamakura Makoto (yakina)
+Tenure: Apr 2003 to Dec 2003
+Bugs to date: 9
+Commits to date: 160
+</title></circle><circle cx="210.86321867037935" cy="390" r="2.8284271247461903" class="joinpart" style="opacity: 1;"><title>John Lennard (yakmoose)
+Tenure: Dec 2002 to Dec 2002
+Bugs to date: 0
+Commits to date: 4
+</title></circle><circle cx="364.77142823264467" cy="257.1040701466643" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Yannik Koehler (ykoehler)
+Tenure: Jan 2003 to Jul 2003
+Bugs to date: 18
+Commits to date: 48
+</title></circle><circle cx="288.45587411418853" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ivan Zenkov (zenkov)
+Tenure: May 2003 to Jun 2003
+Bugs to date: 0
+Commits to date: 14
+</title></circle><circle cx="546.5960868160571" cy="226.94828472144056" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Zack Welch (zwelch)
+Tenure: Oct 2002 to Jun 2003
+Bugs to date: 46
+Commits to date: 904
+</title></circle><circle cx="456.77206192872865" cy="267.5630764668351" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Philippe Trottier (tchiwam)
+Tenure: Jun 2004 to Nov 2007
+Bugs to date: 13
+Commits to date: 212
+</title></circle><circle cx="493.08047163121097" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Luke Jr   (luke-jr)
+Tenure: Apr 2003 to Dec 2003
+Bugs to date: 0
+Commits to date: 381
+</title></circle><circle cx="822.1680810408845" cy="72.6973236024129" r="4" class="active" style="opacity: 1;"><title>Jeroen Roovers (jer)
+Tenure: Nov 2005 to present
+Bugs to date: 5586
+Commits to date: 77346
+</title></circle><circle cx="653.4656299438614" cy="189.39066676194102" r="4" class="active" style="opacity: 1;"><title>Marien Zwart (marienz)
+Tenure: Nov 2005 to Mar 2008 and Feb 2011 to present
+Bugs to date: 148
+Commits to date: 5076
+</title></circle><circle cx="573.996226988035" cy="199.51730418386217" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Alexandre Buisse (nattfodd)
+Tenure: Nov 2005 to Mar 2007
+Bugs to date: 108
+Commits to date: 1407
+</title></circle><circle cx="506.47724537131853" cy="233.08875915139404" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Sandro Bonazzola (sanchan)
+Tenure: Dec 2005 to Mar 2007
+Bugs to date: 38
+Commits to date: 473
+</title></circle><circle cx="634.5807658453859" cy="181.5313724991755" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joshua Jackson (tsunam)
+Tenure: Dec 2005 to Feb 2013
+Bugs to date: 189
+Commits to date: 3742
+</title></circle><circle cx="667.3450629476785" cy="167.9936618575901" r="4" class="active" style="opacity: 1;"><title>Joerg Bornkessel (hd_brummy)
+Tenure: Dec 2005 to present
+Bugs to date: 288
+Commits to date: 6351
+</title></circle><circle cx="100" cy="314.69083610946643" r="4" class="active" style="opacity: 1;"><title>Dennis Nienhüser (earthwings)
+Tenure: Dec 2005 to present
+Bugs to date: 3
+Commits to date: 0
+</title></circle><circle cx="711.7320446503186" cy="111.25496056014799" r="4" class="active" style="opacity: 1;"><title>Peter Volkov (pva)
+Tenure: Dec 2005 to present
+Bugs to date: 1683
+Commits to date: 13004
+</title></circle><circle cx="100" cy="283.16719378319436" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Peter Gordon (codergeek42)
+Tenure: Dec 2005 to Oct 2007
+Bugs to date: 8
+Commits to date: 0
+</title></circle><circle cx="590.5132749041984" cy="176.35910494367602" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Gunnar Wrobel (wrobel)
+Tenure: Dec 2005 to Jul 2010
+Bugs to date: 222
+Commits to date: 1837
+</title></circle><circle cx="479.50294899162554" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tobias Matzat (sirseoman)
+Tenure: Jan 2006 to Jul 2010
+Bugs to date: 0
+Commits to date: 306
+</title></circle><circle cx="504.61633054832186" cy="235.73187403245493" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Yuri Vasilevski (yvasilev)
+Tenure: Jan 2006 to Feb 2013
+Bugs to date: 35
+Commits to date: 459
+</title></circle><circle cx="483.61403623176346" cy="253.71780571714163" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michal Kurgan (moloh)
+Tenure: Jan 2006 to Mar 2009
+Bugs to date: 20
+Commits to date: 327
+</title></circle><circle cx="519.2149671420148" cy="206.09935278696872" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Martin Ehmsen (ehmsen)
+Tenure: Jan 2006 to Mar 2009
+Bugs to date: 88
+Commits to date: 581
+</title></circle><circle cx="617.5410811337804" cy="167.440467718186" r="4" class="active" style="opacity: 1;"><title>Patrick McLean (chutzpah)
+Tenure: Jan 2006 to present
+Bugs to date: 293
+Commits to date: 2842
+</title></circle><circle cx="437.3757304414729" cy="242.9036600262391" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Karol Pasternak (reb)
+Tenure: Jan 2006 to Mar 2008
+Bugs to date: 28
+Commits to date: 155
+</title></circle><circle cx="527.2986909512291" cy="262.96384597114513" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Damian Kuras (shadow/shadoww)
+Tenure: Jan 2006 to Feb 2013
+Bugs to date: 15
+Commits to date: 662
+</title></circle><circle cx="701.7422341109161" cy="133.9361168172363" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Markus Ullmann (jokey)
+Tenure: Jan 2006 to Feb 2013
+Bugs to date: 831
+Commits to date: 11067
+</title></circle><circle cx="292.7291007659914" cy="305.44479585546287" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Mark Kowarsky (mark_alec)
+Tenure: Jan 2006 to Feb 2013
+Bugs to date: 4
+Commits to date: 15
+</title></circle><circle cx="611.1411340746482" cy="155.3362577694048" r="4" class="active" style="opacity: 1;"><title>Alec Warner (antarus)
+Tenure: Jan 2006 to present
+Bugs to date: 427
+Commits to date: 2563
+</title></circle><circle cx="705.9449038309742" cy="96.36230081697727" r="4" class="active" style="opacity: 1;"><title>Zac Medico (zmedico)
+Tenure: Jan 2006 to present
+Bugs to date: 2675
+Commits to date: 11844
+</title></circle><circle cx="452.5405578921009" cy="265.18126209850766" r="4" class="active" style="opacity: 1;"><title>Gérald Fenoy (djay)
+Tenure: Feb 2006 to present
+Bugs to date: 14
+Commits to date: 198
+</title></circle><circle cx="461.81951391026126" cy="221.79490625613073" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Scott Stoddard (deltacow)
+Tenure: Feb 2006 to Apr 2007
+Bugs to date: 54
+Commits to date: 230
+</title></circle><circle cx="661.3920583819829" cy="124.25789005043242" r="4" class="active" style="opacity: 1;"><title>Alfredo Tupone (tupone)
+Tenure: Feb 2006 to present
+Bugs to date: 1123
+Commits to date: 5769
+</title></circle><circle cx="537.2194724139559" cy="221.79490625613073" r="4" class="active" style="opacity: 1;"><title>Emanuele Giaquinta (exg)
+Tenure: Feb 2006 to present
+Bugs to date: 54
+Commits to date: 777
+</title></circle><circle cx="637.1263782832797" cy="130.21512004082408" r="4" class="active" style="opacity: 1;"><title>Joshua Saddler (nightmorph)
+Tenure: Feb 2006 to present
+Bugs to date: 933
+Commits to date: 3899
+</title></circle><circle cx="261.0899817837719" cy="287.4588641707762" r="4" class="active" style="opacity: 1;"><title>Boris Fersing (kernelsensei)
+Tenure: Feb 2006 to present
+Bugs to date: 7
+Commits to date: 9
+</title></circle><circle cx="646.8937790102607" cy="192.82522539443877" r="4" class="active" style="opacity: 1;"><title>Keri Harris (keri)
+Tenure: Mar 2006 to present
+Bugs to date: 133
+Commits to date: 4565
+</title></circle><circle cx="210.86321867037935" cy="327.72239792773144" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Benigno Batista Júnior (bbj)
+Tenure: Mar 2006 to Aug 2008
+Bugs to date: 2
+Commits to date: 4
+</title></circle><circle cx="643.5487743694844" cy="189.39066676194102" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Thomas Cort (tcort)
+Tenure: Apr 2006 to Dec 2006
+Bugs to date: 148
+Commits to date: 4325
+</title></circle><circle cx="620.5609326508612" cy="165.31825895642854" r="4" class="active" style="opacity: 1;"><title>Denis Dupeyron (calchan)
+Tenure: Apr 2006 to present
+Bugs to date: 313
+Commits to date: 2984
+</title></circle><circle cx="600.6887273991422" cy="157.51606150390523" r="4" class="active" style="opacity: 1;"><title>Mike Auty (ikelos)
+Tenure: Apr 2006 to present
+Bugs to date: 399
+Commits to date: 2165
+</title></circle><circle cx="649.1976324887255" cy="154.51878561731363" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Thilo Bangert (bangert)
+Tenure: Apr 2002 to Jun 2002 and Apr 2006 to Feb 2013
+Bugs to date: 438
+Commits to date: 4738
+</title></circle><circle cx="432.384799120792" cy="314.69083610946643" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Chris Parrott (cparrott)
+Tenure: May 2006 to Apr 2007
+Bugs to date: 3
+Commits to date: 143
+</title></circle><circle cx="702.2494393758893" cy="123.97296100317277" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Steve Dibb (beandog)
+Tenure: May 2006 to Feb 2013
+Bugs to date: 1133
+Commits to date: 11158
+</title></circle><circle cx="427.42717633540457" cy="262.96384597114513" r="4" class="active" style="opacity: 1;"><title>Roy Bamford (neddyseagoon)
+Tenure: May 2006 to present
+Bugs to date: 15
+Commits to date: 132
+</title></circle><circle cx="474.66328584989077" cy="227.65468208061156" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Matteo Azzali (mattepiu)
+Tenure: May 2006 to Jul 2010
+Bugs to date: 45
+Commits to date: 283
+</title></circle><circle cx="549.7353563581396" cy="222.39566741163344" r="4" class="active" style="opacity: 1;"><title>Javier Villavicencio (the_paya)
+Tenure: Jun 2006 to present
+Bugs to date: 53
+Commits to date: 951
+</title></circle><circle cx="569.4772549021429" cy="212.5488660021272" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Lennart Kolmodin (kolmodin)
+Tenure: Jun 2006 to Feb 2013
+Bugs to date: 72
+Commits to date: 1308
+</title></circle><circle cx="444.1805546212735" cy="283.16719378319436" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joshua Ross (joslwah)
+Tenure: Jun 2006 to Mar 2009
+Bugs to date: 8
+Commits to date: 173
+</title></circle><circle cx="504.7511232454509" cy="160.20293375868576" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Raphaël Marichez (falco)
+Tenure: Jun 2006 to Feb 2013
+Bugs to date: 367
+Commits to date: 460
+</title></circle><circle cx="553.2176705167471" cy="218.40864182660806" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Yuval Yaari (yuval)
+Tenure: Jul 2006 to Jul 2010
+Bugs to date: 60
+Commits to date: 1006
+</title></circle><circle cx="125" cy="283.16719378319436" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Wolf Giesen (frilled)
+Tenure: Jul 2006 to Jan 2007
+Bugs to date: 8
+Commits to date: 1
+</title></circle><circle cx="693.2562285016054" cy="156.720481624024" r="4" class="active" style="opacity: 1;"><title>Mart Raudsepp (leio)
+Tenure: Aug 2006 to present
+Bugs to date: 409
+Commits to date: 9650
+</title></circle><circle cx="462.3557702461619" cy="221.79490625613073" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Andrew Ross (aross)
+Tenure: Aug 2006 to Mar 2008
+Bugs to date: 54
+Commits to date: 232
+</title></circle><circle cx="631.1436526899422" cy="176.79638768958216" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>William Thomson (wltjr)
+Tenure: Aug 2006 to Oct 2008
+Bugs to date: 219
+Commits to date: 3540
+</title></circle><circle cx="662.498679619363" cy="140.4286321608764" r="4" class="active" style="opacity: 1;"><title>Jorge Manuel B. S. Vicetto (jmbsvicetto)
+Tenure: Aug 2006 to present
+Bugs to date: 679
+Commits to date: 5873
+</title></circle><circle cx="167.93160933518968" cy="292.41323403719787" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Hubert Mercier (anigel)
+Tenure: Sep 2006 to Jul 2007
+Bugs to date: 6
+Commits to date: 2
+</title></circle><circle cx="532.0689089948976" cy="206.8382309837022" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Mike Kelly (pioto)
+Tenure: Sep 2006 to Jul 2007
+Bugs to date: 86
+Commits to date: 715
+</title></circle><circle cx="684.0414228981754" cy="136.09557118672075" r="4" class="active" style="opacity: 1;"><title>Vlastimil Babka (caster)
+Tenure: Sep 2006 to present
+Bugs to date: 777
+Commits to date: 8316
+</title></circle><circle cx="556.9218673793421" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Alexander Færøy (eroyf)
+Tenure: Sep 2006 to May 2007
+Bugs to date: 0
+Commits to date: 1068
+</title></circle><circle cx="490.59269867294836" cy="222.39566741163344" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Przemyslaw Maciag (troll)
+Tenure: Sep 2006 to Dec 2007
+Bugs to date: 53
+Commits to date: 366
+</title></circle><circle cx="413.25336554499034" cy="138.63367520115105" r="4" class="active" style="opacity: 1;"><title>Tristan Heaven (tristan/nyhm)
+Tenure: Sep 2006 to present
+Bugs to date: 718
+Commits to date: 105
+</title></circle><circle cx="643.290463068771" cy="161.18098335430716" r="4" class="active" style="opacity: 1;"><title>Jim Ramsay (lack)
+Tenure: Sep 2006 to present
+Bugs to date: 356
+Commits to date: 4307
+</title></circle><circle cx="676.0807692973527" cy="137.70713813941444" r="4" class="active" style="opacity: 1;"><title>Tiziano Müller (dev-zero)
+Tenure: Sep 2006 to present
+Bugs to date: 739
+Commits to date: 7313
+</title></circle><circle cx="633.2253383084887" cy="151.7100311535417" r="4" class="active" style="opacity: 1;"><title>Alon Bar-Lev (alonbl)
+Tenure: Oct 2006 to Jun 2008 and Dec 2012 to present
+Bugs to date: 478
+Commits to date: 3661
+</title></circle><circle cx="576.2440210713609" cy="179.71321350655182" r="4" class="active" style="opacity: 1;"><title>Jeffrey Gardner (je_fro)
+Tenure: Oct 2006 to present
+Bugs to date: 200
+Commits to date: 1459
+</title></circle><circle cx="776.8861885001295" cy="98.83388988969955" r="4" class="active" style="opacity: 1;"><title>Alexis Ballier (aballier)
+Tenure: Oct 2006 to present
+Bugs to date: 2477
+Commits to date: 37233
+</title></circle><circle cx="599.3000720557925" cy="193.312201165808" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Timothy Redaelli (drizzt)
+Tenure: Oct 2006 to Jul 2010
+Bugs to date: 131
+Commits to date: 2117
+</title></circle><circle cx="588.2120433547525" cy="188.11342110228202" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>David Shakaryan (omp)
+Tenure: Oct 2006 to Jul 2010
+Bugs to date: 154
+Commits to date: 1770
+</title></circle><circle cx="649.7442557540813" cy="157.3553622389517" r="4" class="active" style="opacity: 1;"><title>Matti Bickel (mabi)
+Tenure: Oct 2006 to present
+Bugs to date: 401
+Commits to date: 4780
+</title></circle><circle cx="572.9306141247956" cy="180.69216591783163" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jurek Bartuszek (jurek)
+Tenure: Oct 2006 to Nov 2010
+Bugs to date: 194
+Commits to date: 1383
+</title></circle><circle cx="691.3795943812469" cy="182.7443385653428" r="4" class="active" style="opacity: 1;"><title>Piotr Jaroszyński (peper)
+Tenure: Oct 2006 to present
+Bugs to date: 182
+Commits to date: 9362
+</title></circle><circle cx="410.2314384185903" cy="127.53938697086818" r="4" class="active" style="opacity: 1;"><title>Ryan Hill (rhill/dirtyepic)
+Tenure: Oct 2006 to present
+Bugs to date: 1014
+Commits to date: 100
+</title></circle><circle cx="756.5793787318748" cy="106.12917809524052" r="4" class="active" style="opacity: 1;"><title>Christian Faulhammer (fauli/opfer)
+Tenure: Oct 2006 to present
+Bugs to date: 1974
+Commits to date: 26825
+</title></circle><circle cx="224.68410987410545" cy="236.66352726517218" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Harlan Lieberman-Berg (hlieberman)
+Tenure: Oct 2006 to Jan 2008
+Bugs to date: 34
+Commits to date: 5
+</title></circle><circle cx="452.5405578921009" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Naoaki Shindo (shindo)
+Tenure: Oct 2006 to Feb 2013
+Bugs to date: 0
+Commits to date: 198
+</title></circle><circle cx="756.361957541054" cy="126.9427348241328" r="4" class="active" style="opacity: 1;"><title>Hans de Graaff (graaff)
+Tenure: Nov 2006 to present
+Bugs to date: 1033
+Commits to date: 26731
+</title></circle><circle cx="458.21588534636635" cy="233.94587090647815" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Dimitry Bradt (diox)
+Tenure: Nov 2006 to Dec 2007
+Bugs to date: 37
+Commits to date: 217
+</title></circle><circle cx="267.61571920929515" cy="314.69083610946643" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Matthew Snelham (zeypher)
+Tenure: Nov 2006 to Nov 2007
+Bugs to date: 3
+Commits to date: 10
+</title></circle><circle cx="610.1914195461234" cy="164.20814029332863" r="4" class="active" style="opacity: 1;"><title>Cédric Krier (cedk)
+Tenure: Nov 2006 to present
+Bugs to date: 324
+Commits to date: 2524
+</title></circle><circle cx="647.0834381869767" cy="116.6483572128289" r="4" class="active" style="opacity: 1;"><title>Remi Cardona (remi)
+Tenure: Nov 2006 to present
+Bugs to date: 1423
+Commits to date: 4579
+</title></circle><circle cx="577.9192339347112" cy="175.081859284017" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Charlie Shepherd (masterdriverz)
+Tenure: Nov 2006 to Feb 2008
+Bugs to date: 231
+Commits to date: 1499
+</title></circle><circle cx="620.954054791677" cy="178.60755901264199" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Peter Weller (welp)
+Tenure: Dec 2006 to Jul 2010
+Bugs to date: 207
+Commits to date: 3003
+</title></circle><circle cx="395.631452415429" cy="206.4666686253712" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Christian Marie (pingu)
+Tenure: Dec 2006 to Mar 2009
+Bugs to date: 87
+Commits to date: 79
+</title></circle><circle cx="596.8532933903158" cy="142.2796161324402" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Robert Buchholz (rbu)
+Tenure: Dec 2006 to Feb 2013
+Bugs to date: 641
+Commits to date: 2035
+</title></circle><circle cx="611.6705152450689" cy="172.67024446289844" r="4" class="active" style="opacity: 1;"><title>Miroslav Šulc (fordfrog)
+Tenure: Jan 2007 to present
+Bugs to date: 249
+Commits to date: 2585
+</title></circle><circle cx="307.3703644913637" cy="305.44479585546287" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Robert Clark (hyakuhei)
+Tenure: Jan 2007 to Jan 2008
+Bugs to date: 4
+Commits to date: 19
+</title></circle><circle cx="832.4526391508301" cy="79.33984218767102" r="4" class="active" style="opacity: 1;"><title>Raúl Porcel (armin76)
+Tenure: Jan 2007 to present
+Bugs to date: 4543
+Commits to date: 91317
+</title></circle><circle cx="594.9683036038987" cy="165.83581903001348" r="4" class="active" style="opacity: 1;"><title>Marijn Schouten (hkbst)
+Tenure: Jan 2007 to present
+Bugs to date: 308
+Commits to date: 1974
+</title></circle><circle cx="720.807060119134" cy="116.67095108794746" r="4" class="active" style="opacity: 1;"><title>Sebastien Fabbro (bicatali)
+Tenure: Jan 2007 to present
+Bugs to date: 1422
+Commits to date: 15056
+</title></circle><circle cx="407.7030375678343" cy="260.8895917109258" r="4" class="active" style="opacity: 1;"><title>Dean Stephens (desultory)
+Tenure: Jan 2007 to present
+Bugs to date: 16
+Commits to date: 96
+</title></circle><circle cx="511.2633945941986" cy="238.61198963865723" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Martin Jackson (mjolnir)
+Tenure: Jan 2007 to Mar 2008
+Bugs to date: 32
+Commits to date: 511
+</title></circle><circle cx="816.8403950036268" cy="57.57209488119253" r="4" class="active" style="opacity: 1;"><title>Samuli Suominen (ssuominen/drac)
+Tenure: Feb 2007 to present
+Bugs to date: 8943
+Commits to date: 70971
+</title></circle><circle cx="525.0115183489218" cy="218.40864182660806" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Anant Narayanan (anant/killerx)
+Tenure: Feb 2007 to Mar 2009
+Bugs to date: 60
+Commits to date: 638
+</title></circle><circle cx="502.83679630148845" cy="233.08875915139404" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Richard Brown (rbrown)
+Tenure: Feb 2007 to present
+Bugs to date: 38
+Commits to date: 446
+</title></circle><circle cx="100" cy="270.1356319649293" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Matt Drew (aetius)
+Tenure: Mar 2007 to Jul 2010
+Bugs to date: 12
+Commits to date: 0
+</title></circle><circle cx="674.5719125772974" cy="138.3662135796833" r="4" class="active" style="opacity: 1;"><title>Bernard Cafarelli (voyageur)
+Tenure: Mar 2007 to present
+Bugs to date: 724
+Commits to date: 7137
+</title></circle><circle cx="316.45057610832896" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Antoine Raillon (cab)
+Tenure: Mar 2007 to Aug 2008
+Bugs to date: 0
+Commits to date: 22
+</title></circle><circle cx="686.7019584394448" cy="150.71696185334548" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Wulf Krueger (philantrop)
+Tenure: Apr 2007 to Apr 2008
+Bugs to date: 493
+Commits to date: 8681
+</title></circle><circle cx="572.9306141247956" cy="182.045620046498" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Alistair Bush (ali_bush)
+Tenure: Apr 2007 to Feb 2013
+Bugs to date: 186
+Commits to date: 1383
+</title></circle><circle cx="638.4932157756783" cy="169.9490997679517" r="4" class="active" style="opacity: 1;"><title>Tobias Heinlein (keytoaster)
+Tenure: Apr 2007 to present
+Bugs to date: 271
+Commits to date: 3986
+</title></circle><circle cx="464.713073695613" cy="279.38167221893286" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Aggelos Orfanakos (agorf)
+Tenure: Apr 2007 to Mar 2009
+Bugs to date: 9
+Commits to date: 241
+</title></circle><circle cx="609.6244281010986" cy="179.71321350655182" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Davide Cendron (scen)
+Tenure: Apr 2007 to Feb 2013
+Bugs to date: 200
+Commits to date: 2501
+</title></circle><circle cx="742.7729166999985" cy="118.74821906527086" r="4" class="active" style="opacity: 1;"><title>Ulrich Müller (ulm)
+Tenure: Apr 2007 to present
+Bugs to date: 1333
+Commits to date: 21465
+</title></circle><circle cx="431.5124294897101" cy="270.1356319649293" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Christina Gianelloni (musikc)
+Tenure: Apr 2007 to Jul 2010
+Bugs to date: 12
+Commits to date: 141
+</title></circle><circle cx="617.4538455983942" cy="173.98763322581027" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Dawid Węgliński (cla)
+Tenure: Apr 2007 to Feb 2013
+Bugs to date: 239
+Commits to date: 2838
+</title></circle><circle cx="572.9753826268425" cy="298.2730098616787" r="4" class="active" style="opacity: 1;"><title>Le Zhang (r0bertz)
+Tenure: May 2007 to present
+Bugs to date: 5
+Commits to date: 1384
+</title></circle><circle cx="570.3704826621066" cy="194.3088635395329" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joe Peterson (lavajoe)
+Tenure: May 2007 to Feb 2013
+Bugs to date: 127
+Commits to date: 1327
+</title></circle><circle cx="713.8437187064962" cy="132.53604603553924" r="4" class="active" style="opacity: 1;"><title>Christoph Mende (angelos)
+Tenure: May 2007 to present
+Bugs to date: 868
+Commits to date: 13455
+</title></circle><circle cx="447.6610893377587" cy="196.39999350821694" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Deedra M. Waters (dmwaters)
+Tenure: Mar 2004 to Oct 2006 and Jun 2007 to Jul 2010
+Bugs to date: 119
+Commits to date: 183
+</title></circle><circle cx="736.0882732004338" cy="96.31427722039547" r="4" class="active" style="opacity: 1;"><title>Gilles Dartiguelongue (eva)
+Tenure: Jun 2007 to present
+Bugs to date: 2679
+Commits to date: 19269
+</title></circle><circle cx="614.4351920228993" cy="173.5867159352802" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ali Polatel (hawking/alip)
+Tenure: Jun 2007 to Mar 2009
+Bugs to date: 242
+Commits to date: 2703
+</title></circle><circle cx="617.6717044930253" cy="168.8990678156493" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Santiago M. Mola (coldwind)
+Tenure: Jun 2007 to Jul 2010
+Bugs to date: 280
+Commits to date: 2848
+</title></circle><circle cx="460.18231145494724" cy="152.04799205974513" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Pierre-Yves Rofes (py)
+Tenure: Jul 2007 to Feb 2013
+Bugs to date: 473
+Commits to date: 224
+</title></circle><circle cx="689.2255074345189" cy="156.79915923010154" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Christian Heim (phreak)
+Tenure: Aug 2005 to Aug 2008
+Bugs to date: 408
+Commits to date: 9042
+</title></circle><circle cx="779.7389203287646" cy="109.798902447935" r="4" class="active" style="opacity: 1;"><title>Sven Vermeulen (swift)
+Tenure: Mar 2003 to Mar 2009 and Aug 2011 to present
+Bugs to date: 1761
+Commits to date: 38988
+</title></circle><circle cx="637.0309924021809" cy="167.66060409956663" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tom Martin (slarti)
+Tenure: Jul 2004 to May 2007
+Bugs to date: 291
+Commits to date: 3893
+</title></circle><circle cx="398.69070236301593" cy="292.41323403719787" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jason Smathers (jsin)
+Tenure: Aug 2007 to Oct 2008
+Bugs to date: 6
+Commits to date: 83
+</title></circle><circle cx="100" cy="253.71780571714163" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Maarten Bressers (mbres)
+Tenure: Aug 2007 to Nov 2010
+Bugs to date: 20
+Commits to date: 0
+</title></circle><circle cx="541.0072073677601" cy="199.51730418386217" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Christian Hoffmann (hoffie)
+Tenure: Aug 2007 to Nov 2010
+Bugs to date: 108
+Commits to date: 826
+</title></circle><circle cx="554.4972847630818" cy="155.48714906079817" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Shyam Mani (fox2mike)
+Tenure: Jun 2005 to Feb 2013
+Bugs to date: 425
+Commits to date: 1027
+</title></circle><circle cx="684.0041719077669" cy="149.94402393592506" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Aaron Walker (ka0ttic)
+Tenure: Sep 2004 to Jan 2007
+Bugs to date: 505
+Commits to date: 8311
+</title></circle><circle cx="545.4202472163704" cy="213.45427196018636" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jochen Maes (sejo)
+Tenure: Mar 2004 to Jul 2006
+Bugs to date: 70
+Commits to date: 887
+</title></circle><circle cx="603.2937513886772" cy="152.80425721174848" r="4" class="active" style="opacity: 1;"><title>Brian Harring (ferringb)
+Tenure: Jan 2004 to present
+Bugs to date: 462
+Commits to date: 2258
+</title></circle><circle cx="710.3254148838612" cy="112.06720054639774" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Simon Stelling (blubb)
+Tenure: Aug 2004 to Apr 2007
+Bugs to date: 1641
+Commits to date: 12712
+</title></circle><circle cx="795.3893059771664" cy="101.70954555043824" r="4" class="active" style="opacity: 1;"><title>Markus Meier (maekke)
+Tenure: Sep 2007 to present
+Bugs to date: 2265
+Commits to date: 50196
+</title></circle><circle cx="253.79482800556903" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>AJ Lewis (roadrunner/aj)
+Tenure: Apr 2001 to Aug 2001
+Bugs to date: 1
+Commits to date: 8
+</title></circle><circle cx="356.50086500607455" cy="283.16719378319436" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Leo Lipelis (aeoo)
+Tenure: Jan 2002 to Feb 2002
+Bugs to date: 8
+Commits to date: 42
+</title></circle><circle cx="583.9762976238426" cy="275.99540778941014" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Alain Penders (alain)
+Tenure: Jan 2003 to Apr 2003
+Bugs to date: 10
+Commits to date: 1653
+</title></circle><circle cx="288.45587411418853" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Andreas Pokorny (apokorny/diemumiee)
+Tenure: Jan 2005 to Jul 2005
+Bugs to date: 1
+Commits to date: 14
+</title></circle><circle cx="353.4789378796745" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Mike Jones (ashmodai)
+Tenure: May 2002 to Jul 2002
+Bugs to date: 1
+Commits to date: 40
+</title></circle><circle cx="384.4955670002149" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Julien Perrot (blackmore)
+Tenure: Jun 2002 to Dec 2002
+Bugs to date: 0
+Commits to date: 66
+</title></circle><circle cx="383.5499422217582" cy="258.94112933744077" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tobias Eichert (viz)
+Tenure: Dec 2002 to Feb 2003
+Bugs to date: 17
+Commits to date: 65
+</title></circle><circle cx="363.4674385978242" cy="229.87209820797406" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Conrad Tilstra (tadpol/michael)
+Tenure: Jun 2001 to Aug 2001
+Bugs to date: 42
+Commits to date: 47
+</title></circle><circle cx="445.94526715226647" cy="237.62299511324082" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stewart Honsberger (blkdeath)
+Tenure: Jun 2003 to Mar 2004
+Bugs to date: 33
+Commits to date: 178
+</title></circle><circle cx="431.0715933234837" cy="236.66352726517218" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ben Lutgens (blutgens/lamer)
+Tenure: Apr 2001 to Jun 2001
+Bugs to date: 34
+Commits to date: 140
+</title></circle><circle cx="346.9532004541513" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Christoph Lameter (christoph)
+Tenure: Jul 2002 to Aug 2002
+Bugs to date: 1
+Commits to date: 36
+</title></circle><circle cx="402.31379477870837" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Prakash Shetty (crux)
+Tenure: Jun 2001 to Jul 2001
+Bugs to date: 0
+Commits to date: 88
+</title></circle><circle cx="523.6372605802974" cy="305.44479585546287" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Calum Selkirk (cselkirk)
+Tenure: Jul 2002 to Dec 2002
+Bugs to date: 4
+Commits to date: 624
+</title></circle><circle cx="333.5609422405929" cy="390" r="2.8284271247461903" class="joinpart" style="opacity: 1;"><title>Craig Joly (csjoly)
+Tenure: Aug 2001 to Aug 2001
+Bugs to date: 0
+Commits to date: 29
+</title></circle><circle cx="400.8898879333689" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Holger Brueckner (darks)
+Tenure: Jun 2001 to Oct 2001
+Bugs to date: 0
+Commits to date: 86
+</title></circle><circle cx="368.52634876454994" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Andres Toomsalu (frame)
+Tenure: Feb 2003 to Jun 2003
+Bugs to date: 0
+Commits to date: 51
+</title></circle><circle cx="313.5692556708849" cy="292.41323403719787" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Paul Belt (gaarde)
+Tenure: Aug 2002 to Aug 2002
+Bugs to date: 6
+Commits to date: 21
+</title></circle><circle cx="386.34457654304333" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Guido Bakker (guidob)
+Tenure: Dec 2001 to Sep 2002
+Bugs to date: 1
+Commits to date: 68
+</title></circle><circle cx="633.2591652999823" cy="171.52906709316858" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Hannes Mehnert (hannes)
+Tenure: Aug 2002 to May 2003
+Bugs to date: 258
+Commits to date: 3663
+</title></circle><circle cx="488.87687648745623" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jerry Alexandratos (jerry)
+Tenure: Nov 2000 to Jul 2001
+Bugs to date: 0
+Commits to date: 118
+</title></circle><circle cx="423.0533205471118" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Unknown (jerrya)
+Tenure: Nov 2001 to Dec 2001
+Bugs to date: 0
+Commits to date: 123
+</title></circle><circle cx="509.2930584310167" cy="262.96384597114513" r="4" class="active" style="opacity: 1;"><title>Jack Morgan (jmorgan)
+Tenure: Jul 2002 to present and Mar 2012 to present
+Bugs to date: 15
+Commits to date: 495
+</title></circle><circle cx="498.07559803257044" cy="210.81115707912548" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jon Nelson (jnelson)
+Tenure: Nov 2001 to Oct 2002
+Bugs to date: 76
+Commits to date: 413
+</title></circle><circle cx="278.90820956226526" cy="350" r="2.8284271247461903" class="joinpart" style="opacity: 1;"><title>Josh Tegart (jtegart)
+Tenure: Jul 2002 to Jul 2002
+Bugs to date: 1
+Commits to date: 12
+</title></circle><circle cx="431.0715933234837" cy="275.99540778941014" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Damon Conway (kabau)
+Tenure: Aug 2001 to Jul 2002
+Bugs to date: 10
+Commits to date: 140
+</title></circle><circle cx="409.60894855691123" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Chuck Brewer (killian)
+Tenure: Apr 2003 to Jun 2003
+Bugs to date: 0
+Commits to date: 99
+</title></circle><circle cx="288.45587411418853" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ric Messier (kilroy)
+Tenure: Oct 2002 to Nov 2002
+Bugs to date: 1
+Commits to date: 14
+</title></circle><circle cx="296.7264373407587" cy="279.38167221893286" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Fitzpatrick (leahcim)
+Tenure: Apr 2003 to Apr 2003
+Bugs to date: 9
+Commits to date: 16
+</title></circle><circle cx="457.3536363414421" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Joe Bormolini (lordjoe)
+Tenure: Jun 2001 to Jan 2002
+Bugs to date: 0
+Commits to date: 214
+</title></circle><circle cx="413.25336554499034" cy="258.94112933744077" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ferry Meyndert (m0rpheus)
+Tenure: Feb 2002 to Apr 2003
+Bugs to date: 17
+Commits to date: 105
+</title></circle><circle cx="651.2167344643216" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Rodney Rees (manson)
+Tenure: Aug 2002 to Mar 2003
+Bugs to date: 0
+Commits to date: 4895
+</title></circle><circle cx="461.81951391026126" cy="257.1040701466643" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Sherman Boyd (meekrob)
+Tenure: Apr 2002 to Aug 2002
+Bugs to date: 18
+Commits to date: 230
+</title></circle><circle cx="607.661996215654" cy="292.41323403719787" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Maarten Thibaut (murphy)
+Tenure: Apr 2002 to Aug 2003
+Bugs to date: 6
+Commits to date: 2423
+</title></circle><circle cx="491.76610464529216" cy="235.73187403245493" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jon Nall (nall)
+Tenure: Oct 2002 to Mar 2003
+Bugs to date: 35
+Commits to date: 373
+</title></circle><circle cx="497.4727979471465" cy="260.8895917109258" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Owen Stampflee (owen)
+Tenure: Jun 2002 to Oct 2002
+Bugs to date: 16
+Commits to date: 409
+</title></circle><circle cx="539.0262664241593" cy="314.69083610946643" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Peter Gavin (pete)
+Tenure: Feb 2001 to Aug 2001
+Bugs to date: 3
+Commits to date: 800
+</title></circle><circle cx="564.9600205025017" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tilman Klar (phoenix)
+Tenure: Jul 2002 to Apr 2003
+Bugs to date: 0
+Commits to date: 1216
+</title></circle><circle cx="521.7220434203841" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Parag Mehta (pm)
+Tenure: Jul 2001 to Jul 2002
+Bugs to date: 0
+Commits to date: 605
+</title></circle><circle cx="408.98013889318753" cy="390" r="4" class="active" style="opacity: 1;"><title>Philippe Namias (pnamias)
+Tenure: Mar 2001 to present and Mar 2001 to present
+Bugs to date: 0
+Commits to date: 98
+</title></circle><circle cx="540.6311453752768" cy="314.69083610946643" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Peter Brown (rendhalver)
+Tenure: Dec 2002 to Apr 2003
+Bugs to date: 3
+Commits to date: 821
+</title></circle><circle cx="427.42717633540457" cy="305.44479585546287" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Nicholas Henke (roughneck)
+Tenure: Sep 2002 to Feb 2003
+Bugs to date: 4
+Commits to date: 132
+</title></circle><circle cx="440.4927262279581" cy="298.2730098616787" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ryan Tolboom (ryan)
+Tenure: Feb 2001 to Dec 2001
+Bugs to date: 5
+Commits to date: 163
+</title></circle><circle cx="433.2450521146983" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>William McArthur (sandymac)
+Tenure: Apr 2002 to Jun 2002
+Bugs to date: 0
+Commits to date: 145
+</title></circle><circle cx="518.4642037694146" cy="185.1261529336703" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Seth Chandler (sethbc)
+Tenure: Nov 2002 to Apr 2003
+Bugs to date: 169
+Commits to date: 574
+</title></circle><circle cx="210.86321867037935" cy="272.9321590037744" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Markus Bertheau (ska-fan)
+Tenure: Nov 2002 to Jul 2003
+Bugs to date: 11
+Commits to date: 4
+</title></circle><circle cx="555.8690847542855" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Gabriele Giorgetti (stroke)
+Tenure: May 2002 to Aug 2002
+Bugs to date: 0
+Commits to date: 1050
+</title></circle><circle cx="472.66154976949366" cy="239.63238600930012" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Stuart Bouyer (stubear)
+Tenure: Jun 2002 to Jan 2003
+Bugs to date: 31
+Commits to date: 274
+</title></circle><circle cx="167.93160933518968" cy="390" r="2.8284271247461903" class="joinpart" style="opacity: 1;"><title>Thomas Flavel (thomasfl)
+Tenure: May 2001 to May 2001
+Bugs to date: 0
+Commits to date: 2
+</title></circle><circle cx="426.48155155694786" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Adam Bellinson (thread)
+Tenure: Jun 2001 to Jun 2002
+Bugs to date: 1
+Commits to date: 130
+</title></circle><circle cx="253.79482800556903" cy="390" r="2.8284271247461903" class="joinpart" style="opacity: 1;"><title>Pete Michaleas (tutor)
+Tenure: Apr 2002 to Apr 2002
+Bugs to date: 0
+Commits to date: 8
+</title></circle><circle cx="609.5996581668012" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Bart Verwilst (verwilst)
+Tenure: Oct 2001 to Mar 2003
+Bugs to date: 0
+Commits to date: 2500
+</title></circle><circle cx="404.39009712665165" cy="279.38167221893286" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Vitaly Kushneriuk (vitaly)
+Tenure: Jan 2002 to Aug 2002
+Bugs to date: 9
+Commits to date: 91
+</title></circle><circle cx="536.6589507614333" cy="211.66826883420956" r="4" class="active" style="opacity: 1;"><title>Michael Haubenwallner (haubi)
+Tenure: Sep 2007 to present
+Bugs to date: 74
+Commits to date: 770
+</title></circle><circle cx="765.9787641535863" cy="91.87299392865793" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Seemant Kulleen (seemant)
+Tenure: Feb 2002 to Nov 2007
+Bugs to date: 3076
+Commits to date: 31221
+</title></circle><circle cx="584.795191065361" cy="167.440467718186" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>John Mylchreest (johnm)
+Tenure: Apr 2003 to Sep 2007
+Bugs to date: 293
+Commits to date: 1675
+</title></circle><circle cx="761.2327189705167" cy="136.7643034738434" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Bryan Østergaard (kloeri)
+Tenure: Oct 2003 to May 2007
+Bugs to date: 761
+Commits to date: 28918
+</title></circle><circle cx="626.3054733232088" cy="158.24932036571172" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Kurt Lieber (klieber)
+Tenure: Apr 2002 to Jul 2013
+Bugs to date: 390
+Commits to date: 3274
+</title></circle><circle cx="501.9979046528137" cy="195.07718186476302" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Andrea Barisani (lcars)
+Tenure: Jul 2003 to Feb 2008
+Bugs to date: 124
+Commits to date: 440
+</title></circle><circle cx="499.4108233430165" cy="142.98935633690337" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Jeffrey Forman (jforman)
+Tenure: Jan 2004 to Jul 2008
+Bugs to date: 627
+Commits to date: 422
+</title></circle><circle cx="428.8190825497633" cy="258.94112933744077" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Christel Dahlskjær (christel)
+Tenure: Mar 2006 to Mar 2008
+Bugs to date: 17
+Commits to date: 135
+</title></circle><circle cx="704.2269663393947" cy="122.58501710444648" r="4" class="active" style="opacity: 1;"><title>Petteri Räty (betelgeuse)
+Tenure: Jul 2005 to present
+Bugs to date: 1183
+Commits to date: 11520
+</title></circle><circle cx="660.9827326564449" cy="142.07967902711587" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Danny van Dyk (kugelfang)
+Tenure: Apr 2004 to Nov 2007
+Bugs to date: 645
+Commits to date: 5731
+</title></circle><circle cx="562.3594193666784" cy="173.85343768207093" r="4" class="active" style="opacity: 1;"><title>Mike Doty (kingtaco)
+Tenure: Nov 2004 to present
+Bugs to date: 240
+Commits to date: 1166
+</title></circle><circle cx="590.6479943045339" cy="175.50199318859194" r="4" class="active" style="opacity: 1;"><title>Lance Albertson (ramereth)
+Tenure: Oct 2003 to present
+Bugs to date: 228
+Commits to date: 1841
+</title></circle><circle cx="568.570956731164" cy="168.8990678156493" r="4" class="active" style="opacity: 1;"><title>Timo Gurr (tgurr)
+Tenure: Sep 2007 to present
+Bugs to date: 280
+Commits to date: 1289
+</title></circle><circle cx="688.3771808222106" cy="139.91213069258575" r="4" class="active" style="opacity: 1;"><title>Mike Pagano (mpagano)
+Tenure: Oct 2007 to present
+Bugs to date: 690
+Commits to date: 8919
+</title></circle><circle cx="471.05864870896283" cy="250.65455693150585" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Marion Agé (titefleur)
+Tenure: Oct 2007 to Feb 2013
+Bugs to date: 22
+Commits to date: 267
+</title></circle><circle cx="100" cy="241.77583251590477" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Elias Pipping (pipping)
+Tenure: Oct 2007 to Mar 2008
+Bugs to date: 29
+Commits to date: 0
+</title></circle><circle cx="574.5658693892678" cy="181.70187574272938" r="4" class="active" style="opacity: 1;"><title>Justin Bronder (jsbronder)
+Tenure: Nov 2007 to present
+Bugs to date: 188
+Commits to date: 1420
+</title></circle><circle cx="575.4751353642822" cy="192.345518190078" r="4" class="active" style="opacity: 1;"><title>Richard Freeman (rich0)
+Tenure: Dec 2007 to present
+Bugs to date: 135
+Commits to date: 1441
+</title></circle><circle cx="508.0289896611846" cy="198.63670701594455" r="4" class="active" style="opacity: 1;"><title>Jean-Noël Rivasseau (elvanor)
+Tenure: Jan 2008 to present
+Bugs to date: 111
+Commits to date: 485
+</title></circle><circle cx="656.513117835926" cy="185.89600497491958" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ingmar Vanhassel (ingmar)
+Tenure: Jan 2008 to Aug 2008
+Bugs to date: 165
+Commits to date: 5332
+</title></circle><circle cx="485.6632740304952" cy="229.11583305597074" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Bo Ørsted Andresen (zlin)
+Tenure: Jan 2008 to Aug 2008
+Bugs to date: 43
+Commits to date: 338
+</title></circle><circle cx="671.2930085268163" cy="135.56228873069333" r="4" class="active" style="opacity: 1;"><title>Ben de Groot (yngwin)
+Tenure: Feb 2008 to Jun 2010 and Apr 2012 to present
+Bugs to date: 790
+Commits to date: 6769
+</title></circle><circle cx="517.7042283465428" cy="247.85802989266077" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ricardo Mendoza (ricmm)
+Tenure: Mar 2008 to Feb 2013
+Bugs to date: 24
+Commits to date: 567
+</title></circle><circle cx="561.7723323181297" cy="198.34845588170202" r="4" class="active" style="opacity: 1;"><title>Kenneth Prugh (ken69267)
+Tenure: Mar 2008 to present
+Bugs to date: 112
+Commits to date: 1155
+</title></circle><circle cx="690.6676262336182" cy="184.74803344259544" r="4" class="active" style="opacity: 1;"><title>Tobias Klausmann (klausman)
+Tenure: Mar 2008 to present
+Bugs to date: 171
+Commits to date: 9255
+</title></circle><circle cx="606.4748298237325" cy="162.09670871718527" r="4" class="active" style="opacity: 1;"><title>Thomas Sachau (tommy)
+Tenure: Mar 2008 to present
+Bugs to date: 346
+Commits to date: 2377
+</title></circle><circle cx="501.2900430065843" cy="214.86207888009207" r="4" class="active" style="opacity: 1;"><title>Markus Duft (mduft)
+Tenure: Apr 2008 to present
+Bugs to date: 67
+Commits to date: 435
+</title></circle><circle cx="588.665287065219" cy="202.64012626928383" r="4" class="active" style="opacity: 1;"><title>Andrey Kislyuk (weaver)
+Tenure: Apr 2008 to present
+Bugs to date: 98
+Commits to date: 1783
+</title></circle><circle cx="612.73944873483" cy="182.56822970809498" r="4" class="active" style="opacity: 1;"><title>Andrey Grozin (grozin)
+Tenure: May 2008 to present
+Bugs to date: 183
+Commits to date: 2630
+</title></circle><circle cx="449.3306572682035" cy="252.14970028024263" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Hammer (mueli)
+Tenure: May 2008 to Jul 2010
+Bugs to date: 21
+Commits to date: 188
+</title></circle><circle cx="683.4201367352061" cy="101.35674523476624" r="4" class="active" style="opacity: 1;"><title>Jeremy Olexa (darkside)
+Tenure: May 2008 to present
+Bugs to date: 2290
+Commits to date: 8233
+</title></circle><circle cx="569.4298841771681" cy="166.04519948410507" r="4" class="active" style="opacity: 1;"><title>Serkan Kaba (serkan)
+Tenure: May 2008 to present
+Bugs to date: 306
+Commits to date: 1307
+</title></circle><circle cx="666.1039130031128" cy="129.7364335278652" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Peter Alfredsen (loki_val)
+Tenure: May 2008 to Feb 2013
+Bugs to date: 947
+Commits to date: 6225
+</title></circle><circle cx="578.2489072074433" cy="174.2577170507496" r="4" class="active" style="opacity: 1;"><title>Panagiotis Christopoulos (pchrist)
+Tenure: May 2008 to present
+Bugs to date: 237
+Commits to date: 1507
+</title></circle><circle cx="100" cy="327.72239792773144" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Matt Fleming (mjf)
+Tenure: Jun 2008 to Mar 2009
+Bugs to date: 2
+Commits to date: 0
+</title></circle><circle cx="601.0026232189916" cy="215.8360863285139" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Friedrich Oslage (bluebird)
+Tenure: Jun 2008 to Jul 2010
+Bugs to date: 65
+Commits to date: 2176
+</title></circle><circle cx="439.3421565500538" cy="191.17666988791783" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Thomas Anderson (tanderson/gentoofan23)
+Tenure: Jun 2008 to Feb 2013
+Bugs to date: 140
+Commits to date: 160
+</title></circle><circle cx="393.233583161743" cy="287.4588641707762" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Ahmed Ammar (b33fc0d3)
+Tenure: Mar 2008 to Nov 2010
+Bugs to date: 7
+Commits to date: 76
+</title></circle><circle cx="569.0496084169228" cy="183.4585854265757" r="4" class="active" style="opacity: 1;"><title>Arun Raghavan (ford_prefect)
+Tenure: Jul 2008 to present
+Bugs to date: 178
+Commits to date: 1299
+</title></circle><circle cx="569.9019689312611" cy="181.87328834121513" r="4" class="active" style="opacity: 1;"><title>Jesus Rivero (neurogeek)
+Tenure: Jul 2008 to present
+Bugs to date: 187
+Commits to date: 1317
+</title></circle><circle cx="540.7818442814583" cy="196.944748685768" r="4" class="active" style="opacity: 1;"><title>Gordon Malm (gengor)
+Tenure: Sep 2008 to present
+Bugs to date: 117
+Commits to date: 823
+</title></circle><circle cx="382.58965601113806" cy="235.73187403245493" r="4" class="active" style="opacity: 1;"><title>Matthew Summers (quantumsummers)
+Tenure: Sep 2008 to present
+Bugs to date: 35
+Commits to date: 64
+</title></circle><circle cx="421.5239287715604" cy="258.94112933744077" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Heath Caldwell (hncaldwell)
+Tenure: Oct 2008 to Jul 2010
+Bugs to date: 17
+Commits to date: 120
+</title></circle><circle cx="502.9755135372667" cy="221.79490625613073" r="4" class="active" style="opacity: 1;"><title>Angelo Arrifano (miknix)
+Tenure: Oct 2008 to present
+Bugs to date: 54
+Commits to date: 447
+</title></circle><circle cx="540.2527861053086" cy="205.02194063761135" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Federico Ferri (mescalinum)
+Tenure: Oct 2008 to Nov 2010
+Bugs to date: 91
+Commits to date: 816
+</title></circle><circle cx="779.1274696083518" cy="99.17303038909975" r="4" class="active" style="opacity: 1;"><title>Tomas Chvatal (scarabeus)
+Tenure: Oct 2008 to present
+Bugs to date: 2451
+Commits to date: 38605
+</title></circle><circle cx="588.665287065219" cy="208.3689862873651" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tiago Cunha (tcunha)
+Tenure: Nov 2008 to Nov 2010
+Bugs to date: 82
+Commits to date: 1783
+</title></circle><circle cx="245.5242647789989" cy="305.44479585546287" r="4" class="active" style="opacity: 1;"><title>Jesús Guerrero (i92guboj)
+Tenure: Nov 2008 to present
+Bugs to date: 4
+Commits to date: 7
+</title></circle><circle cx="125" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Egor Tashilin (pihta)
+Tenure: May 2003 to Jan 2004
+Bugs to date: 0
+Commits to date: 1
+</title></circle><circle cx="100" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Alvari Figueroa (fede2)
+Tenure: Jul 2003 to Oct 2003
+Bugs to date: 1
+Commits to date: 0
+</title></circle><circle cx="253.79482800556903" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Steven Lecompte (rip7)
+Tenure: Apr 2004 to May 2004
+Bugs to date: 0
+Commits to date: 8
+</title></circle><circle cx="407.05447436546916" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Marc Herren (dj-submerge)
+Tenure: Jul 2004 to Sep 2005
+Bugs to date: 0
+Commits to date: 95
+</title></circle><circle cx="769.8040124320648" cy="171.2808821839768" r="4" class="active" style="opacity: 1;"><title>Alexey Shvetsov (alexxy)
+Tenure: Jan 2009 to present
+Bugs to date: 260
+Commits to date: 33210
+</title></circle><circle cx="630.4221141946247" cy="134.36439407677528" r="4" class="active" style="opacity: 1;"><title>Alex Legler (a3li)
+Tenure: Jan 2009 to present
+Bugs to date: 820
+Commits to date: 3499
+</title></circle><circle cx="100" cy="350" r="4" class="active" style="opacity: 1;"><title>Sylvain Alain (d2_racing)
+Tenure: Jan 2009 to present
+Bugs to date: 1
+Commits to date: 0
+</title></circle><circle cx="680.9490725465815" cy="141.93053822106006" r="4" class="active" style="opacity: 1;"><title>Theo Chatzimichos (tampakrap)
+Tenure: Feb 2009 to present
+Bugs to date: 648
+Commits to date: 7911
+</title></circle><circle cx="778.1491314544387" cy="100.13130617493016" r="4" class="active" style="opacity: 1;"><title>Markos Chandras (hwoarang)
+Tenure: Feb 2009 to present
+Bugs to date: 2379
+Commits to date: 38000
+</title></circle><circle cx="373.2030766472448" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Michael Münch (micm)
+Tenure: Feb 2009 to Jul 2010
+Bugs to date: 0
+Commits to date: 55
+</title></circle><circle cx="659.3067271958397" cy="149.18923889104087" r="4" class="active" style="opacity: 1;"><title>Nirbheek Chauhan (nirbheek)
+Tenure: Feb 2009 to present
+Bugs to date: 517
+Commits to date: 5578
+</title></circle><circle cx="100" cy="257.1040701466643" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>George Kadianakis (asn)
+Tenure: Mar 2009 to Feb 2013
+Bugs to date: 18
+Commits to date: 0
+</title></circle><circle cx="639.7849027255055" cy="140.71389840669957" r="4" class="active" style="opacity: 1;"><title>Christian Ruppert (idl0r)
+Tenure: Mar 2009 to present
+Bugs to date: 673
+Commits to date: 4070
+</title></circle><circle cx="563.5171581191767" cy="182.21888076815688" r="4" class="active" style="opacity: 1;"><title>Vadim Kuznetsov (vadimk)
+Tenure: Mar 2009 to present
+Bugs to date: 185
+Commits to date: 1188
+</title></circle><circle cx="727.8640710294985" cy="110.4255006918531" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Arfrever Frehtes Taifersar Arahesis (arfrever)
+Tenure: Mar 2009 to Aug 2010 and Sep 2010 to Oct 2011
+Bugs to date: 1727
+Commits to date: 16873
+</title></circle><circle cx="679.0490332188718" cy="114.15059600092647" r="4" class="active" style="opacity: 1;"><title>Lars Wendler (polynomial-c)
+Tenure: Mar 2009 to present
+Bugs to date: 1538
+Commits to date: 7672
+</title></circle><circle cx="597.1871875675823" cy="176.64996472091602" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Mounir Lamouri (volkmar)
+Tenure: Apr 2009 to Feb 2013
+Bugs to date: 220
+Commits to date: 2046
+</title></circle><circle cx="552.785189418729" cy="202.31383122270725" r="4" class="active" style="opacity: 1;"><title>Robert Piasek (dagger)
+Tenure: May 2009 to present
+Bugs to date: 99
+Commits to date: 999
+</title></circle><circle cx="610.8990023359231" cy="169.12946153366858" r="4" class="active" style="opacity: 1;"><title>Daniel Pielmeier (billie)
+Tenure: May 2009 to present
+Bugs to date: 278
+Commits to date: 2553
+</title></circle><circle cx="534.5314394648224" cy="196.39999350821694" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Romain Perier (mrpouet)
+Tenure: Jun 2009 to Feb 2013
+Bugs to date: 119
+Commits to date: 744
+</title></circle><circle cx="592.6669656933294" cy="156.02091815516843" r="4" class="active" style="opacity: 1;"><title>Victor Ostorga (vostorga)
+Tenure: Jul 2009 to present
+Bugs to date: 418
+Commits to date: 1902
+</title></circle><circle cx="550.4476584259135" cy="195.8643180075488" r="4" class="active" style="opacity: 1;"><title>David Abbott (dabbott)
+Tenure: Jul 2009 to present
+Bugs to date: 121
+Commits to date: 962
+</title></circle><circle cx="663.7824526050905" cy="169.59526368734134" r="4" class="active" style="opacity: 1;"><title>Alex Alexander (wired)
+Tenure: Jul 2009 to present
+Bugs to date: 274
+Commits to date: 5996
+</title></circle><circle cx="391.58182607826075" cy="195.59979152636" r="4" class="active" style="opacity: 1;"><title>Jonathan Callen (jcallen)
+Tenure: Sep 2009 to present
+Bugs to date: 122
+Commits to date: 74
+</title></circle><circle cx="541.4554883587907" cy="221.20516886545312" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Dominik Kapusta (ayoy)
+Tenure: Sep 2009 to Feb 2013
+Bugs to date: 55
+Commits to date: 832
+</title></circle><circle cx="625.0055086437056" cy="178.60755901264199" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Dror Levin (spatz)
+Tenure: Sep 2009 to Feb 2013
+Bugs to date: 207
+Commits to date: 3206
+</title></circle><circle cx="629.061981898843" cy="147.96936624140812" r="4" class="active" style="opacity: 1;"><title>Dirkjan Ochtman (djc)
+Tenure: Sep 2009 to present
+Bugs to date: 537
+Commits to date: 3423
+</title></circle><circle cx="615.7277234725266" cy="200.42271014192136" r="4" class="active" style="opacity: 1;"><title>Fabio Erculiani (lxnay)
+Tenure: Sep 2009 to present
+Bugs to date: 105
+Commits to date: 2760
+</title></circle><circle cx="635.0424937975407" cy="144.2970951544784" r="4" class="active" style="opacity: 1;"><title>Sebastian Pipping (sping)
+Tenure: Oct 2009 to present
+Bugs to date: 602
+Commits to date: 3770
+</title></circle><circle cx="100" cy="314.69083610946643" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Björn Tropf (asym)
+Tenure: Oct 2009 to Nov 2010
+Bugs to date: 3
+Commits to date: 0
+</title></circle><circle cx="368.52634876454994" cy="167.9936618575901" r="4" class="active" style="opacity: 1;"><title>Stefan Behte (craig)
+Tenure: Nov 2009 to present
+Bugs to date: 288
+Commits to date: 51
+</title></circle><circle cx="744.4832672345646" cy="110.0370438728346" r="4" class="active" style="opacity: 1;"><title>Paweł Hajdan (phajdan.jr)
+Tenure: Dec 2009 to present
+Bugs to date: 1748
+Commits to date: 22066
+</title></circle><circle cx="777.961405665692" cy="77.55785461083622" r="4" class="active" style="opacity: 1;"><title>Pacho Ramos (pacho)
+Tenure: Dec 2009 to present
+Bugs to date: 4802
+Commits to date: 37885
+</title></circle><circle cx="629.4587854801075" cy="166.6816516882868" r="4" class="active" style="opacity: 1;"><title>Maciej Mrozowski (reavertm)
+Tenure: Jan 2010 to present
+Bugs to date: 300
+Commits to date: 3445
+</title></circle><circle cx="754.7612172926667" cy="98.75613230491851" r="4" class="active" style="opacity: 1;"><title>Justin Lecher (jlec)
+Tenure: Jan 2010 to present
+Bugs to date: 2483
+Commits to date: 26049
+</title></circle><circle cx="670.0732595706769" cy="128.73407205933285" r="4" class="active" style="opacity: 1;"><title>Chí-Thanh Christopher Nguyễn (chithanh)
+Tenure: Feb 2010 to present
+Bugs to date: 977
+Commits to date: 6637
+</title></circle><circle cx="509.6673025900915" cy="201.67101407424633" r="4" class="active" style="opacity: 1;"><title>Magnus Granberg (zorry)
+Tenure: Mar 2010 to present
+Bugs to date: 101
+Commits to date: 498
+</title></circle><circle cx="502.6977676911823" cy="219.4982304436362" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Tomás Touceda (chiiph)
+Tenure: Apr 2010 to Jan 2012
+Bugs to date: 58
+Commits to date: 445
+</title></circle><circle cx="517.2657329229287" cy="205.37708000834303" r="4" class="active" style="opacity: 1;"><title>Stanislav Ochotnicky (sochotnicky)
+Tenure: Apr 2010 to present
+Bugs to date: 90
+Commits to date: 563
+</title></circle><circle cx="584.795191065361" cy="180.85826337294665" r="4" class="active" style="opacity: 1;"><title>Thomas Beierlein (tomjbe)
+Tenure: Apr 2010 to present
+Bugs to date: 193
+Commits to date: 1675
+</title></circle><circle cx="629.2787352955085" cy="215.34539304097228" r="4" class="active" style="opacity: 1;"><title>José María Alonso (nimiux)
+Tenure: May 2010 to present
+Bugs to date: 66
+Commits to date: 3435
+</title></circle><circle cx="716.6031414180295" cy="118.96595273526216" r="4" class="active" style="opacity: 1;"><title>Kacper Kowalik (xarthisius)
+Tenure: May 2010 to present
+Bugs to date: 1324
+Commits to date: 14068
+</title></circle><circle cx="646.1704761656586" cy="156.9570946144124" r="4" class="active" style="opacity: 1;"><title>Sergei Trofimovich (slyfox)
+Tenure: Jun 2010 to present
+Bugs to date: 406
+Commits to date: 4512
+</title></circle><circle cx="730.2829856609769" cy="135.60299777480924" r="4" class="active" style="opacity: 1;"><title>Anthony G. Basile (blueness)
+Tenure: Jun 2010 to present
+Bugs to date: 789
+Commits to date: 17545
+</title></circle><circle cx="742.0122644281606" cy="116.26667171926883" r="4" class="active" style="opacity: 1;"><title>Tim Harder (radhermit)
+Tenure: Aug 2010 to present
+Bugs to date: 1440
+Commits to date: 21203
+</title></circle><circle cx="684.2867191391307" cy="131.8763693440078" r="4" class="active" style="opacity: 1;"><title>Michael Weber (xmw)
+Tenure: Aug 2010 to present
+Bugs to date: 886
+Commits to date: 8349
+</title></circle><circle cx="755.2561777318298" cy="105.95057816792232" r="4" class="active" style="opacity: 1;"><title>Andreas Hüttel (dilfridge)
+Tenure: Sep 2010 to present
+Bugs to date: 1985
+Commits to date: 26258
+</title></circle><circle cx="639.1424264200924" cy="156.25241821511077" r="4" class="active" style="opacity: 1;"><title>Ole Markus With (olemarkus)
+Tenure: Sep 2010 to present
+Bugs to date: 415
+Commits to date: 4028
+</title></circle><circle cx="550.1895863030229" cy="207.21413919911947" r="4" class="active" style="opacity: 1;"><title>Rafael Martins (rafaelmartins)
+Tenure: Sep 2010 to present
+Bugs to date: 85
+Commits to date: 958
+</title></circle><circle cx="733.6995387808264" cy="136.59581141805234" r="4" class="active" style="opacity: 1;"><title>Michał Górny (mgorny)
+Tenure: Oct 2010 to present
+Bugs to date: 765
+Commits to date: 18540
+</title></circle><circle cx="526.6402784652485" cy="197.49889665538785" r="4" class="active" style="opacity: 1;"><title>Dane Smith (c1pher)
+Tenure: Oct 2010 to present
+Bugs to date: 115
+Commits to date: 655
+</title></circle><circle cx="681.3548615039348" cy="157.03635429954443" r="4" class="active" style="opacity: 1;"><title>Thomas Kahle (tomka)
+Tenure: Oct 2010 to present
+Bugs to date: 405
+Commits to date: 7963
+</title></circle><circle cx="643.2616952002162" cy="147.37636443693134" r="4" class="active" style="opacity: 1;"><title>Eray Aslan (eras)
+Tenure: Nov 2010 to present
+Bugs to date: 547
+Commits to date: 4305
+</title></circle><circle cx="529.9542039052762" cy="239.63238600930012" r="4" class="active" style="opacity: 1;"><title>Constanze Hausner (constanze)
+Tenure: Nov 2010 to present
+Bugs to date: 31
+Commits to date: 691
+</title></circle><circle cx="630.4751956604234" cy="159.85453158240966" r="4" class="active" style="opacity: 1;"><title>Matt Turner (mattst88)
+Tenure: Nov 2010 to present
+Bugs to date: 371
+Commits to date: 3502
+</title></circle><circle cx="483.04318223792313" cy="245.2854743945666" r="4" class="active" style="opacity: 1;"><title>Mu Qiao (qiaomuf)
+Tenure: Nov 2010 to present
+Bugs to date: 26
+Commits to date: 324
+</title></circle><circle cx="381.61424656277086" cy="172.67024446289844" r="4" class="active" style="opacity: 1;"><title>Tim Sammut (underling)
+Tenure: Dec 2010 to present
+Bugs to date: 249
+Commits to date: 63
+</title></circle><circle cx="578.5768350145654" cy="178.76319992712982" r="4" class="active" style="opacity: 1;"><title>Alexys Jacob (ultrabug)
+Tenure: Jan 2011 to present
+Bugs to date: 206
+Commits to date: 1515
+</title></circle><circle cx="616.2194686890949" cy="161.2713906882737" r="4" class="active" style="opacity: 1;"><title>Christoph Junghans (ottxor)
+Tenure: Feb 2011 to present
+Bugs to date: 355
+Commits to date: 2782
+</title></circle><circle cx="585.8220009387958" cy="183.8217507147002" r="4" class="active" style="opacity: 1;"><title>Amadeusz Żołnowski (aidecoe)
+Tenure: Feb 2011 to present
+Bugs to date: 176
+Commits to date: 1703
+</title></circle><circle cx="529.7746756060021" cy="224.9177283415524" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Kevin McCarthy (signals)
+Tenure: Feb 2011 to Jan 2012
+Bugs to date: 49
+Commits to date: 689
+</title></circle><circle cx="574.4785723770922" cy="173.5867159352802" r="4" class="active" style="opacity: 1;"><title>Aaron Swenson (titanofold)
+Tenure: Mar 2011 to present
+Bugs to date: 242
+Commits to date: 1418
+</title></circle><circle cx="434.9305226453808" cy="245.2854743945666" r="4" class="active" style="opacity: 1;"><title>Christopher Brannon (teiresias)
+Tenure: Mar 2011 to Oct 2011 and Jul 2013 to present
+Bugs to date: 26
+Commits to date: 149
+</title></circle><circle cx="647.9698055497983" cy="154.22660373200733" r="4" class="active" style="opacity: 1;"><title>Naohiro Aota (naota)
+Tenure: Mar 2011 to present
+Bugs to date: 442
+Commits to date: 4645
+</title></circle><circle cx="674.4155053732588" cy="173.5867159352802" r="4" class="active" style="opacity: 1;"><title>Maxim Koltsov (maksbotan)
+Tenure: Apr 2011 to present
+Bugs to date: 242
+Commits to date: 7119
+</title></circle><circle cx="373.2030766472448" cy="272.9321590037744" r="4" class="active" style="opacity: 1;"><title>Francisco Blas Izquierdo Riera (klondike)
+Tenure: Apr 2011 to present
+Bugs to date: 11
+Commits to date: 55
+</title></circle><circle cx="531.4595428158368" cy="206.09935278696872" r="4" class="active" style="opacity: 1;"><title>Nathan Phillip Brink (binki)
+Tenure: May 2011 to present
+Bugs to date: 88
+Commits to date: 708
+</title></circle><circle cx="522.7374304212173" cy="219.4982304436362" r="4" class="active" style="opacity: 1;"><title>Marc Schiffbauer (mschiff)
+Tenure: Jun 2011 to present
+Bugs to date: 58
+Commits to date: 615
+</title></circle><circle cx="471.52086891296807" cy="298.2730098616787" r="4" class="active" style="opacity: 1;"><title>Michal Hrušecký (miska)
+Tenure: Jun 2011 to present
+Bugs to date: 5
+Commits to date: 269
+</title></circle><circle cx="292.7291007659914" cy="230.64658835963365" r="4" class="active" style="opacity: 1;"><title>Joachim Bartosik (jbartosik)
+Tenure: Jun 2011 to present
+Bugs to date: 41
+Commits to date: 15
+</title></circle><circle cx="464.96954288146827" cy="228.3769548592373" r="4" class="active" style="opacity: 1;"><title>Stratos Psomadakis (psomas)
+Tenure: Jul 2011 to present
+Bugs to date: 44
+Commits to date: 242
+</title></circle><circle cx="583.7886657933284" cy="207.59449613570553" r="4" class="active" style="opacity: 1;"><title>Andreas Schuerch (nativemad)
+Tenure: Aug 2011 to present
+Bugs to date: 84
+Commits to date: 1648
+</title></circle><circle cx="491.5998301296327" cy="223.63196544690715" r="4" class="active" style="opacity: 1;"><title>Ian Whyman (thev00d00)
+Tenure: Aug 2011 to present
+Bugs to date: 51
+Commits to date: 372
+</title></circle><circle cx="702.1438819051391" cy="133.0586556971362" r="4" class="active" style="opacity: 1;"><title>Mike Gilbert (floppym)
+Tenure: Aug 2011 to present
+Bugs to date: 854
+Commits to date: 11139
+</title></circle><circle cx="583.4872675349004" cy="184.9365371268509" r="4" class="active" style="opacity: 1;"><title>Ian Stakenvicius (axs)
+Tenure: Oct 2011 to present
+Bugs to date: 170
+Commits to date: 1640
+</title></circle><circle cx="696.6772507746131" cy="132.9084695078074" r="4" class="active" style="opacity: 1;"><title>Alexandre Rostovtsev (tetromino)
+Tenure: Oct 2011 to present
+Bugs to date: 858
+Commits to date: 10198
+</title></circle><circle cx="618.3637476690154" cy="153.93705415170731" r="4" class="active" style="opacity: 1;"><title>Davide Pesavento (pesa)
+Tenure: Oct 2011 to present
+Bugs to date: 446
+Commits to date: 2880
+</title></circle><circle cx="601.3715516218103" cy="163.52115687979926" r="4" class="active" style="opacity: 1;"><title>Ralph Sennhauser (sera)
+Tenure: Nov 2011 to present
+Bugs to date: 331
+Commits to date: 2189
+</title></circle><circle cx="624.1103902951036" cy="184.00488389413366" r="4" class="active" style="opacity: 1;"><title>Matt Thode (prometheanfire)
+Tenure: Nov 2011 to present
+Bugs to date: 175
+Commits to date: 3160
+</title></circle><circle cx="617.6934482952092" cy="218.40864182660806" r="4" class="active" style="opacity: 1;"><title>Mark Wright (gienah)
+Tenure: Nov 2011 to present
+Bugs to date: 60
+Commits to date: 2849
+</title></circle><circle cx="459.3471902203167" cy="215.34539304097228" r="4" class="active" style="opacity: 1;"><title>Brian Dolbec (dolsen)
+Tenure: Nov 2011 to present
+Bugs to date: 66
+Commits to date: 221
+</title></circle><circle cx="771.5490972627313" cy="128.86592777671328" r="4" class="active" style="opacity: 1;"><title>Johannes Huber (johu)
+Tenure: Dec 2011 to present
+Bugs to date: 973
+Commits to date: 34159
+</title></circle><circle cx="859.1479365238167" cy="86.11088629404509" r="4" class="active" style="opacity: 1;"><title>Agostino Sarubbo (ago)
+Tenure: Dec 2011 to present
+Bugs to date: 3680
+Commits to date: 140519
+</title></circle><circle cx="512.7010735294898" cy="215.8360863285139" r="4" class="active" style="opacity: 1;"><title>Benda XU (heroxbd)
+Tenure: Dec 2011 to present
+Bugs to date: 65
+Commits to date: 523
+</title></circle><circle cx="441.2480675391307" cy="181.87328834121513" r="4" class="active" style="opacity: 1;"><title>Sean Amoss (ackle)
+Tenure: Jan 2012 to present
+Bugs to date: 187
+Commits to date: 165
+</title></circle><circle cx="100" cy="265.18126209850766" r="4" class="active" style="opacity: 1;"><title>John Graham (john_r_graham)
+Tenure: Jan 2012 to present
+Bugs to date: 14
+Commits to date: 0
+</title></circle><circle cx="738.0155120813589" cy="165.83581903001348" r="4" class="active" style="opacity: 1;"><title>Jeff Horelick (jdhore)
+Tenure: Jan 2012 to present
+Bugs to date: 308
+Commits to date: 19878
+</title></circle><circle cx="245.5242647789989" cy="350" r="4" class="active" style="opacity: 1;"><title>Daniel Kuehn (lejonet)
+Tenure: Feb 2012 to present
+Bugs to date: 1
+Commits to date: 7
+</title></circle><circle cx="483.61403623176346" cy="250.65455693150585" r="4" class="active" style="opacity: 1;"><title>Corentin Chary (iksaif)
+Tenure: Apr 2012 to present
+Bugs to date: 22
+Commits to date: 327
+</title></circle><circle cx="670.723086483498" cy="140.9054923334423" r="4" class="active" style="opacity: 1;"><title>Julian Ospald (hasufell)
+Tenure: Apr 2012 to present
+Bugs to date: 669
+Commits to date: 6707
+</title></circle><circle cx="669.2654530168846" cy="138.0130255635579" r="4" class="active" style="opacity: 1;"><title>Michael Palimaka (kensington)
+Tenure: May 2012 to present
+Bugs to date: 732
+Commits to date: 6551
+</title></circle><circle cx="688.9852940805123" cy="155.56286119482778" r="4" class="active" style="opacity: 1;"><title>Chris Reffett (creffett)
+Tenure: May 2012 to present
+Bugs to date: 424
+Commits to date: 9007
+</title></circle><circle cx="574.259790023556" cy="198.92756679318455" r="4" class="active" style="opacity: 1;"><title>Richard Yao (ryao)
+Tenure: May 2012 to present
+Bugs to date: 110
+Commits to date: 1413
+</title></circle><circle cx="615.0281154452432" cy="184.74803344259544" r="4" class="active" style="opacity: 1;"><title>Richard Farina (zerochaos)
+Tenure: Jun 2012 to present
+Bugs to date: 171
+Commits to date: 2729
+</title></circle><circle cx="596.8532933903158" cy="219.4982304436362" r="4" class="active" style="opacity: 1;"><title>Alexander Vershilov (qnikst)
+Tenure: Jun 2012 to present
+Bugs to date: 58
+Commits to date: 2035
+</title></circle><circle cx="426.0032694900653" cy="272.9321590037744" r="4" class="active" style="opacity: 1;"><title>Vikraman Choudhury (vikraman)
+Tenure: Aug 2012 to present
+Bugs to date: 11
+Commits to date: 129
+</title></circle><circle cx="672.002637786285" cy="131.9126649842656" r="4" class="active" style="opacity: 1;"><title>Sergey Popov (pinkbyte)
+Tenure: Aug 2012 to present
+Bugs to date: 885
+Commits to date: 6847
+</title></circle><circle cx="100" cy="327.72239792773144" r="4" class="active" style="opacity: 1;"><title>Andrea Arteaga (spiros)
+Tenure: Sep 2012 to present
+Bugs to date: 2
+Commits to date: 0
+</title></circle><circle cx="520.8975757405569" cy="249.2258867937091" r="4" class="active" style="opacity: 1;"><title>Jason Donenfeld (zx2c4)
+Tenure: Oct 2012 to present
+Bugs to date: 23
+Commits to date: 597
+</title></circle><circle cx="638.1972747680837" cy="156.48559785486125" r="4" class="active" style="opacity: 1;"><title>Ian Delaney (idella4)
+Tenure: Oct 2012 to present
+Bugs to date: 412
+Commits to date: 3967
+</title></circle><circle cx="443.82149726855863" cy="220.62605795397053" r="4" class="active" style="opacity: 1;"><title>Pavlos Ratis (dastergon)
+Tenure: Nov 2012 to present
+Bugs to date: 56
+Commits to date: 172
+</title></circle><circle cx="464.713073695613" cy="244.0725083283993" r="4" class="active" style="opacity: 1;"><title>Dion Moult (moult)
+Tenure: Dec 2012 to present
+Bugs to date: 27
+Commits to date: 241
+</title></circle><circle cx="643.9342325541813" cy="139.54163914289836" r="4" class="active" style="opacity: 1;"><title>Tom Wijsman (tomwij)
+Tenure: Feb 2013 to present
+Bugs to date: 698
+Commits to date: 4352
+</title></circle><circle cx="528.1350652190121" cy="226.25707988726646" r="4" class="active" style="opacity: 1;"><title>Vicente Olivert Riera (vincent)
+Tenure: Mar 2013 to present
+Bugs to date: 47
+Commits to date: 671
+</title></circle><circle cx="329.1349726756579" cy="390" r="4" class="active" style="opacity: 1;"><title>Mats Lidell (matsl)
+Tenure: Mar 2013 to present
+Bugs to date: 0
+Commits to date: 27
+</title></circle><circle cx="394.04323155213825" cy="327.72239792773144" r="4" class="active" style="opacity: 1;"><title>Slawek Lis (slis)
+Tenure: Apr 2013 to present
+Bugs to date: 2
+Commits to date: 77
+</title></circle><circle cx="438.95383415023525" cy="242.9036600262391" r="4" class="active" style="opacity: 1;"><title>Jan Matejka (yac)
+Tenure: Apr 2013 to present
+Bugs to date: 28
+Commits to date: 159
+</title></circle><circle cx="625.8307107664994" cy="158.74762160358657" r="4" class="active" style="opacity: 1;"><title>Mikle Kolyada (zlogene)
+Tenure: Jun 2013 to present
+Bugs to date: 384
+Commits to date: 3249
+</title></circle><circle cx="412.06222845256974" cy="314.69083610946643" r="4" class="active" style="opacity: 1;"><title>Vladimir Romanov (blueboar)
+Tenure: Jun 2013 to present
+Bugs to date: 3
+Commits to date: 103
+</title></circle><circle cx="403.0136578170768" cy="298.2730098616787" r="4" class="active" style="opacity: 1;"><title>José Fournier (jaaf)
+Tenure: Jul 2013 to present
+Bugs to date: 5
+Commits to date: 89
+</title></circle><circle cx="642.2024174075012" cy="190.49523547060954" r="4" class="active" style="opacity: 1;"><title>Manuel Rüger (mrueg)
+Tenure: Jul 2013 to present
+Bugs to date: 143
+Commits to date: 4232
+</title></circle><circle cx="400.1654677467695" cy="267.5630764668351" r="4" class="active" style="opacity: 1;"><title>Devan Franchini (twitch153)
+Tenure: Aug 2013 to present
+Bugs to date: 13
+Commits to date: 85
+</title></circle><circle cx="467.47746523315016" cy="244.0725083283993" r="4" class="active" style="opacity: 1;"><title>Johann Schmitz (ercpe)
+Tenure: Aug 2013 to present
+Bugs to date: 27
+Commits to date: 252
+</title></circle><circle cx="367.2998290834006" cy="265.18126209850766" r="4" class="active" style="opacity: 1;"><title>Heather Cynede (cynede)
+Tenure: Sep 2013 to present
+Bugs to date: 14
+Commits to date: 50
+</title></circle><circle cx="329.1349726756579" cy="314.69083610946643" r="4" class="active" style="opacity: 1;"><title>Ruud Koolen (redlizard)
+Tenure: Oct 2013 to present
+Bugs to date: 3
+Commits to date: 27
+</title></circle><circle cx="378.59231943637076" cy="287.4588641707762" r="4" class="active" style="opacity: 1;"><title>Pavel Kazakov (nullishzero)
+Tenure: Oct 2013 to present
+Bugs to date: 7
+Commits to date: 60
+</title></circle><circle cx="378.59231943637076" cy="287.4588641707762" r="4" class="active" style="opacity: 1;"><title>Vladimir Smirnov (civil)
+Tenure: Nov 2013 to present
+Bugs to date: 7
+Commits to date: 60
+</title></circle><circle cx="313.5692556708849" cy="350" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Marcelo Gonçalves de Azambuja (azambuja)
+Tenure: Jan 2004 to May 2004
+Bugs to date: 1
+Commits to date: 21
+</title></circle><circle cx="329.1349726756579" cy="262.96384597114513" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Guillaume Morin (arachne)
+Tenure: Apr 2003 to Jul 2003
+Bugs to date: 15
+Commits to date: 27
+</title></circle><circle cx="324.3682197482109" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Bahadır Kandemir (bahadir)
+Tenure: Nov 2004 to Jan 2005
+Bugs to date: 0
+Commits to date: 25
+</title></circle><circle cx="515.9313067319565" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Yuji Carlos Kosugi (carlos)
+Tenure: Mar 2003 to Sep 2004
+Bugs to date: 0
+Commits to date: 551
+</title></circle><circle cx="414.42202700625245" cy="390" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Faust A. Tanasescu (davoid)
+Tenure: Jun 2002 to Nov 2002
+Bugs to date: 0
+Commits to date: 107
+</title></circle><circle cx="100" cy="265.18126209850766" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Haim Ashkenazi (haim)
+Tenure: Mar 2004 to Jan 2005
+Bugs to date: 14
+Commits to date: 0
+</title></circle><circle cx="351.91082323953873" cy="275.99540778941014" r="2.8284271247461903" class="retired" style="opacity: 1;"><title>Thomas Ferencz (strangedr)
+Tenure: Sep 2003 to Nov 2003
+Bugs to date: 10
+Commits to date: 39
+</title></circle><circle cx="333.5609422405929" cy="249.2258867937091" r="4" class="active" style="opacity: 1;"><title>Michael Orlitzky (mjo)
+Tenure: Nov 2013 to present
+Bugs to date: 23
+Commits to date: 29
+</title></circle><circle cx="429.72994043430396" cy="279.38167221893286" r="4" class="active" style="opacity: 1;"><title>Nicolas Bock (nicolasbock)
+Tenure: Dec 2013 to present
+Bugs to date: 9
+Commits to date: 137
+</title></circle><circle cx="479.70502819171685" cy="233.94587090647815" r="4" class="active" style="opacity: 1;"><title>Yixun Lan (dlan)
+Tenure: Jan 2014 to present
+Bugs to date: 37
+Commits to date: 307
+</title></circle><circle cx="373.2030766472448" cy="305.44479585546287" r="4" class="active" style="opacity: 1;"><title>Samuel Damashek (sdamashek)
+Tenure: Jan 2014 to present
+Bugs to date: 4
+Commits to date: 55
+</title></circle><circle cx="100" cy="350" r="4" class="active" style="opacity: 1;"><title>Alexander Berntsen (bernalex)
+Tenure: Jan 2014 to present
+Bugs to date: 1
+Commits to date: 0
+</title></circle></svg>
