@@ -4,7 +4,7 @@
       	<div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
         	<hr class="section-heading-spacer">
 			<div class="clearfix"></div>
-			<h2 class="section-heading">Data</h2>
+			<h2 class="section-heading">Data Visualization</h2>
 			<p class="lead">Turning numbers into pictures.</p>
       	</div><!--.col-lg-5 .col-lg-offset-1 .col-sm-push-6 .col-sm-6-->
 		<div class="col-lg-5 col-sm-pull-6 col-sm-6">
@@ -13,14 +13,30 @@
 					<!-- placeholder for now -->
 				</ol>
 				<div class="carousel-inner">
-				{% for viz in site.viz %}
-				<div class="item{% if viz.active %} active {% endif %}">
-					{{ viz }}
-					<a href="{{ viz.url }}">><img src="images/tortilla.png"></a>
+					<div class="item active">
+						<a href="/viz/svx/detail/"><img src="/viz/svx/detail/thumbnail.png"></a>
 						<div class="carousel-caption">
+							<h3>"Wishy-Washy" Widget</h3>
+							<p><em>commissioned for a Pairwise Voting app (to encourage fair process in decision-making)</em><br/>
+							Shows one question with all its choices and voting results for each choice.</p>
+						</div><!--.carousel-caption-->
+					</div><!--.item .active-->
+					<div class="item">
+						<a href="/viz/svx/overview/"><img src="/viz/svx/overview/thumbnail.png"></a>
+						<div class="carousel-caption">
+							<h3>"Zoomy-Turny" Widget</h3>
+							<p><em>commissioned for a Pairwise Voting app (to encourage fair process in decision-making)</em><br/>
+							Shows a time-sorted collection of questions, groupable by category.  Includes the ability to zoom into a single user.</p>
 						</div><!--.carousel-caption-->
 					</div><!--.item-->
-				{% endfor %}
+					<div class="item">
+						<a href="/viz/gentoo/galaxy/"><img src="/viz/gentoo/galaxy/thumbnail.png"></a>
+						<div class="carousel-caption">
+							<h3>Gentoo Developers Galaxy</h3>
+							<p><em>Personal project for <a href="http://gentoo.org/">Gentoo Linux</a></em><br/>
+							Head-count and activity of ~800 Gentoo developers over 15 years.</p>
+						</div><!--.carousel-caption-->
+					</div><!--.item-->
 				</div><!--.carousel-inner-->
 			</div><!--.carousel-slide .#carousel-viz-->
 		</div><!--.col-lg-5 .col-sm-pull-6 .col-sm-6-->
