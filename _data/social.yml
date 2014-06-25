@@ -13,3 +13,7 @@
     - href: "https://www.linkedin.com/in/seemantk"
       title: LinkedIn
       icon: fa-linkedin
+
+    - href: "mailto:seemantk@gmailREMOVETHIS.com"
+      title: e-mail
+      icon: fa-envelope
