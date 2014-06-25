@@ -5,7 +5,7 @@ function questify(dataset, me) {
 
 	var bladeTweens = {};
 
-    var width = 640,
+    var width = 500,
         height = 500,
         radius = Math.min(width, height)/2,
         duration = 750; // milliseconds
@@ -200,6 +200,8 @@ function questify(dataset, me) {
 		/*
 		 * Legend table and controls
 		 */
+		// Attach the all/me dropdown to the magnifier() function
+		d3.select("#filter").on("change", magnifier);
 		var legend = d3.select("#legend");
 
 		// Header Row
@@ -210,19 +212,7 @@ function questify(dataset, me) {
 			  .enter().append("th")
 				.attr("colspan", function(d) { return d === "none" ? 3 : 2; })
 				.each(function(d) {
-					if(d!=="none") {
-						d3.select(this)
-					  	  .append("label")
-							.attr("for", "filter")
-							.text("View: ")
-					  	  .append("select")
-							.attr("class", "form-control")
-							.attr("id", "filter")
-							.on("change", magnifier)
-					  	  .selectAll("option").data(zooms)
-						.enter().append("option")
-							.html(function(d) { return d; })
-					} else {
+					if(d==="none") {
 						d3.select(this)
 						  .append("div")
 							.attr("class", "checkbox")
