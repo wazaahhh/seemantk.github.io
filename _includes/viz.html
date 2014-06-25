@@ -13,9 +13,12 @@
       	</div><!--.col-lg-5 .col-lg-offset-1 .col-sm-push-6 .col-sm-6-->
 		<div class="col-lg-5 col-sm-pull-6 col-sm-6">
 			<div class="carousel slide" id="carousel-viz" data-ride="carousel-viz">
-				<ol class="carousel-indicators">
-					<!-- placeholder for now -->
-				</ol>
+                <ol class="carousel-indicators">
+                	<li class="active" data-slide-to="0" data-target="#carousel-viz">
+                	<li data-slide-to="1" data-target="#carousel-viz">
+                	<li data-slide-to="2" data-target="#carousel-viz">
+                </ol>
+
 				<div class="carousel-inner">
 					<div class="item active">
 						<a href="/viz/svx/detail/"><img src="/viz/svx/detail/thumbnail.png"></a>
@@ -36,6 +39,15 @@
 						</div><!--.carousel-caption-->
 					</div><!--.item-->
 				</div><!--.carousel-inner-->
+                <!-- Next and Previous controls -->
+                <a href="#carousel-viz" class="carousel-control left"
+                   data-slide="prev">
+                    <span class="fa fa-chevron-left icon-prev"></span>
+                </a>
+                <a href="#carousel-viz" class="carousel-control right"
+                   data-slide="next">
+                    <span class="fa fa-chevron-right icon-next"></span>
+                </a>
 			</div><!--.carousel-slide .#carousel-viz-->
 		</div><!--.col-lg-5 .col-sm-pull-6 .col-sm-6-->
     </div><!--.row-->
