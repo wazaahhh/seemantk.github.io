@@ -55,23 +55,24 @@
 		<div class="row">
 			<div class="col-sm-12 text-center">
 				<h3>
-					Issues:
+					Issues by:
 					<select id="filter">
 						<option>all</option>
 						<option>me</option>
 					</select>
 				</h3>
 			</div>
-			<div class="col-sm-3 metadata table-responsive text-center">
+			<div class="col-sm-4 metadata table-responsive text-center">
 				<table id="legend" class="table table-condensed">
 					<thead></thead>
 					<tbody></tbody>
 				</table>
-			</div><!--.col-sm-3 .metadata-->
-			<div class="col-sm-7 viz text-center"></div><!--.col-sm-7 .viz-->
-			<div class="col-sm-2 nav text-center">
-				<ul class="list-group" id="questions-nav"></ul>
-			</div><!--.col-sm-2 .nav-->
+			</div><!--.col-sm-4 .metadata-->
+			<div class="col-sm-8 viz text-center"></div><!--.col-sm-8 .viz-->
+			<div class="col-sm-12 nav text-center">
+				<h5>Users ("Me")</h5>
+				<ul class="list-inline" id="questions-nav"></ul>
+			</div><!--.col-sm-12 .nav-->
 		</div><!--.row-->
 		<div class="tooltip"><!--for use by d3 for tooltips-->
 		<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.5/d3.min.js"

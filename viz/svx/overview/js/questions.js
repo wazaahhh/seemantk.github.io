@@ -200,6 +200,8 @@ function questify(dataset, me) {
 		/*
 		 * Legend table and controls
 		 */
+		// Reset the all/me dropdown to "all" on load
+		d3.select("#filter").node().value = "all";
 		// Attach the all/me dropdown to the magnifier() function
 		d3.select("#filter").on("change", magnifier);
 		var legend = d3.select("#legend");
