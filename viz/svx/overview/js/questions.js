@@ -201,6 +201,8 @@ function questify(dataset, me) {
 		 * Legend table and controls
 		 */
 		// Reset the all/me dropdown to "all" on load
+		d3.select("#viz-title").append("text")
+			.html("Issues: <select id=\"filter\"><option>me</option><option>all</option></select>");
 		d3.select("#filter").node().value = "all";
 		// Attach the all/me dropdown to the magnifier() function
 		d3.select("#filter").on("change", magnifier);
@@ -518,7 +520,9 @@ function pre_questify (error, incdata) {
 					.key(function(d) { return d.username; })
 					.map(dataset, d3.map);
 
-	d3.select("#questions-nav").selectAll("li")
+	d3.select("#viz-nav")
+		.attr("class", "pagination");
+	d3.select("#viz-nav").selectAll("li")
 		.data(users.keys().sort(d3.ascending), function(d) { return d; })
 	  .enter().append("li")
 		.attr("id", function(d, i) { return "button" + i; })
@@ -544,3 +548,8 @@ function pre_questify (error, incdata) {
 
 	d3.select("#button2").each(function(d) { this.click(); });
 }
+
+queue()
+    .defer(d3.json, "questions.json")
+    .await(pre_questify);
+
