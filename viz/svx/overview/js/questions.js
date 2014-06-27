@@ -1,3 +1,7 @@
+queue()
+    .defer(d3.json, "questions.json")
+    .await(pre_questify);
+
 function questify(dataset, me) {
 	var radios = ['none', 'questions'],
 		columns = ['category', 'fill', 'questions', 'votes'],
@@ -541,10 +545,5 @@ function pre_questify (error, incdata) {
 		});
 
 	d3.select("#button2").each(function(d) { this.click(); });
-	$("#button2").click();
+	d3.select("#button4").each(function(d) { this.click(); });
 }
-
-queue()
-    .defer(d3.json, "questions.json")
-    .await(pre_questify);
-
