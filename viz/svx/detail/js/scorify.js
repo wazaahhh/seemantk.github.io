@@ -1,3 +1,5 @@
+scorify();
+
 function scorify() {
     var perspective = "winloss",
 		cycle = 500,
@@ -372,8 +374,4 @@ function scorify() {
 		return d3.descending(+a.score, +b.score);
 	}
 } // scorify()
-
-scorify();
-d3.select("#button6")
-	.each(function(d) { this.click(); });
 
