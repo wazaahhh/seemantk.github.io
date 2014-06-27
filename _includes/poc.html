@@ -1,0 +1,42 @@
+<div class="col-xl-12 page-header text-center">
+	<h1>Data Visualization</h1>
+</div><!--.page-header-->
+
+<!-- The Visualization -->
+<div class="container">
+	<div class="row">
+		<h3 class="text-center" id="viz-title"></h3>
+		<div class="col-lg-{{ page.legendwidth }} metadata table-responsive text-center">
+			<table id="legend" class="table table-condensed">
+				<thead></thead>
+				<tbody></tbody>
+			</table><!--.table#legend-->
+		</div><!--.metadata-->
+
+		<div class="col-lg-{{ page.vizwidth }} viz text-center">
+		</div><!--.viz-->
+
+		<div class="col-lg-{{ page.navwidth }} nav text-center">
+			<h6>{{ page.navname }}</h6>
+			<ul class="list-group" id="viz-nav"></ul>
+		</div><!--.nav-->
+	</div><!--.row-->
+</div><!--.container-->
+
+<!-- The explanations -->
+<div class="content-section-a" id="explanation">
+    <div class="container">
+        <div class="row">
+            <h3 class="section-heading">{{ page.title }}</h3>
+			{{ content }}
+		</div><!--.row-->
+	</div><!--.container-->
+</div><!--.content-section-a #explanation-->
+
+<!-- Auxiliary files needed -->
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+
+<script src="{{ page.script }}" charset="utf-8"></script>
+
+<link href="css/style.css" rel="stylesheet">
