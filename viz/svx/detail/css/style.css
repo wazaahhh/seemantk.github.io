@@ -1,0 +1,44 @@
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 10px;
+    font: 12px sans-serif;
+    background: #ffb;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#legend {
+    overflow: hidden;
+}
+
+#legend th {
+    white-space: nowrap;
+}
+
+table {
+    text-align: left;
+}
+
+.lossfill {
+    fill-opacity: 0.6;
+}
+
+td.wins,
+td.votes {
+    text-align: right;
+}
+
+td.losses {
+    text-align: left;
+}
+
+path {
+    stroke: #fff;
+    stroke-width: 1.5;
+}
+
+circle {
+    stroke-width: 0;
+}

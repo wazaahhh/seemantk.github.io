@@ -43,7 +43,7 @@ function scorify() {
 		.outerRadius(function(d) { return rtotal(d.data.wins + d.data.losses); })
 		.innerRadius(radius/3 - 3);
 
-    d3.select("#questions-nav").selectAll("li")
+    d3.select("#viz-nav").selectAll("li")
         .data(questions, function(d) { return d; })
       .enter().append("li")
         .attr("id", function(d) { return "button" + d; })
@@ -102,7 +102,7 @@ function scorify() {
 
 
 		// Change the Question display
-		d3.select("#question-statement")
+		d3.select("#viz-title")
 			.html("&quot;" + question.full_question + "&quot;");
 
 		// Draw new one
@@ -381,3 +381,8 @@ function scorify() {
 		return d3.descending(+a.score, +b.score);
 	}
 } // scorify()
+
+scorify();
+d3.select("#button6")
+	.each(function(d) { this.click(); });
+
