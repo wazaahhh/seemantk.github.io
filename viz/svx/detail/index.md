@@ -1,5 +1,5 @@
 ---
-layout: poc
+layout: viz/poc
 title: Pairwise Voting
 tagline: Visualization of the voting results of a single question.
 script: js/scorify.js

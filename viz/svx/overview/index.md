@@ -1,5 +1,5 @@
 ---
-layout: poc
+layout: viz/poc
 title: Pairwise Voting
 tagline: Visualization of all the questions created/voted.
 script: js/questions.js
