@@ -541,6 +541,7 @@ function pre_questify (error, incdata) {
 		});
 
 	d3.select("#button2").each(function(d) { this.click(); });
+	$("#button2").click();
 }
 
 queue()
