@@ -43,24 +43,15 @@ function scorify() {
 		.outerRadius(function(d) { return rtotal(d.data.wins + d.data.losses); })
 		.innerRadius(radius/3 - 3);
 
-    d3.select("#viz-nav").selectAll("li")
+    d3.select("#viz-nav").selectAll("button")
         .data(questions, function(d) { return d; })
-      .enter().append("li")
+      .enter().append("button")
         .attr("id", function(d) { return "button" + d; })
-        .attr("class", "list-group-item list-group-item-success")
+		.attr("type", "button")
+        .attr("class", "btn btn-primary")
         .text(function(d) { return d; })
         .style("cursor", "pointer")
-        .on("click", function(d) {
-            d3.select(".list-group-item-warning")
-                .classed("list-group-item-success", true)
-                .classed("list-group-item-warning", false);
-
-            d3.select(this)
-                .classed("list-group-item-warning", true)
-                .classed("list-group-item-success", false);
-
-            get_data(d);
-        });
+        .on("click", get_data);
 
 
 	// Define draw area

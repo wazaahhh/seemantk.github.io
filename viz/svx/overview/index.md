@@ -4,9 +4,6 @@ title: Pairwise Voting
 tagline: Visualization of all the questions created/voted.
 script: js/questions.js
 commissioned: true
-legendwidth: 4
-vizwidth: 8
-navwidth: 12
 navname: More Users
 ---
     This represents all the questions by all the users to date.

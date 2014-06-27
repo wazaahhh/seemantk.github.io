@@ -4,9 +4,6 @@ title: Pairwise Voting
 tagline: Visualization of the voting results of a single question.
 script: js/scorify.js
 commissioned: true
-legendwidth: 4
-vizwidth: 7
-navwidth: 1
 navname: More Questions
 ---
 The client was developing a pairwise voting application to promote fair process in decision making within organizations. It works kind of like the eye doctor (do you like this or this better? what about this or this? -- always a binary choice, until you've been asked all/enough permutations -- to enable fair process decision-making.

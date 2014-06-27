@@ -6,19 +6,19 @@
 <div class="container">
 	<div class="row">
 		<h3 class="text-center" id="viz-title"></h3>
-		<div class="col-lg-{{ page.legendwidth }} metadata table-responsive text-center">
+		<div class="col-lg-4 col-sm-4 metadata table-responsive text-center">
 			<table id="legend" class="table table-condensed">
 				<thead></thead>
 				<tbody></tbody>
 			</table><!--.table#legend-->
 		</div><!--.metadata-->
 
-		<div class="col-lg-{{ page.vizwidth }} viz text-center">
+		<div class="col-lg-8 col-sm-8 viz text-center">
 		</div><!--.viz-->
 
-		<div class="col-lg-{{ page.navwidth }} nav text-center">
-			<h6>{{ page.navname }}</h6>
-			<ul class="list-group" id="viz-nav"></ul>
+		<div class="col-lg-12 col-sm-12 nav text-center">
+			{{ page.navname }}: <div class="btn-group" id="viz-nav">
+			</div><!--.btn-group #viz-nav-->
 		</div><!--.nav-->
 	</div><!--.row-->
 </div><!--.container-->

@@ -10,7 +10,6 @@ function questify(dataset, me) {
         radius = Math.min(width, height)/2,
         duration = 750; // milliseconds
 
-	var zooms = ["all", "me"]; // and user_groups
 	var magnification = "all", // initial magnification
 		categorylock  = true;
 
@@ -201,8 +200,6 @@ function questify(dataset, me) {
 		 * Legend table and controls
 		 */
 		// Reset the all/me dropdown to "all" on load
-		d3.select("#viz-title").append("text")
-			.html("Issues: <select id=\"filter\"><option>me</option><option>all</option></select>");
 		d3.select("#filter").node().value = "all";
 		// Attach the all/me dropdown to the magnifier() function
 		d3.select("#filter").on("change", magnifier);
@@ -514,30 +511,27 @@ function pre_questify (error, incdata) {
 	});
 
 	/*
+	 * Viz title, with a select box
+	 */
+	d3.select("#viz-title").append("text")
+		.html("Issues: <select id=\"filter\"><option>me</option><option>all</option></select>");
+
+	/*
 	 * Placeholder for what the upstream datashape may look like
 	 */
 	var users = d3.nest()
 					.key(function(d) { return d.username; })
 					.map(dataset, d3.map);
 
-	d3.select("#viz-nav")
-		.attr("class", "pagination");
-	d3.select("#viz-nav").selectAll("li")
+	d3.select("#viz-nav").selectAll("button")
 		.data(users.keys().sort(d3.ascending), function(d) { return d; })
-	  .enter().append("li")
+	  .enter().append("button")
 		.attr("id", function(d, i) { return "button" + i; })
-		.attr("class", "list-group-item list-group-item-success")
+		.attr("type", "button")
+		.attr("class", "btn btn-primary")
 		.text(function(d) { return d; })
 		.style("cursor", "pointer")
 		.on("click", function(d) {
-			d3.select(".list-group-item-warning")
-				.classed("list-group-item-success", true)
-				.classed("list-group-item-warning", false);
-
-			d3.select(this)
-				.classed("list-group-item-warning", true)
-				.classed("list-group-item-success", false);
-
 			d3.selectAll(".mainviz").remove();
 			d3.selectAll("th").remove();
 			d3.selectAll("tr").remove();
