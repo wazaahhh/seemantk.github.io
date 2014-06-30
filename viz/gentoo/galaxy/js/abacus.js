@@ -7,8 +7,10 @@ var margin = {top: 30, right: 20, bottom: 40, left: 50},
 
 var runtime = 132 * 1000; // 132 seconds total run time
 
-var dev;
-var hrinfo = [];
+var dev,
+	hrinfo = [];
+
+var columns = ['shape', 'status'];
 
 // Date-time formatter: YYYYMM is the format in the data file.
 var titleDate = d3.time.format("%b %Y"),
@@ -198,7 +200,7 @@ function galactify(error, developers, gentoo) {
 	 * the year.
 	 */
 	
-	var tardis = d3.select(".tardis").append("svg")
+	var tardis = d3.select("#tardis").append("svg")
 					.attr("width", width)
 					.attr("height", theight + tmargtop);
 
@@ -309,7 +311,7 @@ function galactify(error, developers, gentoo) {
 	/*
 	 * Step 1: Put an SVG into the div
 	 */
-	var graph = d3.select(".viz").append("svg")
+	var graph = d3.select("#viz").append("svg")
 			.attr("class", "graph")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
@@ -359,34 +361,39 @@ function galactify(error, developers, gentoo) {
 		.style("text-anchor", "middle")
 		.text("bugs RESOLVED");
 
-	var legend = d3.select(".legend").append("dl")
-		.selectAll("dt")
-		.data(fillColor.domain())
-	  .enter().append("dt")
-		.attr("class", "key");
+	var rows = d3.select("#legend").select("tbody").selectAll("tr")
+					.data(fillColor.domain())
+				  .enter().append("tr");
 
-	legend.append("svg")
+	var cells = rows.selectAll("td")
+					.data(function(row) {
+						return columns.map(function(col) {
+							return [col, row];
+						});
+					})
+				  .enter().append("td");
+
+	cells.filter(function(d) { return d[0] === "shape"; })
+		.append("svg")
 		.attr("height", 20)
 		.attr("width", 20)
 		.attr("transform", "translate(0,0)")
-	.append("circle")
+	  .append("circle")
 		.attr("cx", 10)
 		.attr("cy", 10)
 		.attr("r", function(d) {
-			return d === "joinpart" ? "retired" : rScale(r(d)); })
-		.attr("class", function(d) { return d; })
-		;
+			return d === "joinpart" ? "retired" : rScale(r(d[1])); })
+		.attr("class", function(d) { return d[1]; });
 
-	legend.append("dd")
+	cells.filter(function(d) { return d[0] !== "shape"; })
 		.attr("class", "text-left")
-		.text(function(d) { return d; });
+		.text(function(d) { return d[1]; });
 
 
 	d3.select("#pause").on("click", function() {
 		anim.pause = !anim.pause;
 		draw();
 	});
-
 	d3.select("#play").on("click", function() {
 		anim.fwd = true;
 		if(anim.pause) {

@@ -1,4 +1,4 @@
-body, .panel-body {
+.viz, .panel-body {
 	background-color: #04000a;
 }
 
@@ -7,10 +7,6 @@ body, .panel-body {
 	fill: none;
 	stroke: #ccc;
 	shape-rendering: crispEdges;
-}
-
-h1 {
-	color: #ffbbbb;
 }
 
 .label,
@@ -66,14 +62,6 @@ circle {
 }
 
 /* other things */
-input {
-	display: block;
-}
-
-h4, dd {
-	color: #e5dff0;
-}
-
 dt {
 	float:left;
 	clear: left;
