@@ -96,7 +96,7 @@ function scorify() {
 
 		// Change the Question display
 		d3.select("#viz-title")
-			.html("&quot;" + question.full_question + "&quot;");
+			.html("<em>&quot;" + question.full_question + "&quot;</em>");
 
 
 		// Draw new one
