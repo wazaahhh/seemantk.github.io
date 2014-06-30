@@ -1,7 +1,20 @@
-.page-header {
-	margin: 50px 0 0; /* below the fixed navbar */
-	padding-top: 10px;
+.page-header h1,
+.page-header h2,
+.page-header h3,
+.page-header h4,
+.page-header h5,
+.page-header h6 {
+	display: inline-block;
 }
+
+.intro-header {
+	padding-top: 0;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
 
 .btn-default {
 	color: #000;
