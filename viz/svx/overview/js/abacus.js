@@ -527,14 +527,11 @@ function pre_questify (error, incdata) {
 					.key(function(d) { return d.username; })
 					.map(dataset, d3.map);
 
-	d3.select("#viz-nav").selectAll("button")
+	d3.select("#viz-nav").selectAll("li")
 		.data(users.keys().sort(d3.ascending), function(d) { return d; })
-	  .enter().append("button")
-		.attr("id", function(d, i) { return "button" + i; })
-		.attr("type", "button")
-		.attr("class", "btn btn-info")
-		.text(function(d) { return d; })
-		.style("cursor", "pointer")
+	  .enter().append("li")
+	  	.attr("id", function(d, i) { return "button" + i; })
+		.html(function(d) { return "<a href=\"#visualization\">" + d + "</a>"; })
 		.on("click", function(d) {
 			d3.selectAll(".mainviz").remove();
 			d3.selectAll("th").remove();

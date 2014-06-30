@@ -45,14 +45,12 @@ function scorify() {
 		.outerRadius(function(d) { return rtotal(d.data.wins + d.data.losses); })
 		.innerRadius(radius/3 - 3);
 
-    d3.select("#viz-nav").selectAll("button")
+    d3.select("#viz-nav").selectAll("li")
         .data(questions, function(d) { return d; })
-      .enter().append("button")
-        .attr("id", function(d) { return "button" + d; })
-		.attr("type", "button")
-        .attr("class", "btn btn-info")
-        .text(function(d) { return d; })
-        .style("cursor", "pointer")
+      .enter().append("li")
+        .html(function(d) {
+			return "<a href=\"#visualization\">" + d + "</a>";
+		})
         .on("click", get_data);
 
 
@@ -96,7 +94,7 @@ function scorify() {
 
 		// Change the Question display
 		d3.select("#viz-title")
-			.html("<em>&quot;" + question.full_question + "&quot;</em>");
+			.html("Question: <em>" + question.full_question + "</em>");
 
 
 		// Draw new one
@@ -159,10 +157,10 @@ function scorify() {
 
 		// Legend
 		// Add the title
-		d3.select("#legend-title").html("Voting Results for:");
+		d3.select("#legend-title").html("Voting Results");
 		var legend = d3.select("#legend");
 		legend.transition().select("#question-statement")
-			.text(question.name);
+			.text("Question: " + question.name);
 
 		// Header Row
 		var header = legend.select("thead");
