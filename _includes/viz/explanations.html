@@ -1,0 +1,25 @@
+    <!-- The explanations -->
+    <section id="description">
+        <div class="content-section-a">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6" id="vizabout">
+                        <h3><small>About This Viz</small></h3>
+                        {{ content }}
+                    </div><!--/#vizabout-->
+                    <div class="list-group col-lg-4 col-sm-6" id="vizhow">
+                        <h3><small>How it Works</small></h3>
+                        {% for step in page.howto %}
+                        <div class="list-group-item">
+                            <h4>{{ step.component }}</h4>
+                            {{ step.step | markdownify }}
+                        </div>
+                        {% endfor %}
+                    </div><!--.list-group #vizhow-->
+                    <div class="col-lg-4 col-sm-6" id="related">
+                    </div><!--/#related-->
+                </div><!--.row-->
+            </div><!--.container-->
+        </div><!--.content-section-a #explanation-->
+    </section><!--/#description-->
+

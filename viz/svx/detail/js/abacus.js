@@ -18,7 +18,7 @@ function scorify() {
 		choices,
 		pie = d3.layout.pie()
 			.sort(sortByScore)
-			.value(function(d) { return d.score; });
+			.value(function(d) { return 1; });
 
 	var tooltip = d3.select("body").append("div")
 				.attr("class", "tooltip")
@@ -98,6 +98,7 @@ function scorify() {
 		d3.select("#viz-title")
 			.html("&quot;" + question.full_question + "&quot;");
 
+
 		// Draw new one
 		donuts = svg.datum(choices).selectAll(".donuts")
 			.data(pie)
@@ -157,6 +158,8 @@ function scorify() {
 			.style("text-anchor", "middle");
 
 		// Legend
+		// Add the title
+		d3.select("#legend-title").html("Voting Results for:");
 		var legend = d3.select("#legend");
 		legend.transition().select("#question-statement")
 			.text(question.name);

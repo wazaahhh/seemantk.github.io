@@ -1,44 +1,47 @@
 div.tooltip {
-    position: absolute;
-    text-align: center;
-    padding: 10px;
-    font: 12px sans-serif;
-    background: #ffb;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
+  position: absolute;
+  text-align: center;
+  padding: 10px;
+  font: 12px sans-serif;
+  background: #ffb;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
 }
 
 #legend {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 #legend th {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 table {
-    text-align: left;
+  text-align: left;
 }
 
 .lossfill {
-    fill-opacity: 0.6;
+  fill-opacity: 0.6;
 }
 
 td.wins,
 td.votes {
-    text-align: right;
+  text-align: right;
 }
 
 td.losses {
-    text-align: left;
+  text-align: left;
 }
 
 path {
-    stroke: #fff;
-    stroke-width: 1.5;
+  stroke: #fff;
+  stroke-width: 1.5;
 }
 
 circle {
-    stroke-width: 0;
+  stroke-width: 0;
+}
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
 }
