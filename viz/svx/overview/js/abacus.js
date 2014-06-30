@@ -532,7 +532,7 @@ function pre_questify (error, incdata) {
 	  .enter().append("button")
 		.attr("id", function(d, i) { return "button" + i; })
 		.attr("type", "button")
-		.attr("class", "btn btn-primary")
+		.attr("class", "btn btn-info")
 		.text(function(d) { return d; })
 		.style("cursor", "pointer")
 		.on("click", function(d) {

@@ -50,7 +50,7 @@ function scorify() {
       .enter().append("button")
         .attr("id", function(d) { return "button" + d; })
 		.attr("type", "button")
-        .attr("class", "btn btn-primary")
+        .attr("class", "btn btn-info")
         .text(function(d) { return d; })
         .style("cursor", "pointer")
         .on("click", get_data);
