@@ -1,16 +1,18 @@
 ---
 layout: viz/poc
+viztitle: Pairwise Voting
 title: Pairwise Voting
 tagline: Visualization of all the questions created/voted.
+toy: slidey-widey+snappy-timey
 commissioned: true
-navname: More Users
+viznav: More Users
 howto:
   - component: wings
-    step: The color-matched wings are questions belonging to the currently logged in user. The grey questions belong to other users.
+    step: The color-matched *slidey-widey* wings are questions belonging to the currently logged in user. The grey questions belong to other users.
   - component: all/me drop-down
     step: collapses the grey wings, and fills the view with only pertinent questions.
   - component: category lock (defaults on)
-    step: checking this groups the questions by category.  they always remain arranged by most recently updated.
+    step: checking this groups the questions by category (*snap*).  they always remain arranged by most recently updated (*tap*).
 also:
   - href: "/viz/svx/detail/"
     title: Detailed results for a specific question.

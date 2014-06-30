@@ -1,19 +1,22 @@
 ---
 layout: viz/timeywimey
 title: Gentoo Developers
-viztitle: Twinkling Gentoo Linux
+toy: twinkly+timey-wimey
+viztitle: Gentoo Linux Galaxy
 tagline: Visualization of Gentoo Developers over the years.
 commissioned: false
 category: gentoo
 howto:
   - component: scatterplot
-    step: Each circle represents a single developer.  The faded versions of each color indicate that that developer is inactive in a given month.
+    step: The *twinkly* component of this viz represents the developers.  The faded versions of each color indicate that the developer is inactive in a given month.
   - component: streamgraph
-    step: "The <em>wibbly-wobbly</em> component of this viz shows the headcount."
+    step: The *wimey* part of the *timey-wimey* component of this viz shows the total headcount.
   - component: time axis
-    step: "The <em>timey-wimey</em> component is the axis for the streamgaph, and indicates the current time in the scatterplot.  Jump to any time by clicking along the streamgraph."
+    step: The *timey* part of the *timey-wimey* component is the axis for the streamgaph, and indicates the current time in the scatterplot.  Jump to any time by clicking along the streamgraph.
   - component: player controls
-    step: "The reverse play button will reverse time and play back to the &quot;big bang&quot; event at the beginning."
+    step: The reverse play button will reverse time and play back to the &quot;big bang&quot; event at the beginning.
+  - component: tooltips
+    step: hover over a circle to see more details on a particular developer.
 ---
 Data is hard. And incomplete. If you see anything inaccurate or that you disagree with, please contact us. File a bug or send us a message on the forums, mailing lists or social media.
 

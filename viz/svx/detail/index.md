@@ -1,10 +1,11 @@
 ---
 layout: viz/poc
 title: Pairwise Voting
+viztitle: Pairwise Voting
 tagline: Visualization of the voting results of a single question.
 commissioned: true
 viznav: More Questions
-viztitle: wishy-washy widget
+toy: whitey-wipey plate
 howto: 
   - step: Each wedge represents a choice.  Starting at the 12 o'clock position, the choices are arranged clockwise from highest score to lowest.
     component: wedges
