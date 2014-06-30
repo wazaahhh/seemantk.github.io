@@ -1,5 +1,6 @@
-.viz, .panel-body {
-	background-color: #04000a;
+#visualization {
+	background-color: #000;
+	padding-top: 10px;
 }
 
 .axis path,
@@ -120,4 +121,8 @@ div.tooltip {
 	border: 0px;
 	border-radius: 8px;
 	pointer-events: none;
+}
+
+#legend {
+	color: #c0c0c0;
 }
