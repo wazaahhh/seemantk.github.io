@@ -29,7 +29,7 @@ author :
 #
 production_url : http://seemantk.github.io
 
-bootstrap: cosmo
+bootswatch: cosmo
 
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
