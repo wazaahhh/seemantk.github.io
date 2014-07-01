@@ -548,6 +548,5 @@ function pre_questify(error, incdata) {
 			questify(dataset, users.get(d)[0].user_id);
 		});
 
-	d3.select("#button2").each(function(d) { this.click(); });
-	d3.select("#button4").each(function(d) { this.click(); });
+	d3.select("#button1").each(function(d) { this.click(); });
 }
