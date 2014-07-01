@@ -51,7 +51,13 @@ function scorify() {
         .html(function(d) {
 			return "<a href=\"#visualization\">" + d + "</a>";
 		})
-        .on("click", get_data);
+        .on("click", function(d, i) {
+			d3.select("#viz-nav").selectAll("li")
+				.classed("active", function(e, j) {
+					return i === j ? true : null;
+				});
+			get_data(d);
+		});
 
 
 	// Define draw area

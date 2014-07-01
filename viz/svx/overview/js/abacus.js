@@ -533,13 +533,19 @@ function pre_questify(error, incdata) {
 	  .enter().append("li")
 	  	.attr("id", function(d, i) { return "button" + i; })
 		.html(function(d) { return "<a href=\"#visualization\">" + d + "</a>"; })
-		.on("click", function(d) {
+		.on("click", function(d, i) {
 			d3.selectAll(".mainviz").remove();
 			d3.selectAll("th").remove();
 			d3.selectAll("tr").remove();
-			questify(dataset, users.get(d)[0].user_id);
-			d3.selectAll("input").filter(function(d, i) { return i === 0; })
+			d3.selectAll("input").filter(function(e, j) { return j === 0; })
 				.property("checked", true);
+
+            d3.select("#viz-nav").selectAll("li")
+                .classed("active", function(e, j) {
+                    return i === j ? true : null;
+                });
+
+			questify(dataset, users.get(d)[0].user_id);
 		});
 
 	d3.select("#button2").each(function(d) { this.click(); });
