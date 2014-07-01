@@ -9,7 +9,7 @@ toy: whitey-wipey plate
 howto: 
   - step: Each wedge represents a choice.  Starting at the 12 o'clock position, the choices are arranged clockwise from highest score to lowest.
     component: wedges
-  - step: The translucent disk is like the x-axis -- underneath it are the *no* votes, and outside it are the *yes* vote.
+  - step: The edge of the translucent disk is like an x-axis --  the *no* votes are covered underneath it and the *yes* votes lie outside of it.
     component: translucent disk
   - step: The radio controls in the table are actually for the widget, to show the number of votes as well as to cancel yes/no votes and make apparent why the highest score is the highest score.
     component: radio controls
