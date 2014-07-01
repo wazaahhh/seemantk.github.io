@@ -1,6 +1,7 @@
 ---
 layout: post
+title: D3 Meetup Presentation
 ---
 
 These are the two visualizations presented at a recent d3 meetup:
-<a href="overview">Overview</a> and <a href="detail">Detail</a>
+[Overview](overview) and [Detail](detail)
