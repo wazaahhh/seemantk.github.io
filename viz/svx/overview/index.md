@@ -3,9 +3,9 @@ layout: viz/poc
 viztitle: Pairwise Voting
 title: Pairwise Voting
 tagline: Visualization of all the questions created/voted.
-toy: slidey-widey+snappy-timey
+toy: slidey-widey+timey-snap-cat
 commissioned: true
-viznav: More Users
+viznav: More Sample Users
 howto:
   - component: wings
     step: The color-matched *slidey-widey* wings are questions belonging to the currently logged in user. The grey questions belong to other users.

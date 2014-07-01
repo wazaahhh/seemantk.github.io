@@ -44,6 +44,7 @@ function questify(dataset, me) {
 						}
 					};
 				  })
+				.sortKeys(d3.ascending)
 				.entries(dataset);
 
 	// Initial sort
@@ -147,7 +148,7 @@ function questify(dataset, me) {
 						: "#ccc";
 				  })
 				.on("mouseover", function(d) {
-					tooltip.html(d.data.full_question);
+					tooltip.html("Question: <em>" + d.data.full_question + "</em>");
 					tooltip.transition().duration(200)
 						.style("opacity", 0.9)
 						.style("left", (d3.event.pageX + 14) + "px")
@@ -166,7 +167,7 @@ function questify(dataset, me) {
 				.attr("class", "heel")
 				.attr("fill", function(d) { return fill(d.data.category_title);})
 				.on("mouseover", function(d) {
-					tooltip.html(d.data.category_title);
+					tooltip.html("Category: <em>" + d.data.category_title + "</em>");
 					tooltip.transition().duration(200)
 						.style("opacity", 0.9)
 						.style("left", (d3.event.pageX + 14) + "px")
@@ -185,7 +186,7 @@ function questify(dataset, me) {
 				.attr("d", arc.safebuoy)
 				.style("fill", function(d) { return fill(d.data.key); })
 				.on("mouseover", function(d) {
-					tooltip.html(d.data.key);
+					tooltip.html("Category: <em>" + d.data.key + "</em>");
 					tooltip.transition().duration(200)
 						.style("opacity", 0.9)
 						.style("left", (d3.event.pageX + 14) + "px")
@@ -499,7 +500,7 @@ function questify(dataset, me) {
 
 
 
-function pre_questify (error, incdata) {
+function pre_questify(error, incdata) {
 	var dataset =
 			d3.map(incdata.item.issues.with_choices).values();
 
