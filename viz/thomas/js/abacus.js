@@ -65,7 +65,6 @@ function gestate(error, incdata) {
 	 */
 	function step() {
 		return function() {
-			console.log("in step()");
 			if(anim.pause) return true;
 			if(anim.index === anim.dest) {
 				anim.pause = true;
@@ -96,7 +95,6 @@ function gestate(error, incdata) {
 	} // step()
 
 	function draw() {
-		console.log("in draw()", anim.index);
 		var vals = d3.map(lifetime.get(iters[anim.index])).values();
 
 		// Enter
