@@ -18,7 +18,7 @@ function gestate(error, incdata) {
 		pause: false,
 		index: 0,
 		dest:  iters.length-1,
-		cycle: 500,
+		cycle: 100,
 	};
 
     d3.select("#pause").on("click", function() {
@@ -98,6 +98,8 @@ function gestate(error, incdata) {
 	function draw() {
 		var cell = grid.selectAll(".cell")
 					.data(iters[anim.index], function(d) { return d[0]; });
+
+		d3.select("#legend-title").text("Iteration: " + anim.index);
 
 		// Enter
 		cell.enter().append("rect")
