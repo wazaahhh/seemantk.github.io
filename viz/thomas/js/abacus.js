@@ -16,10 +16,8 @@ function gestate(error, incdata) {
 	anim = {
 		fwd:   true,
 		pause: false,
-		index: 0,
+		index: 1,
 		dest:  iters.length-1,
-		fast:  false,
-		frame: 100, // milliseconds
 	};
 
     d3.select("#pause").on("click", function() {
@@ -28,18 +26,16 @@ function gestate(error, incdata) {
     });
     d3.select("#play").on("click", function() {
         anim.fwd = true;
-		anim.fast = !anim.fast;
         if(anim.pause) {
             anim.pause = false;
-            d3.timer(step(), cycle());
+            d3.timer(step());
         }
     });
     d3.select("#yalp").on("click", function() {
         anim.fwd = false;
-		anim.fast = !anim.fast;
         if(anim.pause) {
             anim.pause = false;
-            d3.timer(step(), cycle());
+            d3.timer(step());
         }
     });
 
@@ -61,11 +57,19 @@ function gestate(error, incdata) {
 	
 
 	var grid = svg.append("g").attr("class", "world");
-	d3.timer(step(), cycle());
+	var cell = grid.selectAll(".cell")
+				.data(iters[0], function(d) { return d[0]; });
 
-	function cycle() {
-		return anim.frame * anim.fast ? 0.5 : 1;
-	}
+	// Enter
+	cell.enter().append("rect")
+		.attr("class", "cell")
+		.attr("width", length)
+		.attr("height", length)
+		.attr("y",    function(d) { return loc(row(d[0])); })
+		.attr("x",    function(d) { return loc(col(d[0])); })
+		.style("fill", function(d) { return fill(d[1]); });
+
+	d3.timer(step());
 
 	/*
 	 * CALLBACK: step forward to the next iteration.
@@ -81,7 +85,7 @@ function gestate(error, incdata) {
 
 			draw();
 
-			// Advance to the next cycle
+			// Advance to the next iteration
 			if(anim.fwd) {
 				anim.index++;
 				if(anim.index > iters.length - 1) {
@@ -97,7 +101,7 @@ function gestate(error, incdata) {
 					return true;
 				}
 			}
-			d3.timer(step(), cycle());
+			d3.timer(step());
 			return true;
 		}
 	} // step()
@@ -106,21 +110,10 @@ function gestate(error, incdata) {
 		var cell = grid.selectAll(".cell")
 					.data(iters[anim.index], function(d) { return d[0]; });
 
-		d3.select("#legend-title").text("Iteration: " + anim.index);
-
 		// Enter
-		cell.enter().append("rect")
-	  		.attr("class", "cell")
-			.attr("width", length)
-			.attr("height", length)
-			.attr("y",    function(d) { return loc(row(d[0])); })
-			.attr("x",    function(d) { return loc(col(d[0])); })
+		cell.style("fill", function(d) { return fill(d[1]); });
 
-		// Update
-		cell.transition()
-			.duration(cycle())
-			.attr("fill", function(d) { return fill(d[1]); });
-
+		d3.select("#legend-title").text("Iteration: " + anim.index);
 	} // draw()
 
 	function row(index) {
