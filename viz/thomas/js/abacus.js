@@ -1,21 +1,23 @@
 queue()
-	.defer(d3.json, "agents.json")
+	.defer(d3.json, "agents3.json")
 	.await(gestate);
 
-var lifetime, iters, anim;
+var iters, anim;
 function gestate(error, incdata) {
 	var grid_size = incdata.input.grid_size,
 		width = 500,
 		length = width / grid_size;
 
-	lifetime = d3.map(incdata.output.strategies_iter);
-	iters = lifetime.keys();
+	iters = incdata.output.mv;
+	iters.unshift(d3.map(incdata.input.strategy_init)
+							.values()
+							.map(function(d, i) { return [i, d]; }));
 
 	anim = {
-		fwd: true,
+		fwd:   true,
 		pause: false,
 		index: 0,
-		dest: iters.length-1,
+		dest:  iters.length-1,
 		cycle: 500,
 	};
 
@@ -56,7 +58,6 @@ function gestate(error, incdata) {
 	
 
 	var grid = svg.append("g").attr("class", "world");
-
 	d3.timer(step(), anim.cycle);
 
 	/*
@@ -95,26 +96,21 @@ function gestate(error, incdata) {
 	} // step()
 
 	function draw() {
-		var vals = d3.map(lifetime.get(iters[anim.index])).values();
+		var cell = grid.selectAll(".cell")
+					.data(iters[anim.index], function(d) { return d[0]; });
 
 		// Enter
-		var cell = grid.selectAll(".cell")
-			.data(vals);
-
-
-	  	cell.enter().append("rect")
+		cell.enter().append("rect")
 	  		.attr("class", "cell")
-			.attr("id", function(d,i) { return i; })
-			.attr("y", function(d, i) { return loc(row(i)); })
-			.attr("x", function(d, i) { return loc(col(i)); })
 			.attr("width", length)
 			.attr("height", length)
-			.attr("fill", function(d) { return fill(d); });
+			.attr("y",    function(d) { return loc(row(d[0])); })
+			.attr("x",    function(d) { return loc(col(d[0])); })
 
 		// Update
 		cell.transition()
 			.duration(anim.cycle)
-			.attr("fill", function(d) { return fill(d); });
+			.attr("fill", function(d) { return fill(d[1]); });
 
 	} // draw()
 
