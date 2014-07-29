@@ -18,7 +18,8 @@ function gestate(error, incdata) {
 		pause: false,
 		index: 0,
 		dest:  iters.length-1,
-		cycle: 50,
+		fast:  false,
+		frame: 100, // milliseconds
 	};
 
     d3.select("#pause").on("click", function() {
@@ -27,16 +28,18 @@ function gestate(error, incdata) {
     });
     d3.select("#play").on("click", function() {
         anim.fwd = true;
+		anim.fast = !anim.fast;
         if(anim.pause) {
             anim.pause = false;
-            d3.timer(step(), anim.cycle);
+            d3.timer(step(), cycle());
         }
     });
     d3.select("#yalp").on("click", function() {
         anim.fwd = false;
+		anim.fast = !anim.fast;
         if(anim.pause) {
             anim.pause = false;
-            d3.timer(step(), anim.cycle);
+            d3.timer(step(), cycle());
         }
     });
 
@@ -58,7 +61,11 @@ function gestate(error, incdata) {
 	
 
 	var grid = svg.append("g").attr("class", "world");
-	d3.timer(step(), anim.cycle);
+	d3.timer(step(), cycle());
+
+	function cycle() {
+		return anim.frame * anim.fast ? 0.5 : 1;
+	}
 
 	/*
 	 * CALLBACK: step forward to the next iteration.
@@ -72,7 +79,6 @@ function gestate(error, incdata) {
 				return true;
 			}
 
-			console.log("drawing", iters[anim.index]);
 			draw();
 
 			// Advance to the next cycle
@@ -91,7 +97,7 @@ function gestate(error, incdata) {
 					return true;
 				}
 			}
-			d3.timer(step(), anim.cycle);
+			d3.timer(step(), cycle());
 			return true;
 		}
 	} // step()
@@ -112,7 +118,7 @@ function gestate(error, incdata) {
 
 		// Update
 		cell.transition()
-			.duration(anim.cycle)
+			.duration(cycle())
 			.attr("fill", function(d) { return fill(d[1]); });
 
 	} // draw()
