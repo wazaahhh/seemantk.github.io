@@ -1,12 +1,8 @@
 	<!-- The Visualization -->
 	<div class="container" id="visualization">
 		<div class="row">
-			<div id="metadata" class="col-lg-4 col-sm-12 table-responsive text-center">
-				<h4 id="legend-title"></h4>
-				<table id="legend" class="table table-condensed">
-					<thead></thead>
-					<tbody></tbody>
-				</table><!--.table#legend-->
+			<div id="metadata" class="col-lg-4 col-sm-12 text-center">
+				{% include viz/legendtable.html %}
 			</div><!--.col-lg-4#metadata-->
 
 			<div class="col-lg-6 col-sm-12 viz">
@@ -21,7 +17,7 @@
 	</div><!--.container-->
 	<div class="tooltip"></div>
 
-<!-- Auxiliary files needed -->
+<!-- Auxiliary files needed for this viz -->
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 
