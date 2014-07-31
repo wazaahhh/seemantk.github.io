@@ -6,6 +6,9 @@ viztitle: Gentoo Linux Galaxy
 tagline: Visualization of Gentoo Developers over the years.
 commissioned: false
 category: gentoo
+also:
+  - href: "https://medium.com/linux-operation-system/re-emerging-history-i-27f8b0b493d3"
+  - title: Re-emerging History (I)
 howto:
   - component: scatterplot
     step: The *twinkly* component of this viz represents the developers.  The faded versions of each color indicate that the developer is inactive in a given month.
