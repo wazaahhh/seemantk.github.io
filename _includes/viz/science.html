@@ -2,6 +2,7 @@
 	<div class="container" id="visualization">
 		<div class="row">
 			<div class="viz-nav col-lg-12 col-sm-12 text-center">
+				{% include viz/player.html %}
 			</div><!--.viz-nav-->
 		</div><!--.row-->
 		<div class="row">
@@ -17,6 +18,9 @@
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 
+{% for inc in page.includes %}
+<script src="{{ inc }}" charset="utf-8"></script>
+{% endfor %}
 <script src="js/abacus.js" charset="utf-8"></script>
 
 <link href="css/style.css" rel="stylesheet">
