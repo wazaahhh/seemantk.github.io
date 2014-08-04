@@ -45,7 +45,7 @@ function abm() {
 				clevel = coop_level(strategy);
 
 				// conditions to break the loop
-				// TODO: FINDOUT ABOUT THE FIRST CONDITION (line 475)
+				// TODO: NEED TO FIND OUT ABOUT THE FIRST CONDITION (line 475)
 
 				if(clevel.get('c') === 0) {
 					console.log("no cooperators left");
