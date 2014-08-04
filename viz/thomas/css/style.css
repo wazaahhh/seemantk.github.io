@@ -1,0 +1,11 @@
+.empty {
+	fill: white;
+}
+
+.defector {
+	fill: red;
+}
+
+.cooperator {
+	fill: green;
+}
