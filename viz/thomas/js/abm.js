@@ -22,43 +22,44 @@ function abm() {
 			M            = 5, // Moore's Distance
 			C; // Cooperation dictionary
 
-		var uploadToS3   = false,
+		var uploadToS3 = false,
+			forceMove  = false,
+			moves      = [];
 
 		function my() {
-			var forceMove = false;
+			var strategy        = initialize(),
+				clevel          = coop_level(strategy),
+				strategy_init = d3.map(strategy);
 
-			var strategy        = initialize();
-				strategy_init = d3.map(strategy),
-				clevel          = coop_level(strategy);
-
-			C = d3.map({
-				'iteration': [0],
-			  	'c': [clevel.get('c')],
-				'd': [clevel.get('d')],
-				'e': [clevel.get('e')]
-			});
+			C = {
+					'iteration': [0],
+					'c': [clevel['c']],
+					'd': [clevel['d']],
+					'e': [clevel['e']]
+				};
 			
 			for(var i = 0; i < MCS; i++) {
-				var ret = oneStep(),
-					strategy = ret.strategy;
+				var ret = oneStep();
+				strategy = ret.strategy;
+				moves.append(ret.moves);
 
 				clevel = coop_level(strategy);
 
 				// conditions to break the loop
 				// TODO: NEED TO FIND OUT ABOUT THE FIRST CONDITION (line 475)
 
-				if(clevel.get('c') === 0) {
+				if(clevel['c'] === 0) {
 					console.log("no cooperators left");
 					break;
 				}
 
-				if(clevel.get('d') === 0) {
+				if(clevel['d'] === 0) {
 					console.log("no defectors left");
 					break;
 				}
 
 				if(i % (Math.pow(grid_size, 2) - 1) === 0 &&
-						d3.max(C.get('c').slice(-3)) < 0.01) {
+						d3.max(C['c'].slice(-3)) < 0.01) {
 					console.log("lower threshold of cooperators reached");
 					break;
 				}
@@ -68,10 +69,10 @@ function abm() {
 				}
 
 				if(i % Math.pow(grid_size, 2) === 0) {
-					C.set('iteration', C.get('iteration').append(i));
-					C.set('c', C.get('c').append(clevel.get('c')));
-					C.set('d', C.get('d').append(clevel.get('d')));
-					C.set('e', C.get('e').append(clevel.get('e')));
+					C['iteration'].append(i);
+					C['c'].append(clevel['c']);
+					C['d'].append(clevel['d']);
+					C['e'].append(clevel['e']);
 				}
 			}
 					
@@ -96,7 +97,7 @@ function abm() {
 				var stratvals = STRATEGY_SET.values();
 
 				subgrid.forEach(function(d) {
-					strategies[d] = stratvals[choice(stratvals.length)];
+					strategies[d] = choice(stratvals);
 				});
 
 				rest.forEach(function(d) {
@@ -107,31 +108,30 @@ function abm() {
 			} // initialize()
 
 			function coop_level(strategy) {
-				var coop        = strategy.values(),
-					denominator = coop.filter(function(d) {
-									return d >= 0;
-								  }).length,
-					clevel      = {};
+				var coop = strategy.values(),
+					norm = coop.filter(function(d) { return d >= 0; }).length;
 
-					clevel[c] = coop.filter(function(x) {
-							return x === 1;
-						}).length / denominator, // cooperators
-
-					clevel[d] = coop.filter(function(x) {
-							return x === 0;
-						}).length / denominator, // defectors
-
-					clevel[e] = coop.filter(function(x) {
-							return x < 0;
-						}).length / denominator; // empty
-					
-					return d3.map(clevel);
+				return {
+					// cooperators
+					c: coop.filter(function(x) { return x === 1; }).length / norm,
+					// defectors
+					d: coop.filter(function(x) { return x === 0; }).length / norm,
+					// empty
+					e: coop.filter(function(x) { return x < 0; }).length / norm,
+				};
 			} // coopLevel()
 
-			function choice(length) {
-				return Math.floor(Math.random() * length);
+			/*
+			 * Pick a random entry from the given array
+			 * In: array
+			 * Out: random value
+			 */
+			function choice(array) {
+				return array[Math.floor(Math.random() * array.length)];
 			} // choice()
 
+			function default_arg(arg, val) {
+				return typeof arg === "undefined" ? val : arg;
 			/*
 			 * Basic Evolutionary Game Theory Tools
 			 */
@@ -141,10 +141,9 @@ function abm() {
 			 * Optional BOOLEAN argument: non_empty_sites
 			 */
 			function find_neighbors(site, non_empty_sites) {
-				non_empty_sites = typeof non_empty_sites === "undefined"
-						? true : non_empty_sites;
+				non_empty_sites = default_arg(non_empty_sites, true);
 
-				var nghbs = [
+				var hood = [
 						site - 1,
 						site + 1,
 						site - strategy_size,
@@ -154,10 +153,10 @@ function abm() {
 					});
 
 				if(non_empty_sites) {
-					nghbs = nghbs.filter(function(d) { strategies.get(d) > -1; });
+					hood = hood.filter(function(d) { strategies.get(d) > -1; });
 				  }
 
-				return d3.map(nghbs);
+				return d3.map(hood);
 			} // find_neighbors()
 
 			/*
@@ -170,19 +169,20 @@ function abm() {
 					'o_pay_off': payoff(site, strategy)
 				};
 
-				var nghbs = find_neighbors(site, strategy);
+				var hood = find_neighbors(site, strategy);
 
-				if(!nghbs.length) {
+				hood.forEach(function(d) {
+					po['all'][d] = payoff(n, strategy);
+				});
+
+				if(!hood.length) {
+					// Empty neighborhood
 					po['best_site'] = site;
 					po['best_pay_off'] = po['o_pay_off'];
 				} else {
-					nghbs.forEach(function(d) {
-						po['all'][d] = payoff(n, strategy);
-					});
-
 					po['all'][site] = po['o_pay_off'];
 					po['best_site'] = d3.max(d3.map(po['all']).keys());
-					po['best_pay_off'] = po['all'][po['best_site']]
+					po['best_pay_off'] = po['all'][po['best_site']];
 				}
 
 				return d3.map(po);
@@ -194,15 +194,12 @@ function abm() {
 			 * (Play simultaneously with all neighbors).
 			 */
 			function payoff(site, strategy) {
-				var po = [],
-					neighborhood = find_neighbors(
-								typeof site === "number" ? site: site[0],
-								strategy
-							);
+				var po = [];
 
-				neighborhood.forEach(function(d) {
-					po.push(prisoners_dilemma()[0]);
-				});
+				find_neighbors(typeof site === "number" ? site: site[0], strategy)
+					.forEach(function(d) {
+						po.push(prisoners_dilemma()[0]);
+					});
 
 				return d3.sum(po);
 			} // payoff()
@@ -215,8 +212,7 @@ function abm() {
 			 * 				: "all", "occupied", "empty"
 			 */
 			function search_for_sites(site, strategy, site_occupation) {
-				site_occupation = typeof site_occuption === "undefined"
-						? "all" : site_occupation;
+				site_occupation = default_arg(site_occupation, "all");
 
 				var size = Math.sqrt(strategy.keys().length),
 					Y    = d3.range(site - M * size, site + (M+1) * size, size),
@@ -292,13 +288,16 @@ function abm() {
 
 			/*
 			 * Move agents
+			 * In: change dictionary
+			 * In/Out: strategy
+			 * Out: [strategy, this move]
 			 */
-			function move(chgDic, strategy) {
-				var best_site_strat = strategy.get(chgDic.get('best_site')),
+			function move(neighborhood, strategy) {
+				var best_site_strat = strategy.get(neighborhood.get('best_site')),
 					s1 = d3.map(strategy);
 
-				var o_site    = chgDic.get('o_site'),
-					best_site = chgDic.get('best_site');
+				var o_site    = neighborhood.get('o_site'),
+					best_site = neighborhood.get('best_site');
 
 				var ret = {
 						'strategies': strategy,
@@ -332,40 +331,37 @@ function abm() {
 
 			function oneStep(strategy) {
 				// Pick a random agent
-				var site = strategy.keys()[choice(strategy.keys().length)];
-				var moves, strategies, comparison;
+				var comparison,
+					site  = choice(strategy.keys()),
+					moves = {},
+					hood;
 
-				if(strategy.get(site) === -1) {
-					// If randomly chosen site is empty, continue
-					return {'strategy': strategy, 'moves': moves};
-				};
-
-				// Migration
-				if(Math.random() < m) {
-					chgDic = explore_neighborhood(site, Math.random() < s
+				if(strategy.get(site) !== -1) {
+					// Migration
+					if(Math.random() < m) {
+						hood = explore_neighborhood(site, Math.random() < s
 								? "all" // best possible site (property game)
 								: "empty" //  migrate to empty site
 							);
 
-					var mv = move(chgDic, strategy);
+						var mv = move(hood, strategy);
 
-					strategies = mv.get('strategies');
-					moves = mv.get('mv');
+						strategy = mv.get('strategy');
+						moves = mv.get('mv');
 
-					site = chgDic.get('best_site');
-					comparison = play_with_all_neighbors(site, strategies);
-				} else {
-					comparison = play_with_all_neighbors(site, strategies);
-					// No movement, compare payoff with neighbors
-					if(!comparison.has('best_site'))
-						return {'strategy': strategies, 'moves': moves};
+						site = hood.get('best_site');
+					}
+
+					comparison = play_with_all_neighbors(site, strategy);
+
+					if(comparison.has('best_site')) {
+						// Update strategy given comparison with neighbors
+						strategy = dirk_update(comparison, strategy);
+						moves.set('site', strategy.get('site'));
+					}
 				}
 
-				// Update strategy given comparison with neighbors
-				strategies = dirk_update(comparison, strategies);
-				moves.set('site', strategies.get('site'));
-
-				return {'strategy': strategies, 'moves': moves};
+				return {'strategy': strategy, 'moves': moves};
 			} // oneStep()
 
 
