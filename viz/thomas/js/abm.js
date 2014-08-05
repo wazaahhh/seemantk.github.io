@@ -7,10 +7,11 @@ function agent_based_model() {
 
 	// Getters only
 	var	moves      = []
-		iteration  = 0,
+		counter  = 1,
 		current    = {}, previous   = {}, // strategies
 		dispatch   = d3.dispatch("start", "end"),
-		callback   = function() {};
+		callback   = function() {},
+		step       = function() {};
 
 	// Variables available to getters & setters.  Here with default values.
 	var uploadToS3 = false,
@@ -25,51 +26,47 @@ function agent_based_model() {
 		M          = 5; // Moore's Distance
 
 	function game() {
-		for(iteration = 1; iteration < MCS; ++iteration) {
-			current = one_step(d3.map(previous));
+		this.step = function() {
+			while(counter < MCS) {
+				current = one_step(d3.map(previous));
 
-			calc_coop_level(current);
+				calc_coop_level(current);
 
-			// conditions to break the loop
-			// TODO: NEED TO FIND OUT ABOUT THE FIRST CONDITION (line 475)
+				// conditions to break the loop
+				// TODO: NEED TO FIND OUT ABOUT THE FIRST CONDITION (line 475)
 
-			if(coop_level['c'] === 0) {
-				dispatch.end("no cooperators left");
-				return true;
-			}
+				if(coop_level['c'] === 0) {
+					dispatch.end("no cooperators left");
+					return true;
+				}
 
-			if(coop_level['d'] === 0) {
-				dispatch.end("no defectors left");
-				return true;
-			}
+				if(coop_level['d'] === 0) {
+					dispatch.end("no defectors left");
+					return true;
+				}
 
-			if(iteration % (Math.pow(grid_size, 2) - 1) === 0 &&
-					d3.max(C['c'].slice(-3)) < 0.01) {
-				dispatch.end("lower threshold of cooperators reached");
-				return true;
-			}
+				if(counter % (Math.pow(grid_size, 2) - 1) === 0 &&
+						d3.max(C['c'].slice(-3)) < 0.01) {
+					dispatch.end("lower threshold of cooperators reached");
+					return true;
+				}
 
-			if(iteration % (Math.pow(grid_size, 2) + 1) === 0) {
-				console.log("strategy available at " + iteration);
-			}
+				if(counter % (Math.pow(grid_size, 2) + 1) === 0) {
+					console.log("strategy available at " + counter);
+				}
 
-			if(iteration % Math.pow(grid_size, 2) === 0) {
-				C.iteration.push(iteration);
-				C.c.push(coop_level['c']);
-				C.d.push(coop_level['d']);
-				C.e.push(coop_level['e']);
-			}
-		} // for()
+				if(counter % Math.pow(grid_size, 2) === 0) {
+					C.counter.push(counter);
+					C.c.push(coop_level['c']);
+					C.d.push(coop_level['d']);
+					C.e.push(coop_level['e']);
+				}
 
-		function plot() {
-			var mv = d3.map(moves[moves.length - 1]);
+				counter += 1;
+				return d3.map(moves[moves.length - 1]);
+			} // while()
+		};
 
-			console.log(mv);
-
-			var ret = callback(mv, iteration);
-
-			if(ret === true) { return true; }
-		}
 
 		/*
 		 * Basic Evolutionary Game Theory Tools
@@ -264,7 +261,6 @@ function agent_based_model() {
 				}
 
 				comparison = play_with_all_neighbors(site, strategy);
-				console.log(comparison);
 			}
 
 			// Update strategy given comparison with neighbors
@@ -274,8 +270,6 @@ function agent_based_model() {
 			}
 
 			moves.push(mv);
-
-			setTimeout(callback(d3.map(mv), iteration), 1000);
 			return strategy;
 		} // one_step()
 
@@ -295,12 +289,12 @@ function agent_based_model() {
 					"[0,1]": [strat.T, strat.S],
 					"[0,0]": [strat.P, strat.P],
 				};
-
-			return game_set[JSON.stringify(typeof player1 === "number"
+			var ret = game_set[JSON.stringify(typeof player1 === "number"
 						? strategy.get(player1)
 						: player1[1],
 					strategy.get(player2)
 					)];
+			console.log(ret);
 		} // prisoners_dilemma()
 
 		/*
@@ -318,7 +312,6 @@ function agent_based_model() {
 			} else {
 				strategy[po['o_site']] = 0;
 			}
-			console.log("dirked");
 			return strategy;
 		} // dirk_update()
 	} // game()
@@ -329,11 +322,11 @@ function agent_based_model() {
 		return game;
 	}; // game.iterations()
 
-	game.iteration = function(value) {
-		if(!arguments.length) return iteration;
-		iteration = value;
+	game.counter = function(value) {
+		if(!arguments.length) return counter;
+		counter = value;
 		return game;
-	}; // game.iteration()
+	}; // game.counter()
 
 	game.grid_size = function(value) {
 		if(!arguments.length) return grid_size;
@@ -398,14 +391,21 @@ function agent_based_model() {
 		return game;
 	}; // game.callback()
 
+	game.step = function() {
+		return step;
+	};
 
+
+	game.counter = function() {
+		return counter;
+	}
 	/*
 	 * Class (public) method to initialize the strategies and grids.
 	 */
 	game.initialize = function() {
 
 		// Setup the initial game board
-		iteration = 0;
+		counter = 0;
 		MCS = Math.pow(grid_size,2)*iterations; // Monte Carlo Steps
 
 		var	l        = Math.pow(grid_size, 2),
@@ -423,9 +423,10 @@ function agent_based_model() {
 		 * Set some other class variables.
 		 */
 		calc_coop_level(d3.map(current));
+		set_step();
 
 		C = {
-				'iteration': [0],
+				'counter': [0],
 				'c': [coop_level['c']],
 				'd': [coop_level['d']],
 				'e': [coop_level['e']]
@@ -434,6 +435,9 @@ function agent_based_model() {
 		previous = d3.map(current);
 		return d3.map(current);
 	} // game.initialize()
+
+	function set_step() {
+	}
 
 
 
