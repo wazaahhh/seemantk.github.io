@@ -6,13 +6,13 @@ function agent_based_model() {
 		MCS; // Monte Carlo Steps
 
 	// Getters only
-	var	moves      = [],
-		strategies = {},
-		step       = function() {},
-		current    = 0,
-		dispatch   = d3.dispatch("start", "end");
+	var	moves      = []
+		iteration  = 0,
+		current    = {}, previous   = {}, // strategies
+		dispatch   = d3.dispatch("start", "end"),
+		callback   = function() {};
 
-	// Getter/Setters
+	// Variables available to getters & setters.  Here with default values.
 	var uploadToS3 = false,
 		forceMove  = false,
 		iterations = 100,
@@ -25,46 +25,51 @@ function agent_based_model() {
 		M          = 5; // Moore's Distance
 
 	function game() {
-		while(current < MCS) {
-			console.log(current);
-			var strategy = d3.map(strategies[current]);
+		for(iteration = 1; iteration < MCS; ++iteration) {
+			current = one_step(d3.map(previous));
 
-			strategy = one_step(strategy);
-			clevel = coop_level(strategy);
+			calc_coop_level(current);
 
 			// conditions to break the loop
 			// TODO: NEED TO FIND OUT ABOUT THE FIRST CONDITION (line 475)
 
-			if(clevel['c'] === 0) {
+			if(coop_level['c'] === 0) {
 				dispatch.end("no cooperators left");
-				return;
+				return true;
 			}
 
-			if(clevel['d'] === 0) {
+			if(coop_level['d'] === 0) {
 				dispatch.end("no defectors left");
-				return;
+				return true;
 			}
 
-			if(current % (Math.pow(grid_size, 2) - 1) === 0 &&
+			if(iteration % (Math.pow(grid_size, 2) - 1) === 0 &&
 					d3.max(C['c'].slice(-3)) < 0.01) {
 				dispatch.end("lower threshold of cooperators reached");
-				return;
+				return true;
 			}
 
-			if(current % (Math.pow(grid_size, 2) + 1) === 0) {
-				strategies[current] = d3.map(strategy);
-				// update the visualization
-				d3.timer(draw(strategies[current], current));
+			if(iteration % (Math.pow(grid_size, 2) + 1) === 0) {
+				console.log("strategy available at " + iteration);
 			}
 
-			if(current % Math.pow(grid_size, 2) === 0) {
-				C.iteration.push(current);
-				C.c.push(clevel['c']);
-				C.d.push(clevel['d']);
-				C.e.push(clevel['e']);
+			if(iteration % Math.pow(grid_size, 2) === 0) {
+				C.iteration.push(iteration);
+				C.c.push(coop_level['c']);
+				C.d.push(coop_level['d']);
+				C.e.push(coop_level['e']);
 			}
-			current += 1;
-		} // while()
+		} // for()
+
+		function plot() {
+			var mv = d3.map(moves[moves.length - 1]);
+
+			console.log(mv);
+
+			var ret = callback(mv, iteration);
+
+			if(ret === true) { return true; }
+		}
 
 		/*
 		 * Basic Evolutionary Game Theory Tools
@@ -83,11 +88,10 @@ function agent_based_model() {
 
 			hood.forEach(function(d) { return d % strategy.length; });
 
-			if(non_empty_sites) {
-				hood = hood.filter(function(d) { strategy.get(d) > -1; });
-			}
-
-			return d3.map(hood);
+			return d3.map(non_empty_sites
+				? hood.filter(function(d) { strategy.get(d) > -1; })
+				: hood
+			);
 		} // find_neighbors()
 
 		/*
@@ -102,17 +106,17 @@ function agent_based_model() {
 
 			var hood = find_neighbors(site, strategy);
 
-			hood.forEach(function(d) {
-				po['all'][d] = payoff(n, strategy);
-			});
-
 			if(!hood.length) {
 				// Empty neighborhood
 				po['best_site'] = site;
 				po['best_pay_off'] = po['o_pay_off'];
 			} else {
+				hood.forEach(function(d) {
+					po['all'][d] = payoff(d, strategy);
+				});
+
 				po['all'][site] = po['o_pay_off'];
-				po['best_site'] = d3.max(d3.map(po['all']).keys());
+				po['best_site'] = d3.max(d3.map(po['all']).values());
 				po['best_pay_off'] = po['all'][po['best_site']];
 			}
 
@@ -149,24 +153,20 @@ function agent_based_model() {
 
 			var neighbors = [];
 
-			X.forEach(function(d) { neighbors.push((Y+d) % size); });
-			neighbors = d3.set(neighbors);
-			neighbors.remove(site);
+			X.forEach(function(d) {
+				Y.forEach(function(e) {
+					var candidate = Math.round((e + d) % size);
+					if(candidate !== site) {
+						neighbors.push(candidate);
+					}
+				});
+			});
 
-			switch(site_occupation) {
-				case 'occupied':
-					neighbors.forEach(function(d) {
-						if(d < 0) { neighbors.remove(d); }
-					});
-					break;
-				case 'empty':
-					neighbors.forEach(function(d) {
-						if(d > 1) { neighbors.remove(d); }
-					});
-					break;
-			};
-
-			return d3.set(neighbors);
+			return site_occupation === "occupied"
+				? neighbors.filter(function(d) { return !(d < 0); })
+				: site_occupation === "empty"
+					? neighbors.filter(function(d) { return !(d > 1); })
+					: neighbors;
 		} // search_for_sites()
 
 		/*
@@ -180,7 +180,6 @@ function agent_based_model() {
 			var po = {};
 
 			if(strategy.get(site) === -1) {
-				console.log("no strategy at site: " + site);
 				return 0;
 			}
 
@@ -189,6 +188,7 @@ function agent_based_model() {
 
 			if(forceMove) {
 				delete po[site];
+				forceMove = false;// needs to be always set (like a param, but not)
 			}
 
 			neighborhood.forEach(function(d) {
@@ -215,75 +215,67 @@ function agent_based_model() {
 		 */
 		function move(neighborhood, strategy) {
 			var best_site_strategy = strategy.get(neighborhood.get('best_site')),
-				s1 = d3.map(strategy);
+				best_site          = neighborhood.get('best_site'),
+				o_site             = neighborhood.get('o_site');
 
-			var o_site    = neighborhood.get('o_site'),
-				best_site = neighborhood.get('best_site');
-
-			var ret = {
-					'strategy': strategy,
-					's0' : d3.map(strategy),
-					'seq': {0: o_site, 1: best_site},
-					'mv' : {o_site: -1, best_site: strategy.get(o_site)}
-				};
+			var mv = {};
+			mv[o_site] = -1;
+			mv[best_site] = strategy.get(o_site);
 
 			if(best_site == o_site) {
-				s1.set(best_site, strategy.get(o_site));
-				s1.set(o_site, -1);
+				mv[o_site] = strategy.get(o_site);
+			} else {
+				strategy.set(best_site, strategy.get(o_site));
+				strategy.set(o_site, -1);
 				if(best_site_strategy > -1) {
-					var expell = explore_neighborhood(best_site, s1, "empty"),
-						expelled_site = expell.get('best_site');
-					strategy = d3.map(s1);
+					forceMove = true;
+					var expel = explore_neighborhood(best_site, strategy, "empty"),
+						expelled_site = expel.get('best_site');
 					strategy.set(expelled_site, best_site_strategy);
-
-					ret['strategy']        = strategy;
-					ret['s1']                = s1;
-					ret['mv'][best_site]     = s1.get(best_site);
-					ret['mv'][expelled_site] = strategy.get(expelled_site);
-				} else {
-					strategy = d3.map(s1);
-					ret['strategy']     = strategy;
-					ret['s1']             = s1;
-					ret['mv'][best_site]  = s1.get(best_site);
+					mv[expelled_site] = strategy.get(expelled_site);
 				}
+				mv[best_site]  = strategy.get(best_site);
 			}
 
-			return d3.map(ret);
+			return d3.map({'strategy': strategy, 'mv': mv});
 		} // move()
 
-		function one_step(instrategy) {
+		function one_step(strategy) {
 			// Pick a random agent
-			var comparison,
-				site  = choice(strategy.keys()),
-				mvs = {},
+			var comparison = d3.map({}),
+				site  = +choice(strategy.keys()),
+				mv = {},
 				hood;
 
-			if(instrategy.get(site) !== -1) {
+			if(strategy.get(site) !== -1) {
 				// Migration
 				if(Math.random() < m) {
-					hood = explore_neighborhood(site, instrategy, Math.random() < s
+					hood = explore_neighborhood(site, strategy, Math.random() < s
 							? "all" // best possible site (property game)
 							: "empty" //  migrate to empty site
 						);
 
-					var mv = move(hood, instrategy);
-
-					strategy = mv.get('strategy');
-					mvs = mv.get('mv');
-
 					site = hood.get('best_site');
+
+					var ret = move(hood, strategy);
+
+					strategy   = ret.get('strategy');
+					mv         = ret.get('mv');
 				}
 
 				comparison = play_with_all_neighbors(site, strategy);
-
-				if(comparison.has('best_site')) {
-					// Update strategy given comparison with neighbors
-					strategy = dirk_update(comparison, strategy);
-					mvs['site'] =  strategy.get('site');
-				}
+				console.log(comparison);
 			}
 
-			moves.push(mvs);
+			// Update strategy given comparison with neighbors
+			if(comparison.has('best_site')) {
+				strategy = dirk_update(comparison, strategy);
+				mv[site] = strategy.get(site);
+			}
+
+			moves.push(mv);
+
+			setTimeout(callback(d3.map(mv), iteration), 1000);
 			return strategy;
 		} // one_step()
 
@@ -306,9 +298,9 @@ function agent_based_model() {
 
 			return game_set[JSON.stringify(typeof player1 === "number"
 						? strategy.get(player1)
-						: player1[1]),
+						: player1[1],
 					strategy.get(player2)
-				];
+					)];
 		} // prisoners_dilemma()
 
 		/*
@@ -326,6 +318,7 @@ function agent_based_model() {
 			} else {
 				strategy[po['o_site']] = 0;
 			}
+			console.log("dirked");
 			return strategy;
 		} // dirk_update()
 	} // game()
@@ -335,6 +328,12 @@ function agent_based_model() {
 		iterations = value;
 		return game;
 	}; // game.iterations()
+
+	game.iteration = function(value) {
+		if(!arguments.length) return iteration;
+		iteration = value;
+		return game;
+	}; // game.iteration()
 
 	game.grid_size = function(value) {
 		if(!arguments.length) return grid_size;
@@ -393,32 +392,21 @@ function agent_based_model() {
 	/*
 	 * Dispatch events back to the visualization
 	 */
-	game.draw = function(value) {
-		if(!arguments.length) return draw;
-		draw = typeof draw === "undefined" ? draw : value;
+	game.callback = function(value) {
+		if(!arguments.length) return callback;
+		callback = value;
 		return game;
-	}; // game.draw()
+	}; // game.callback()
 
-	/*
-	 * Getters only
-	 */
-	game.strategies = function(value) {
-		return d3.map(typeof value === "undefined" ? strategies : strategies[value]);
-	}; // game.strategies()
-	
-	game.step = function(value) {
-		if(!arguments.length) return step;
-		step(value);
-		return game;
-	}; // game.step()
 
 	/*
 	 * Class (public) method to initialize the strategies and grids.
 	 */
 	game.initialize = function() {
-		current = 0;
+
+		// Setup the initial game board
+		iteration = 0;
 		MCS = Math.pow(grid_size,2)*iterations; // Monte Carlo Steps
-		strategies[0] = {};
 
 		var	l        = Math.pow(grid_size, 2),
 			shuffled = d3.shuffle(d3.range(l));
@@ -428,24 +416,23 @@ function agent_based_model() {
 			rest = percs < 1 ? [] : shuffled.slice(limit),
 			stratvals = STRATEGY_SET.values();
 
-		grid.forEach(function(d) { strategies[0][d] = choice(stratvals); });
-		rest.forEach(function(d) { strategies[0][d] = -1; });
+		grid.forEach(function(d) { current[d] = choice(stratvals); });
+		rest.forEach(function(d) { current[d] = -1; });
 
-		strategies[0] = d3.map(strategies[0]);
 		/*
 		 * Set some other class variables.
 		 */
-		var clevel = coop_level(strategies[0]);
+		calc_coop_level(d3.map(current));
 
 		C = {
 				'iteration': [0],
-				'c': [clevel['c']],
-				'd': [clevel['d']],
-				'e': [clevel['e']]
+				'c': [coop_level['c']],
+				'd': [coop_level['d']],
+				'e': [coop_level['e']]
 			};
 
-		return strategies[0];
-		dispatch.on("start", step);
+		previous = d3.map(current);
+		return d3.map(current);
 	} // game.initialize()
 
 
@@ -453,11 +440,11 @@ function agent_based_model() {
 	/*
 	 * Internal helper function.
 	 */
-	function coop_level(strategy) {
+	function calc_coop_level(strategy) {
 		var coop = strategy.values(),
 			norm = coop.filter(function(d) { return d >= 0; }).length;
 
-		return {
+		coop_level = {
 			// cooperators
 			c: coop.filter(function(x) { return x === 1; }).length / norm,
 			// defectors
@@ -465,7 +452,7 @@ function agent_based_model() {
 			// empty
 			e: coop.filter(function(x) { return x < 0; }).length / norm,
 		};
-	} // coop_level()
+	} // calc_coop_level()
 
 	return game;
 } // agent_based_model()
