@@ -423,7 +423,6 @@ function agent_based_model() {
 		 * Set some other class variables.
 		 */
 		calc_coop_level(d3.map(current));
-		set_step();
 
 		C = {
 				'counter': [0],
@@ -435,9 +434,6 @@ function agent_based_model() {
 		previous = d3.map(current);
 		return d3.map(current);
 	} // game.initialize()
-
-	function set_step() {
-	}
 
 
 
