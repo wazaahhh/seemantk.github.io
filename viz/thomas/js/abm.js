@@ -88,10 +88,9 @@ function agent_based_model() {
 
 			hood.forEach(function(d) { return d % strategy.length; });
 
-			return d3.map(non_empty_sites
+			return non_empty_sites
 				? hood.filter(function(d) { strategy.get(d) > -1; })
-				: hood
-			);
+				: hood;
 		} // find_neighbors()
 
 		/*
@@ -129,12 +128,13 @@ function agent_based_model() {
 		 * (Play simultaneously with all neighbors).
 		 */
 		function payoff(site, strategy) {
-			var po = [];
+			var hood = find_neighbors(typeof site === "number"
+							? site : site[0],
+						strategy);
 
-			find_neighbors(typeof site === "number" ? site : site[0], strategy)
-				.forEach(function(d) { po.push(prisoners_dilemma()[0]); });
-
-			return d3.sum(po);
+			return d3.sum(hood.map(function(d) {
+				return prisoners_dilemma(site, d, strategy)[0];
+			}));
 		} // payoff()
 
 
