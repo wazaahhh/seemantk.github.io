@@ -43,16 +43,15 @@ var svg = d3.select("#viz").append("svg")
 		.attr("height", width);
 
 var grid = svg.append("g").attr("class", "world");
-var cell = grid.selectAll(".cell")
-			.data(convert(abm.initialize()), function(d) { return d[0]; });
 
-// Enter
-cell.enter().append("rect")
-	.attr("class",  function(d) { return "cell " + fill(d[1]); })
+grid.selectAll(".cell")
+	.data(abm.initial(), function(d) { return d.key; })
+  .enter().append("rect")
+	.attr("class",  function(d) { return "cell " + fill(d.value); })
 	.attr("width",  length)
 	.attr("height", length)
-	.attr("y",      function(d) { return loc((d[0] / grid_size) >> 0); })
-	.attr("x",      function(d) { return loc( d[0] % grid_size); });
+	.attr("y",      function(d, i) { return loc((i / grid_size) >> 0); })
+	.attr("x",      function(d, i) { return loc( i % grid_size); });
 
 // Run the agent based model simulation
 abm();
@@ -62,26 +61,18 @@ d3.timer(update());
 /*
  * Helpers and such
  */
-function convert(strategy) {
-	return strategy.keys().map(function(d) { return [+d, +strategy.get(d)]; });
-}
 
 
-/*
- * Convert the abm iteration/strategy into a visualizable format.
- */
 function update() {
 	return function() {
 		var strategy = abm.step()();
 		console.log(strategy);
 		if(strategy === true) { return true; };
 
-		var cnv = convert(strategy);
-		window.cnv = cnv;
 		var cell = grid.selectAll(".cell")
-				.data(cnv, function(d) { return d[0]; });
+				.data(strategy, function(d) { return d.key; });
 
-		cell.attr("class", function(d) { return "cell " + fill(d[1]); });
+		cell.attr("class", function(d) { return "cell " + fill(d.value); });
 
 		d3.select("#viz-title").text("Iteration: " + abm.counter());
 
