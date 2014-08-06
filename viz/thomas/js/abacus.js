@@ -66,15 +66,13 @@ d3.timer(update());
 function update() {
 	return function() {
 		var strategy = abm.step()();
-		console.log(strategy);
+		d3.select("#viz-title").text("Iteration: " + abm.counter());
+
 		if(strategy === true) { return true; };
 
-		var cell = grid.selectAll(".cell")
-				.data(strategy, function(d) { return d.key; });
-
-		cell.attr("class", function(d) { return "cell " + fill(d.value); });
-
-		d3.select("#viz-title").text("Iteration: " + abm.counter());
+		grid.selectAll(".cell")
+				.data(strategy, function(d) { return d.key; })
+				.attr("class", function(d) { return "cell " + fill(d.value); });
 
 		d3.timer(update());
 		return true;
