@@ -1,17 +1,20 @@
 function agent_based_model() {
-	var strategy_sets = { standard: [1.02, 1.0, 0.0, 0.0],
-				helbing_yu: [1.3,  1.0, 0.1, 0.0] },
-		STRATEGY_SET  = d3.map({C: 1, D: 0}),
+	var strategy_sets = d3.map({
+			standard:   {T: 1.02, R: 1.0, P: 0.0, S: 0.0},
+			helbing_yu: {T: 1.3,  R: 1.0, P: 0.1, S: 0.0}
+		}),
 		C, // Cooperation dictionary
 		MCS; // Monte Carlo Steps
 
 	// Getters only
 	var	moves      = []
 		counter  = 1,
-		current    = {}, previous   = {}, // strategies
+		current    = {}, previous   = {}, // board state
 		dispatch   = d3.dispatch("start", "end"),
 		callback   = function() {},
-		step       = function() {};
+		step       = function() {},
+		game_set   = [[[],[]],[[],[]]],
+		solution   = "helbing_yu";
 
 	// Variables available to getters & setters.  Here with default values.
 	var uploadToS3 = false,
@@ -22,7 +25,7 @@ function agent_based_model() {
 		r          = 0.05, // Probability of not copying best strategy
 		q          = 0.05, // Chance of spontaneous cooperation (noise 1)
 		m          = 1, // Probability of migration
-		s          = 1, // Proability of expelling
+		s          = 1, // Probability of expelling
 		M          = 5; // Moore's Distance
 
 	function game() {
@@ -91,14 +94,19 @@ function agent_based_model() {
 		function find_neighbors(site, strategy, non_empty_sites) {
 			non_empty_sites = default_val(non_empty_sites, true);
 
-			var size = Math.sqrt(strategy.keys().length),
-				hood = [site - 1, site + 1, site - size, site + size];
+			var size = Math.floor(Math.sqrt(strategy.keys().length)),
+				hood = [site - 1, site + 1, site - size, site + size]
+						.map(function(d) { return d % size; });
 
-			hood.forEach(function(d) { return d % strategy.length; });
+			console.log(size, site, hood);
 
-			return non_empty_sites
+			hood = non_empty_sites === true
 				? hood.filter(function(d) { strategy.get(d) > -1; })
 				: hood;
+
+			console.log(size, site, hood);
+
+			return hood;
 		} // find_neighbors()
 
 		/*
@@ -135,14 +143,13 @@ function agent_based_model() {
 		 * Find the overall pay-off for a site.
 		 * (Play simultaneously with all neighbors).
 		 */
-		function payoff(site, strategy) {
-			var hood = find_neighbors(typeof site === "number"
-							? site : site[0],
-						strategy);
+		function payoff(loc, strategy) {
+			var site = typeof loc === "number" ? loc: loc[0],
+				hood = find_neighbors(site, strategy);
 
-			return d3.sum(hood.map(function(d) {
-				return prisoners_dilemma(site, d, strategy)[0];
-			}));
+			return hood.map(function(d) {
+				return game_set[strategy.get(site)][strategy.get(d)][0];
+			});
 		} // payoff()
 
 
@@ -186,15 +193,12 @@ function agent_based_model() {
 			var neighborhood = search_for_sites(site, strategy, site_occ),
 				po = {};
 
-			if(strategy.get(site) === -1) {
-				return 0;
-			}
+			if(strategy.get(site) === -1) { return {}; }
 
 			var ownPayoff = payoff(site, strategy);
 			po[site] = ownPayoff; 
 
 			if(forceMove) {
-				console.log("forced move");
 				delete po[site];
 				forceMove = false;// needs to be always set (like a param, but not)
 			}
@@ -224,9 +228,9 @@ function agent_based_model() {
 		 * Out: [strategy, this move]
 		 */
 		function move(neighborhood, strategy) {
-			var best_site_strategy = strategy.get(neighborhood.get('best_site')),
-				best_site          = neighborhood.get('best_site'),
-				o_site             = neighborhood.get('o_site');
+			var best_site          = neighborhood.get('best_site'),
+				o_site             = neighborhood.get('o_site'),
+				best_site_strategy = strategy.get(best_site);
 
 			var mv = {};
 			mv[o_site] = -1;
@@ -290,26 +294,6 @@ function agent_based_model() {
 		/*
 		 * Strategy Sets
 		 */
-		
-		/*
-		 * Prisoners' Dilemma
-		 */
-		function prisoners_dilemma(player1, player2, strategy) {
-			var strat = strategy_sets.helbing_yu,
-				game_set = {
-					"[1,1]": [strat.R, strat.R],
-					"[1,0]": [strat.S, strat.T],
-					"[0,1]": [strat.T, strat.S],
-					"[0,0]": [strat.P, strat.P],
-				};
-			var ret = game_set[JSON.stringify(typeof player1 === "number"
-						? strategy.get(player1)
-						: player1[1],
-					strategy.get(player2)
-					)];
-			console.log(ret);
-		} // prisoners_dilemma()
-
 		/*
 		 * update strategies by player 1 trying to reproduce
 		 * player 2's strategy with Dirk Temperature
@@ -412,22 +396,32 @@ function agent_based_model() {
 	game.counter = function() {
 		return counter;
 	}
+
 	/*
 	 * Class (public) method to generate and return the initial game board.
 	 */
 	game.initial = function() {
 
-		// Setup the initial game board
+		// Counters and limits
 		counter = 0;
 		MCS = Math.pow(grid_size,2)*iterations; // Monte Carlo Steps
 
+		// Initial game board and strategy
 		var	board    = Math.pow(grid_size, 2),
-			shuffled = d3.shuffle(d3.range(board));
+			shuffled = d3.range(board); // unshuffled on assignment
+
+		// actually shuffle the shuffled board
+		d3.shuffle(shuffled);
 
 		var cut  = Math.round(percs * board + Math.random() - 0.5),
-			grid = d3.shuffle(percs < 1 ? shuffled.slice(0, cut) : d3.range(board)),
+			grid = percs < 1 ? shuffled.slice(0, cut) : d3.range(board),
 			rest = percs < 1 ? shuffled.slice(cut) : [],
-			stratvals = STRATEGY_SET.values();
+			stratvals = [0,1]; // 0 = defector, 1 = cooperator
+
+		// Shuffle the grid:
+		// Especially needed if percs >=1
+		// Doesn't hurt to reshuffle anyway
+		d3.shuffle(grid);
 
 		grid.forEach(function(d) { current[d] = choice(stratvals); });
 		rest.forEach(function(d) { current[d] = -1; });
@@ -447,6 +441,24 @@ function agent_based_model() {
 		previous = d3.map(current);
 		return d3.map(current).entries();
 	} // game.initial()
+	
+	/*
+	 * Public getter/setter to set the appropriate prisoner's dilemma strategy
+	 */
+	game.dilemma = function(tactic) {
+        if(!arguments.length) return solution;
+		solution = tactic;
+		var strat = strategy_sets.get(solution);
+
+		/* Set the prisoners dilemma solution */
+		game_set[0][0] = [strat.P, strat.P];
+		game_set[0][1] = [strat.T, strat.S];
+		game_set[1][0] = [strat.S, strat.T];
+		game_set[1][1] = [strat.R, strat.R];
+
+        return game;
+    }; // game.m()
+
 
 
 
@@ -465,17 +477,16 @@ function agent_based_model() {
 			// empty
 			e: coop.filter(function(d) { return d === -1; }).length / norm,
 		};
-
-		console.log(coop_level);
 	} // calc_coop_level()
 
 	return game;
 } // agent_based_model()
 
 /*
- * Pick a random entry from the given array
+ * Shuffle the given array then pick a random value from it.
  * In: array
- * Out: random value
+ * Out: random value,
+ * solution   = "helbing_yu";
  */
 function choice(array) {
 	d3.shuffle(array);
