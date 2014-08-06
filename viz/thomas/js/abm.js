@@ -33,35 +33,37 @@ function agent_based_model() {
 				calc_coop_level(current);
 
 				// conditions to break the loop
-				// TODO: NEED TO FIND OUT ABOUT THE FIRST CONDITION (line 475)
-				var frozen = C['c'].slice(-10)
-						.every(function(e, i, a) {
-							return e === a[a.length - 1];
-						});
+				if(C.c.length > 10) {
+					var last = C.c[C.c.length - 1],
+						frozen = C.c.slice(-10)
+							.every(function(e, i, a) {
+								return e === last;
+							});
 
-				if(frozen) {
-					dispatch.end("frozen");
-					return true;
+					if(frozen) {
+						alert("frozen");
+						return true;
+					}
 				}
 
 				if(coop_level['c'] === 0) {
-					dispatch.end("no cooperators left");
+					console.log("no cooperators left");
 					return true;
 				}
 
 				if(coop_level['d'] === 0) {
-					dispatch.end("no defectors left");
+					console.log("no defectors left");
 					return true;
 				}
 
 				if(counter % (Math.pow(grid_size, 2) - 1) === 0 &&
 						d3.max(C['c'].slice(-3)) < 0.01) {
-					dispatch.end("lower threshold of cooperators reached");
+					console.log("lower threshold of cooperators reached");
 					return true;
 				}
 
 				if(counter % (Math.pow(grid_size, 2) + 1) === 0) {
-					console.log("strategy available at " + counter);
+					console.log(counter + ": strategy: " + current);
 				}
 
 				if(counter % Math.pow(grid_size, 2) === 0) {
@@ -87,7 +89,7 @@ function agent_based_model() {
 		 * Optional BOOLEAN argument: non_empty_sites
 		 */
 		function find_neighbors(site, strategy, non_empty_sites) {
-			non_empty_sites = default_arg(non_empty_sites, true);
+			non_empty_sites = default_val(non_empty_sites, true);
 
 			var size = Math.sqrt(strategy.keys().length),
 				hood = [site - 1, site + 1, site - size, site + size];
@@ -151,7 +153,7 @@ function agent_based_model() {
 		 * 				: "all", "occupied", "empty"
 		 */
 		function search_for_sites(site, strategy, site_occupation) {
-			site_occupation = default_arg(site_occupation, "all");
+			site_occupation = default_val(site_occupation, "all");
 
 			var size = Math.sqrt(strategy.keys().length),
 				Y    = d3.range(site - M * size, site + (M+1) * size, size),
@@ -181,9 +183,8 @@ function agent_based_model() {
 		 * Optional BOOLEAN argument: site_occ
 		 */
 		function explore_neighborhood(site, strategy, site_occ) {
-			var neighborhood = search_for_sites(site, strategy, site_occ);
-			
-			var po = {};
+			var neighborhood = search_for_sites(site, strategy, site_occ),
+				po = {};
 
 			if(strategy.get(site) === -1) {
 				return 0;
@@ -193,13 +194,16 @@ function agent_based_model() {
 			po[site] = ownPayoff; 
 
 			if(forceMove) {
+				console.log("forced move");
 				delete po[site];
 				forceMove = false;// needs to be always set (like a param, but not)
 			}
 
 			neighborhood.forEach(function(d) {
-				po.d = payoff(strategy.get(d) === -1 ? [d, strategy.get(site)] : d,
-							strategy) + Math.random() - 0.5 / 10000;
+				po.d = payoff(
+						strategy.get(d) === -1 ? [d, strategy.get(site)] : d,
+						strategy
+					) + (Math.random() - 0.5) / 10000;
 			});
 
 			var best_site = d3.max(d3.map(po).values());
@@ -253,24 +257,24 @@ function agent_based_model() {
 				mv = {},
 				hood;
 
-			if(strategy.get(site) !== -1) {
-				// Migration
-				if(Math.random() < m) {
+			if(strategy.get(site) !== -1) { // if the site is nonempty
+				if(Math.random() < m) { // Try to migrate
 					hood = explore_neighborhood(site, strategy, Math.random() < s
 							? "all" // best possible site (property game)
-							: "empty" //  migrate to empty site
+							: "empty" //  empty site
 						);
 
-					site = hood.get('best_site');
 
 					var ret = move(hood, strategy);
 
-					strategy   = ret.get('strategy');
 					mv         = ret.get('mv');
-				}
+					strategy   = ret.get('strategy');
+					site       = hood.get('best_site');
 
+				}
 				comparison = play_with_all_neighbors(site, strategy);
 			}
+
 
 			// Update strategy given comparison with neighbors
 			if(comparison.has('best_site')) {
@@ -455,12 +459,14 @@ function agent_based_model() {
 
 		coop_level = {
 			// cooperators
-			c: coop.filter(function(x) { return x === 1; }).length / norm,
+			c: coop.filter(function(d) { return d === 1; }).length / norm,
 			// defectors
-			d: coop.filter(function(x) { return x === 0; }).length / norm,
+			d: coop.filter(function(d) { return d === 0; }).length / norm,
 			// empty
-			e: coop.filter(function(x) { return x < 0; }).length / norm,
+			e: coop.filter(function(d) { return d === -1; }).length / norm,
 		};
+
+		console.log(coop_level);
 	} // calc_coop_level()
 
 	return game;
@@ -472,14 +478,15 @@ function agent_based_model() {
  * Out: random value
  */
 function choice(array) {
+	d3.shuffle(array);
 	return array[Math.floor(Math.random() * array.length)];
 } // choice()
 
 /*
  * Assign a default value to something, if it is undefined.
  */
-function default_arg(arg, val) {
+function default_val(arg, val) {
 	return typeof arg === "undefined" ? val : arg;
-} // default_arg()
+} // default_val()
 
 
