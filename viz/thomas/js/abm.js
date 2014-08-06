@@ -34,6 +34,15 @@ function agent_based_model() {
 
 				// conditions to break the loop
 				// TODO: NEED TO FIND OUT ABOUT THE FIRST CONDITION (line 475)
+				var frozen = C['c'].slice(-10)
+						.every(function(e, i, a) {
+							return e === a[a.length - 1];
+						});
+
+				if(frozen) {
+					dispatch.end("frozen");
+					return true;
+				}
 
 				if(coop_level['c'] === 0) {
 					dispatch.end("no cooperators left");
@@ -400,20 +409,20 @@ function agent_based_model() {
 		return counter;
 	}
 	/*
-	 * Class (public) method to initialize the strategies and grids.
+	 * Class (public) method to generate and return the initial game board.
 	 */
-	game.initialize = function() {
+	game.initial = function() {
 
 		// Setup the initial game board
 		counter = 0;
 		MCS = Math.pow(grid_size,2)*iterations; // Monte Carlo Steps
 
-		var	l        = Math.pow(grid_size, 2),
-			shuffled = d3.shuffle(d3.range(l));
+		var	board    = Math.pow(grid_size, 2),
+			shuffled = d3.shuffle(d3.range(board));
 
-		var lim = Math.round(percs * l + Math.random() - 0.5),
-			grid = d3.shuffle(percs < 1 ? shuffled.slice(0, lim) : d3.range(l)),
-			rest = percs < 1 ? [] : shuffled.slice(limit),
+		var cut  = Math.round(percs * board + Math.random() - 0.5),
+			grid = d3.shuffle(percs < 1 ? shuffled.slice(0, cut) : d3.range(board)),
+			rest = percs < 1 ? shuffled.slice(cut) : [],
 			stratvals = STRATEGY_SET.values();
 
 		grid.forEach(function(d) { current[d] = choice(stratvals); });
@@ -433,7 +442,7 @@ function agent_based_model() {
 
 		previous = d3.map(current);
 		return d3.map(current);
-	} // game.initialize()
+	} // game.initial()
 
 
 
