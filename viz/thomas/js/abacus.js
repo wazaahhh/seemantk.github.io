@@ -11,10 +11,16 @@ var	iterations        = 100,
 	M = 5;
 
 var width = 500,
-	length = width / grid_size;
+	length = width / grid_size,
+	pause = false;
 
-//d3.select("#pause").on("click", function() { });
-//d3.select("#play" ).on("click", function() { });
+d3.select("#pause").on("click", function() { pause = true;  });
+d3.select("#play" ).on("click", function() {
+		if(pause === true) {
+			pause = false;
+			d3.timer(update());
+		}
+	});
 
 var fill = d3.scale.ordinal()
 		.domain([-1, 0, 1])
@@ -35,7 +41,8 @@ abm = agent_based_model()
 		.M(M)
 		.iterations(iterations)
 		.grid_size(grid_size)
-		.percs(perc_filled_sites);
+		.percs(perc_filled_sites)
+		.dilemma("helbing_yu");
 
 var svg = d3.select("#viz").append("svg")
 		.attr("class", "mainviz")
@@ -65,10 +72,12 @@ d3.timer(update());
 
 function update() {
 	return function() {
+		if(pause === true) return true;
+
 		var strategy = abm.step()();
 		d3.select("#viz-title").text("Iteration: " + abm.counter());
 
-		if(strategy === true) { return true; };
+		if(strategy === true) return true;
 
 		grid.selectAll(".cell")
 				.data(strategy, function(d) { return d.key; })
