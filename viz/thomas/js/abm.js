@@ -72,7 +72,7 @@ function agent_based_model() {
 				}
 
 				counter += 1;
-				return d3.map(moves[moves.length - 1]);
+				return d3.map(moves[moves.length - 1]).entries();
 			} // while()
 		};
 
@@ -441,7 +441,7 @@ function agent_based_model() {
 			};
 
 		previous = d3.map(current);
-		return d3.map(current);
+		return d3.map(current).entries();
 	} // game.initial()
 
 
