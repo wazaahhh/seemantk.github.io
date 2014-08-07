@@ -21,6 +21,7 @@ howto:
   - component: tooltips
     step: hover over a circle to see more details on a particular developer.
 ---
+Although this looks pretty *spacey-wacey* the information is actually *timey-wimey*.
 Data is hard. And incomplete. If you see anything inaccurate or that you disagree with, please contact us. File a bug or send us a message on the forums, mailing lists or social media.
 
 Gentoo Linux activity since the first CVS commit in July 2000. To pause the activity you can either click the pause/stop button or click on a date (month or year). There will be a slight difference in the paused display depending on which you hit. The pause button literally pauses the action. The date strip shows the entire historical snapshot per the date clicked.
