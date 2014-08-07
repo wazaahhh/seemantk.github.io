@@ -68,22 +68,22 @@ var fillColor = d3.scale.ordinal()
 queue()
 	.defer(d3.tsv, "developers.tsv", function(d) {
 		return {
-			alias: d.alias,
-			nick: d.developer,
-			fullname: d.fullname,
-			join: ldapDate.parse(d.join),
-			retire: ldapDate.parse(d.retire),
+			alias    : d.alias,
+			nick     : d.developer,
+			fullname : d.fullname,
+			join     : ldapDate.parse(d.join),
+			retire   : ldapDate.parse(d.retire),
 		};
 	})
 	.defer(d3.csv, "activity.csv", function(d) {
 		return {
-			date: d.date,
-			nick: d.developer,
-			hr: d.hr,
-			bugs: +d.bugs,
-			commits: +d.commits,
-			total_bugs: +d.total_bugs,
-			total_commits: +d.total_commits,
+			date          : d.date,
+			nick          : d.developer,
+			hr            : d.hr,
+			bugs          : +d.bugs,
+			commits       : +d.commits,
+			total_bugs    : +d.total_bugs,
+			total_commits : +d.total_commits,
 		};
 	})
 	.await(galactify);
