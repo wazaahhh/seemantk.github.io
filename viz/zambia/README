@@ -1,0 +1,9 @@
+The current thinking behind this viz is a stacked chart.  The red/black/orange bars are stacked as a different category from the green bars.  The number of green bars will be dynamic and colored from new green to old (pre-1996) green.
+
+Criteria for RBO bars:
+	- Bottom 3 out 4 TOTAL data points
+	- Top 3 out of >4 TOTAL data points
+
+Thus, the "x-axis" will be an ordinal axis consisting of one category (the category of the current visualization tick). Alternatively, the entire dataset could be mapped to the x-axis offscreen and then transitioned in at each tick().
+
+The "y-axis" will start off as one. All things will stack in one giant stack.  I'll figure out how to group the RBO bars for transformation/translation/rotation/rescaling after that.

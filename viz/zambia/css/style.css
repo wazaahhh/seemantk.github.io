@@ -1,0 +1,19 @@
+/* Flag Colors */
+.orange {
+	fill: #ef7d00;
+}
+
+.black {
+	fill: #000;
+}
+
+.red {
+	fill: #de2010;
+}
+
+/* Handled by SVG due to variable shades */
+/*
+.green {
+	fill: #198a00;
+}
+*/
