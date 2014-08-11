@@ -84,6 +84,13 @@ function sundial(error, incdata) {
 		.style("stroke", "lightgray")
 		.style("fill", "white");
 
+	sundial.append("text")
+		.text(function(d) { return d.data; })
+		.attr("transform", function(d) {
+			return "translate(" + arc.centroid(d) + ") rotate(" + angle(d) + ")";
+		})
+		.attr("text-anchor", "middle");
+
 
 	// Add the board members
 	var board = svg.append("g")
@@ -196,4 +203,10 @@ function sundial(error, incdata) {
 			});
 		};
 	} // collide()
+
+	// Average angle of an arc in radians
+	function angle(d) {
+		var a = (d.startAngle + d.endAngle) * 90 / Math.PI - 90;
+		return a > 90 ? a - 180 : a;
+	}
 }
