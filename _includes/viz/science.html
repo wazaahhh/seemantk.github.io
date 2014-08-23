@@ -1,15 +1,17 @@
 	<!-- The Visualization -->
 	<div class="container" id="visualization">
 		<div class="row">
-			<div class="viz-nav col-lg-12 col-sm-12 text-center">
-				{% include viz/player.html %}
-			</div><!--.viz-nav-->
-		</div><!--.row-->
-		<div class="row">
-			<div class="col-lg-12 col-sm-12" id="viz">
-				<h4 class="text-center" id="viz-title"></h4>
+			<div class="col-lg-6 col-sm-12 text-center" id="viz">
+				<h4 id="viz-title"></h4>
 			</div><!--.viz-->
-
+			<div class="viz-nav panel col-lg-6 col-sm-12 text-center">
+				<div class="panel-heading">
+					<h3 class="panel-title" id="legend-title"></h3>
+					{% include viz/player.html %}
+				</div>
+				<div class="panel-body" id="chooser">
+				</div>
+			</div><!--.viz-nav-->
 		</div><!--.row-->
 	</div><!--.container-->
 	<div class="tooltip"></div>
