@@ -1,10 +1,9 @@
 ---
-layout: viz/science
-title: Agent-Based Evolutionary Game Models
-description: kind of like Conway's Game of Life
+layout: viz/timeywimey
+title: For Thomas
+description: looks like the Game of Life
 category: research
 item: agents
 commissioned: true
-includes: [js/abm.js]
 ---
 
