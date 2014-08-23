@@ -1,17 +1,46 @@
-queue()
-	.defer(d3.json, "agents3.json")
-	.await(gestate);
+// Populate the menu of available simulations
+var uri = "https://s3.amazonaws.com/property_game/";
+queue().defer(d3.xml, uri)
+	.await(function(error, stuff) {
+		var dirs = stuff.getElementsByTagName("Key"),
+			listing = [];
+
+		for(var i in dirs) {
+			if(dirs[i].textContent) {
+				var txt = dirs[i].textContent.split("/");
+				if(txt[0] === "results" && txt[1] === "json") {
+					listing.push(txt[2]);
+				}
+			}
+		}
+
+		d3.select("#chooser")
+		  .append("select")
+			.on("change", function() {
+				queue()
+					.defer(d3.json, uri + "results/json/" + this.value)
+					.await(gestate);
+			})
+			.selectAll("option")
+			.data(listing)
+		  .enter().append("option")
+			.attr("value", function(d) { return d; })
+			.text(function(d) { return d.slice(0, -5); });
+	});
 
 var iters, anim;
 function gestate(error, incdata) {
+	if(typeof incdata === "undefined") return;
+	
 	var grid_size = incdata.input.grid_size,
 		width = 500,
 		length = width / grid_size;
 
 	iters = incdata.output.mv;
-	iters.unshift(d3.map(incdata.input.strategy_init)
-							.values()
-							.map(function(d, i) { return [i, d]; }));
+	iters.unshift(
+		d3.values(incdata.input.strategy_init)
+			.map(function(d, i) { return [i, d]; })
+	);
 
 	anim = {
 		fwd:   true,
@@ -24,6 +53,7 @@ function gestate(error, incdata) {
         anim.pause = !anim.pause;
         draw();
     });
+
     d3.select("#play").on("click", function() {
         anim.fwd = true;
         if(anim.pause) {
@@ -50,7 +80,7 @@ function gestate(error, incdata) {
 			.range([0,width]);
 
 	var svg =
-			d3.select("#tardis").append("svg")
+			d3.select("#viz").append("svg")
 				.attr("class", "mainviz")
 				.attr("width", width)
 				.attr("height", width);
