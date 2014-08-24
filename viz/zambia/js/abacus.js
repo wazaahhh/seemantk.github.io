@@ -1,133 +1,112 @@
 queue()
-	.defer(d3.json, "zambia.json")
-	.defer(d3.xml,  "img/nkwazi.svg")
+	.defer(d3.json, "facts.json")
+	.defer(d3.xml,  "img/Flag_of_Zambia.svg")
 	.await(chartify);
 
-// Load Eagle:
-/*
-d3.xml("nkwazi.svg", "image/svg+xml", function(xml) {
-		  document.body.appendChild(xml.documentElement);
-	  });
-*/
+function chartify(error, facts, figure) {
+	// Let's put the flag on screen first
+	var svg = d3.select(".viz");
 
-function chartify(error, zambia, nkwazi) {
-	var flag = {
-		colors : { // colors per the svg at wikipedia
-			green: "#198a00",
-			oldgreen: "#oe5400",
-			orange: "#ef7d00",
-			black: "#000",
-			red: "#de2010",
+	svg.node().appendChild(figure.getElementsByTagName("svg")[0]);
+
+	d3.select("svg")
+		.attr("transform", "scale(.5)");
+
+	// Now we can calculate various dimensions
+	var margin = {top: 50, left: 30, down: 50, right: 20},
+		chart = {
+			height: +(d3.select(".green").attr("height")),
+			width: +(d3.select(".green").attr("width"))
 		},
-		percent : {
-			green: 64.3,
-			rbo: 35.7
+		rbobars = {
+			height: +(d3.select("#red").attr("height")),
+			width: +(d3.select("#red").attr("width"))
 		},
-	};
+		ratio = {
+			width: rbobars.width / chart.width,
+			height: rbobars.height / chart.height
+		},
+		percent = {
+			rbomax: ratio.height,
+		};
 
-	var percent = {};
+	console.log(percent);
 
-	var greenColors = d3.scale.linear()
-		.range([flag.colors.green, flag.colors.oldgreen])
+	var colors = d3.scale.ordinal()
+			.domain(["green", "oldgreen", "orange", "black", "red"])
+			.range(["#198a00", "#oe5400", "#ef7d00", "#000", "#de2010"])
+		greenColors = d3.scale.linear()
+		.range([colors("green"), colors("oldgreen")])
 		.interpolate(d3.interpolateHcl);
 
-	var margin = {top: 50, left: 30, down: 50, right: 20},
-		chart = {height: 300, width: 450}, // 2:3 (H:W) Ratio
-		bar = {height: chart.height * .641, width: chart.width * .119};
 
 	var cycle = 250, // animation frame
 		index = 0,
 		keys;
+	
 
+	layers = sortify(facts.imports);
 
+	/*
+	 * Flag Axes
+	 */
+	/*
+	 * Green bars will be stacked on the y-axis.
+	 *   - have constant and equal widths (for this version)
+	 *   - minimum percentage: 0%
+	 *   - maximum percentage: ~99.7%
+	 *
+	 * RBO bars are stacked on the x-axis.
+	 *   - have constant and equal heights
+	 * 	 - minimum percentage of each RBO = ~.06%
+	 * 	 - maximum percentage of each RBO = ~64.2%
+	 */
+	// stacked axes
+	var rbolayers = layers.filter(function(d) { return d.class === "rbo"; }),
+		grnlayers = layers.filter(function(d) { return d.class !== "rbo"; });
 
-	var dataset = d3.map(zambia);
-	layers = sortify(dataset.get('imports'));
-
-	// Flag Axes
-	var xflag = d3.scale.ordinal()
-			.range([0, chart.width]);
-
-	var yflag = d3.scale.linear()
-			.domain([0, d3.max(layers, function(d) { return d.y + d.y0; })])
-			.range([0, chart.height]);
-
-	var ygreen = d3.scale.linear()
-			.range([0, chart.height])
-			.clamp(true);
-
-
-	// Axes for rbo (red+black+orange) bars
+	console.log(rbolayers, grnlayers);
 	var xrbo = d3.scale.linear()
-			.domain([64.3,100])
-			.range([(chart.height * 0.643), chart.height])
+			.domain([0, d3.max(rbolayers, function(d) { return d.y + d.y0; })])
+			.rangeRound([chart.width, .1 * chart.width])
+			.clamp(true),
+		ygreen = d3.scale.linear()
+			.domain([0, d3.max(grnlayers, function(d) { return d.y + d.y0; })])
+			.range([chart.height,0])
 			.clamp(true);
 
-	var yrbo = d3.scale.linear()
-			.domain([0,100])
-			.range([0,chart.width])
-			.clamp(true);
-
-
-	// Draw the chart
-	var svg = d3.select(".viz").append("svg")
-			.attr("width", chart.width)
-			.attr("height", chart.height);
-
-	var flag = svg.append("g")
-			.attr("class", "flag")
-			.attr("width", chart.width)
-			.attr("height", chart.height);
-
-
-	var bird = nkwazi.getElementsByTagName("svg")[0];
-	flag.node().appendChild(bird);
+	console.log(xrbo.domain(), xrbo.range());
 
 	// Draw the bars
 	flatten();
 	flagify();
 
-	function flatten() {
-		flag.selectAll("rect")
-			.data(layers, function(d) { return d.name; })
-	  	  .enter().append("rect")
-			.attr("y", function(d) { return yflag(d.y0); })
-			.attr("x", 0)
-			.attr("class", function(d) { return d.class; })
-			.attr("width", function(d) { return chart.width; })
-			.attr("height",function(d) { return yflag(d.y); });
 
-		/* Paint the green ones.  The RBO bars will be painted by CSS. */
-		flag.selectAll(".green")
-			.style("fill", function(d, i) { return d.color; });
+	function flatten() {
+		var flag = svg.selectAll("rect")
+			.data(layers);
+		flag.selectAll(".green").style("fill", function(d) { return d.color; });
+
 	} // flatten()
 
 	function flagify() {
-
-		/*
-		var rbos = layers.filter(function(d) { return d.class !== "green"; });
-		yrbo.domain([0, d3.max(rbos, function(d) { return d.y + d.y0; })]);
-		*/
-
-		flag.selectAll(".rbo")
+		svg.selectAll(".rbo")
 		  .transition().duration(500)
-			.each("start", function() { // Bring the RBO bars to the front
+		  	.attr("x", function(d) { console.log("width: " + xrbo(d.y + d.y0)); return xrbo(d.y + d.y0); })
+			.attr("width", function(d) { return xrbo(d.value); })
+			.attr("height", chart.height)
+			/*
+			 .each("start", function() { // Bring the RBO bars to the front
 				d3.select(this).node().parentNode.appendChild(this);
 			})
-			.attr("width", xrbo(percent.rbo))
-		  .transition().delay(500).duration(500) // Rotate them to the right spot
-			.attr("transform", "rotate(-90) translate(-" + chart.height + "," +
-					(chart.width * percent.green / 100) + ")")
-		  .transition().delay(1000).duration(500) // Adjust the heights to match.
-			.attr("y", function(d) { return yrbo(d.y0); })
-			.attr("height", function(d) { return yrbo(d.y); })
+			*/
 			;
 
 		var greens = layers.filter(function(d) { return d.class === "green"; });
-		ygreen.domain([0, d3.max(greens, function(d) { return d.y + d.y0; }) ]);
+		//ygreen.domain([0, d3.max(greens, function(d) { return d.y + d.y0; }) ]);
 
 
-		flag.selectAll(".green")
+		svg.selectAll(".green")
 			.transition().duration(500)
 			.attr("y", function(d) { return ygreen(d.y0); })
 			.attr("height", function(d) { return ygreen(d.y); })
@@ -143,24 +122,31 @@ function chartify(error, zambia, nkwazi) {
 	} // stackify()
 
 	function sortify(arr) {
-		var ret = [], tmp = [],
+		var ret = [],
+			tmp = [],
 			sorted = arr.sort(function(a, b) {
 				return d3.ascending(
-					Math.abs(a.value - flag.percent.rbo / 3),
-					Math.abs(b.value - flag.percent.rbo / 3)
+					Math.abs(a.value - ratio.width),
+					Math.abs(b.value - ratio.width)
 				);
 			});
 
+		console.log(sorted);
 		// The three items closest to 7.65% will become the rbo bars
-		sorted[0].class = "red rbo";
+		sorted[0].class = "rbo";
+		sorted[0].color = "red"
 		tmp.push(sorted[0]);
-		sorted[1].class = "black rbo";
+		sorted[1].class = "rbo";
+		sorted[1].color = "black";
 		tmp.push(sorted[1]);
-		sorted[2].class = "orange rbo";
+		sorted[2].class = "rbo";
+		sorted[2].color = "orange";
 		tmp.push(sorted[2]);
 
+		console.log(tmp);
 		// Calculate rbo percent
-		percent.rbo = d3.sum(ret, function(d) { return d.value; });
+		percent.rbo = d3.sum(tmp, function(d) { return d.value; });
+		console.log(percent);
 
 		var rbo = d3.layout.stack()
 					.values(function(d) { return [d]; })
