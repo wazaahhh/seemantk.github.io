@@ -1,13 +1,13 @@
 /* Flag Colors */
-.orange {
+#orange {
 	fill: #ef7d00;
 }
 
-.black {
+#black {
 	fill: #000;
 }
 
-.red {
+#red {
 	fill: #de2010;
 }
 
