@@ -4,9 +4,7 @@ var width = 500
 		.attr("class", "mainviz")
 		.attr("width", width)
 		.attr("height", width)
-	, dict = d3.scale.ordinal()
-		.domain([-1, 0, 1])
-		.range(["empty", "defector", "cooperator"])
+	, dict = {"-1": "empty", "0": "defector", "1": "cooperator" }
 	, world = svg.append("g").attr("class", "world")
 	, anim = {
 		fwd:   true,
@@ -33,6 +31,7 @@ d3.select("#pause").on("click", function() {
 
 d3.select("#play").on("click", function() {
     anim.fwd = true;
+	anim.dest = iters.length - 1;
     if(anim.pause) {
         anim.pause = false;
         d3.timer(step);
@@ -41,6 +40,7 @@ d3.select("#play").on("click", function() {
 
 d3.select("#yalp").on("click", function() {
     anim.fwd = false;
+	anim.dest = 0;
     if(anim.pause) {
         anim.pause = false;
         d3.timer(step);
@@ -104,28 +104,14 @@ queue()
  */
 function step() {
 	if(anim.pause) return true;
-	if(anim.index === anim.dest) {
-		anim.pause = true;
-	}
-
+	anim.pause = anim.pause || anim.index === anim.dest;
 	update();
+	if(anim.pause) return true;
 
 	// Advance to the next iteration
-	if(anim.fwd) {
-		anim.index++;
-		if(anim.index > iters.length - 1) {
-			anim.index = 0;
-			anim.pause = true;
-			return true;
-		}
-	} else { // !anim.fwd
-		anim.index--;
-		if(anim.index < 0) {
-			anim.index = iters.length - 2;
-			anim.pause = true;
-			return true;
-		}
-	}
+	anim.index += anim.fwd ? 1 : -1;
+	anim.index %= iters.length;
+
 	d3.timer(step);
 	return true;
 } // step()
@@ -133,7 +119,7 @@ function step() {
 function update() {
 	world.selectAll("rect")
 		.data(iters[anim.index], function(d) { return d[0]; })
-		.attr("class", function(d) { return dict(d[1]); });
+		.attr("class", function(d) { return dict[d[1]]; });
 
 	d3.select("#legend-title").text("Iterations: " + anim.index + "/" + anim.dest);
 
@@ -180,15 +166,15 @@ function simulate(error, incdata) {
 	);
 
 	anim.fwd   = true;
-	anim.index = 1;
-	anim.dest  = iters.length-1;
+	anim.index = 0;
+	anim.dest  = iters.length - 1;
 
 	var loc = d3.scale.linear()
 			.domain([0,grid_size])
 			.range([0,width]);
 
 	var cell = world.selectAll("rect")
-			.data(iters[0], function(d) { return d[0]; });
+			.data(iters[anim.index], function(d) { return d[0]; });
 
 	// Remove old cells first
 	cell.exit().remove();
@@ -198,18 +184,11 @@ function simulate(error, incdata) {
 		.attr("class", "empty")
 		.attr("width", length)
 		.attr("height", length)
-		.attr("y",    function(d) { return loc(row(d[0])); })
-		.attr("x",    function(d) { return loc(col(d[0])); });
+		.attr("y",    function(d) { return loc((d[0] / grid_size) >> 0); })
+		.attr("x",    function(d) { return loc( d[0] % grid_size      ); });
 
 	// Update
-	cell.attr("class", function(d) { return dict(d[1]); })
+	cell.attr("class", function(d) { return dict[d[1]]; })
 
 	d3.timer(step);
-	function row(index) {
-		return (index / grid_size) >> 0; // integer division
-	} // row()
-
-	function col(index) {
-		return index % grid_size;
-	} // col()
 }
