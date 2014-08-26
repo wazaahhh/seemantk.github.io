@@ -6,7 +6,7 @@ var width = 500
 		.attr("height", width)
 	, fill = d3.scale.ordinal()
 		.domain([-1, 0, 1])
-		.range(["white", "red", "green"])
+		.range(["empty", "defector", "cooperator"])
 	, world = svg.append("g").attr("class", "world")
 	, anim = {
 		fwd:   true,
@@ -131,9 +131,9 @@ function step() {
 } // step()
 
 function update() {
-	world.selectAll(".cell")
+	world.selectAll("rect")
 		.data(iters[anim.index], function(d) { return d[0]; })
-		.style("fill", function(d) { return fill(d[1]); });
+		.attr("class", function(d) { return fill(d[1]); });
 
 	d3.select("#legend-title").text("Iterations: " + anim.index + "/" + anim.dest);
 	var percentage = Math.round(100 * anim.index / anim.dest);
@@ -168,7 +168,7 @@ function simulate(error, incdata) {
 		.text("Iterations: 0" + anim.paused ? " (Paused)" : "");
 
 	// Reset the world grid
-	d3.selectAll(".cell").style("fill", fill(-1));
+	world.selectAll("rect").attr("class", "empty");
 	
 	var grid_size = incdata.input.grid_size,
 		length = width / grid_size;
@@ -186,7 +186,7 @@ function simulate(error, incdata) {
 			.domain([0,grid_size])
 			.range([0,width]);
 
-	var cell = world.selectAll(".cell")
+	var cell = world.selectAll("rect")
 			.data(iters[0], function(d) { return d[0]; });
 
 	// Remove old cells first
@@ -194,14 +194,14 @@ function simulate(error, incdata) {
 
 	// Enter
 	cell.enter().append("rect")
-		.attr("class", "cell")
+		.attr("class", "empty")
 		.attr("width", length)
 		.attr("height", length)
 		.attr("y",    function(d) { return loc(row(d[0])); })
 		.attr("x",    function(d) { return loc(col(d[0])); });
 
 	// Update
-	cell.style("fill", function(d) { return fill(d[1]); });
+	cell.attr("class", function(d) { return fill(d[1]); })
 
 	d3.timer(step);
 	function row(index) {
