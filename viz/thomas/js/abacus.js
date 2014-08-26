@@ -1,14 +1,20 @@
 // Initialize the visualization by drawing the world grid
-var width = 500,
-	svg = d3.select("#viz").append("svg")
+var width = 500
+	, svg = d3.select("#viz").append("svg")
 		.attr("class", "mainviz")
 		.attr("width", width)
-		.attr("height", width),
-	fill = d3.scale.ordinal()
+		.attr("height", width)
+	, fill = d3.scale.ordinal()
 		.domain([-1, 0, 1])
-		.range(["white", "red", "green"]),
-	world = svg.append("g").attr("class", "world"),
-	iters, anim;
+		.range(["white", "red", "green"])
+	, world = svg.append("g").attr("class", "world")
+	, anim = {
+		fwd:   true,
+		pause: false,
+		index: 1
+	}
+	, iters
+	;
 
 // Label the loading progress bar
 d3.select("#loader").select(".progresstitle").text("Loading Simulation...");
@@ -19,8 +25,10 @@ d3.select("#loader").style("display", "none");
  * Connect the player buttons up to the animation.
  */
 d3.select("#pause").on("click", function() {
-    anim.pause = !anim.pause;
-    update();
+	if(anim.pause) return;
+	d3.select("#legend-title")
+		.text(d3.select("#legend-title").text() + " (Paused)");
+    anim.pause = true;
 });
 
 d3.select("#play").on("click", function() {
@@ -79,7 +87,7 @@ queue()
 					})
 					.get(function(error, incdata) {
 						if(incdata !== "undefined") {
-							gestate(error, incdata);
+							simulate(error, incdata);
 						}
 					});
 			})
@@ -90,7 +98,54 @@ queue()
 			.text(function(d) { return d.slice(0, -5); });
 	});
 
-function gestate(error, incdata) {
+/*
+ * CALLBACK: step forward to the next iteration.
+ * (this function is a callback for d3.timer())
+ */
+function step() {
+	if(anim.pause) return true;
+	if(anim.index === anim.dest) {
+		anim.pause = true;
+	}
+
+	update();
+
+	// Advance to the next iteration
+	if(anim.fwd) {
+		anim.index++;
+		if(anim.index > iters.length - 1) {
+			anim.index = 0;
+			anim.pause = true;
+			return true;
+		}
+	} else { // !anim.fwd
+		anim.index--;
+		if(anim.index < 0) {
+			anim.index = iters.length - 2;
+			anim.pause = true;
+			return true;
+		}
+	}
+	d3.timer(step);
+	return true;
+} // step()
+
+function update() {
+	world.selectAll(".cell")
+		.data(iters[anim.index], function(d) { return d[0]; })
+		.style("fill", function(d) { return fill(d[1]); });
+
+	d3.select("#legend-title").text("Iterations: " + anim.index + "/" + anim.dest);
+	var percentage = Math.round(100 * anim.index / anim.dest);
+	d3.select("#ager").select(".progress-bar")
+		.attr("aria-valuenow", percentage)
+		.style("width", percentage + "%")
+		.select(".sr-only")
+		.text("Iterations: " + anim.index);
+} // update()
+
+
+function simulate(error, incdata) {
 	if(typeof incdata === "undefined") return;
 
 	// Hide the loading progress bar
@@ -101,6 +156,17 @@ function gestate(error, incdata) {
 		.style("width", "0%")
 		.select(".sr-only")
 		.text('');
+	
+	// Reset the iteration progress
+	d3.select("#ager").select(".progress-bar")
+		.attr("aria-valuenow", 0)
+		.style("width", "0%")
+		.select(".sr-only")
+		.text("Iterations: 0" + anim.paused ? " (Paused)" : "");
+
+	d3.select("#legend-title")
+		.text("Iterations: 0" + anim.paused ? " (Paused)" : "");
+
 	// Reset the world grid
 	d3.selectAll(".cell").style("fill", fill(-1));
 	
@@ -108,16 +174,13 @@ function gestate(error, incdata) {
 		length = width / grid_size;
 
 	iters = incdata.output.mv;
-	iters.unshift(d3.values(incdata.input.strategy_init).map(function(d, i) {
-		return [i, d];
-	}));
+	iters.unshift(d3.values(incdata.input.strategy_init)
+		.map(function(d, i) { return [i, d]; })
+	);
 
-	anim = {
-		fwd:   true,
-		pause: false,
-		index: 1,
-		dest:  iters.length-1,
-	};
+	anim.fwd   = true;
+	anim.index = 1;
+	anim.dest  = iters.length-1;
 
 	var loc = d3.scale.linear()
 			.domain([0,grid_size])
@@ -127,8 +190,7 @@ function gestate(error, incdata) {
 			.data(iters[0], function(d) { return d[0]; });
 
 	// Remove old cells first
-	cell
-		.exit().remove();
+	cell.exit().remove();
 
 	// Enter
 	cell.enter().append("rect")
@@ -142,54 +204,6 @@ function gestate(error, incdata) {
 	cell.style("fill", function(d) { return fill(d[1]); });
 
 	d3.timer(step);
-
-	/*
-	 * CALLBACK: step forward to the next iteration.
-	 * (this function is a callback for d3.timer())
-	 */
-	function step() {
-		if(anim.pause) return true;
-		if(anim.index === anim.dest) {
-			anim.pause = true;
-			return true;
-		}
-
-		update();
-
-		// Advance to the next iteration
-		if(anim.fwd) {
-			anim.index++;
-			if(anim.index > iters.length - 1) {
-				anim.index = 0;
-				anim.pause = true;
-				return true;
-			}
-		} else { // !anim.fwd
-			anim.index--;
-			if(anim.index < 0) {
-				anim.index = iters.length - 2;
-				anim.pause = true;
-				return true;
-			}
-		}
-		d3.timer(step);
-		return true;
-	} // step()
-
-	function update() {
-		world.selectAll(".cell")
-			.data(iters[anim.index], function(d) { return d[0]; })
-			.style("fill", function(d) { return fill(d[1]); });
-
-		d3.select("#legend-title").text("Iterations: " + anim.index);
-		var percentage = Math.round(100 * anim.index / anim.dest);
-		d3.select("#ager").select(".progress-bar")
-			.attr("aria-valuenow", percentage)
-			.style("width", percentage + "%")
-			.select(".sr-only")
-			.text("Iterations: " + anim.index);
-	} // update()
-
 	function row(index) {
 		return (index / grid_size) >> 0; // integer division
 	} // row()
