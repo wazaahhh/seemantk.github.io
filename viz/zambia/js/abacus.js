@@ -5,32 +5,33 @@ queue()
 
 function chartify(error, facts, figure) {
 	// Let's put the flag on screen first
-	var svg = d3.select(".viz");
+	d3.select(".viz").node().appendChild(figure.getElementsByTagName("svg")[0]);
 
-	svg.node().appendChild(figure.getElementsByTagName("svg")[0]);
-
-	d3.select("svg")
-		.attr("transform", "scale(.5)");
+	var svg = d3.select("svg");
+	
+	svg.attr("transform", "scale(.5)");
 
 	// Now we can calculate various dimensions
 	var margin = {top: 50, left: 30, down: 50, right: 20},
 		chart = {
+			height: svg.node().offsetHeight,
+			width : svg.node().offsetWidth
+		},
+		greens = {
 			height: +(d3.select(".green").attr("height")),
-			width: +(d3.select(".green").attr("width"))
+			width : +(d3.select(".green").attr("width"))
 		},
 		rbobars = {
 			height: +(d3.select("#red").attr("height")),
-			width: +(d3.select("#red").attr("width"))
+			width : +(d3.select("#red").attr("width"))
 		},
-		ratio = {
-			width: rbobars.width / chart.width,
-			height: rbobars.height / chart.height
+		default_ratio = {
+			height: rbobars.height / chart.height,
+			width : rbobars.width  / chart.width
 		},
 		percent = {
-			rbomax: ratio.height,
+			rbomax: default_ratio.height,
 		};
-
-	console.log(percent);
 
 	var colors = d3.scale.ordinal()
 			.domain(["green", "oldgreen", "orange", "black", "red"])
@@ -65,10 +66,9 @@ function chartify(error, facts, figure) {
 	var rbolayers = layers.filter(function(d) { return d.class === "rbo"; }),
 		grnlayers = layers.filter(function(d) { return d.class !== "rbo"; });
 
-	console.log(rbolayers, grnlayers);
 	var xrbo = d3.scale.linear()
 			.domain([0, d3.max(rbolayers, function(d) { return d.y + d.y0; })])
-			.rangeRound([chart.width, .1 * chart.width])
+			.range([chart.width, 0])
 			.clamp(true),
 		ygreen = d3.scale.linear()
 			.domain([0, d3.max(grnlayers, function(d) { return d.y + d.y0; })])
@@ -76,6 +76,7 @@ function chartify(error, facts, figure) {
 			.clamp(true);
 
 	console.log(xrbo.domain(), xrbo.range());
+	console.log(ygreen.domain(), ygreen.range());
 
 	// Draw the bars
 	flatten();
@@ -126,8 +127,8 @@ function chartify(error, facts, figure) {
 			tmp = [],
 			sorted = arr.sort(function(a, b) {
 				return d3.ascending(
-					Math.abs(a.value - ratio.width),
-					Math.abs(b.value - ratio.width)
+					Math.abs(a.value - default_ratio.width),
+					Math.abs(b.value - default_ratio.width)
 				);
 			});
 
@@ -143,10 +144,8 @@ function chartify(error, facts, figure) {
 		sorted[2].color = "orange";
 		tmp.push(sorted[2]);
 
-		console.log(tmp);
 		// Calculate rbo percent
 		percent.rbo = d3.sum(tmp, function(d) { return d.value; });
-		console.log(percent);
 
 		var rbo = d3.layout.stack()
 					.values(function(d) { return [d]; })
