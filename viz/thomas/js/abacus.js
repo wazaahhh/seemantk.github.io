@@ -61,25 +61,33 @@ queue()
 
 		d3.select("#chooser")
 		  .insert("select")
-			.on("change", function() {
-				d3.select("#loader").style("display", null);
-				d3.json(uri.base + uri.results + this.value)
-					.on("progress", function() {
-						var percentage = Math.round(d3.event.loaded * 100 / d3.event.total);
-						d3.select("#loader").select(".progress-bar")
-							.attr("aria-valuenow", percentage)
-							.style("width", percentage + "%")
-							.select(".sr-only")
-							.text(percentage + "% Complete");
-					})
-				.get(gestate)
-			})
+			.on("change", s3load(this.value))
 			.selectAll("option")
 			.data(listing)
 		  .enter().append("option")
 			.attr("value", function(d) { return d; })
+			.attr("selected", function(d, i) { return i === 0 ? true : null; })
 			.text(function(d) { return d.slice(0, -5); });
+
+		s3load(listing[0]);
 	});
+
+function s3load(filename) {
+	// Show the progress bar
+	d3.select("#loader").style("display", null);
+
+	// Load the file and update the progress bar
+	d3.json(uri.base + uri.results + filename)
+		.on("progress", function() {
+			var percentage = Math.round(d3.event.loaded * 100 / d3.event.total);
+			d3.select("#loader").select(".progress-bar")
+				.attr("aria-valuenow", percentage)
+				.style("width", percentage + "%")
+				.select(".sr-only")
+				.text(percentage + "% Complete");
+		})
+		.get(gestate);
+}
 
 function gestate(error, incdata) {
 	if(typeof incdata === "undefined") return;
