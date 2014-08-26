@@ -4,7 +4,7 @@ var width = 500
 		.attr("class", "mainviz")
 		.attr("width", width)
 		.attr("height", width)
-	, fill = d3.scale.ordinal()
+	, dict = d3.scale.ordinal()
 		.domain([-1, 0, 1])
 		.range(["empty", "defector", "cooperator"])
 	, world = svg.append("g").attr("class", "world")
@@ -86,7 +86,7 @@ queue()
 							.text(percentage + "% Complete");
 					})
 					.get(function(error, incdata) {
-						if(incdata !== "undefined") {
+						if(typeof incdata !== "undefined") {
 							simulate(error, incdata);
 						}
 					});
@@ -133,9 +133,10 @@ function step() {
 function update() {
 	world.selectAll("rect")
 		.data(iters[anim.index], function(d) { return d[0]; })
-		.attr("class", function(d) { return fill(d[1]); });
+		.attr("class", function(d) { return dict(d[1]); });
 
 	d3.select("#legend-title").text("Iterations: " + anim.index + "/" + anim.dest);
+
 	var percentage = Math.round(100 * anim.index / anim.dest);
 	d3.select("#ager").select(".progress-bar")
 		.attr("aria-valuenow", percentage)
@@ -201,7 +202,7 @@ function simulate(error, incdata) {
 		.attr("x",    function(d) { return loc(col(d[0])); });
 
 	// Update
-	cell.attr("class", function(d) { return fill(d[1]); })
+	cell.attr("class", function(d) { return dict(d[1]); })
 
 	d3.timer(step);
 	function row(index) {
