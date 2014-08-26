@@ -1,11 +1,18 @@
 .cooperator {
 	fill: green;
+	fill: #567714;
+	fill: darkgreen;
 }
 
 .defector {
 	fill: red;
+	fill: #801515;
+	fill: brown;
 }
 
 .empty {
 	fill: white;
+	fill: #669999;
+	fill: lightblue;
+	fill-opacity: 0.2;
 }
