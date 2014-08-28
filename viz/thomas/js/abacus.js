@@ -26,12 +26,12 @@ d3.select("#loader").style("display", "none");
  * Connect the player buttons up to the animation.
  */
 d3.select("#pause").on("click", function() {
-    if(anim.pause) return;
     d3.select("#legend-title")
         .text(d3.select("#legend-title").text() + " (Paused)");
     anim.pause = true;
 });
 
+d3.select("#play").classed("active", true);
 d3.select("#play").on("click", function() {
     anim.fwd = true;
     anim.dest = iters.length - 1;
@@ -135,7 +135,7 @@ function update(dataset) {
         .attr("class", function(d) { return dict[d[1]]; });
 
     d3.select("#legend-title")
-        .text("Iterations: " + anim.index + "/" + (iters.length - 1));
+        .text("Iteration: " + anim.index + "/" + (iters.length - 1));
 } // update()
 
 
