@@ -12,7 +12,6 @@ function progressbar() {
         , axis = d3.svg.axis()
             .scale(x)
             .orient("bottom")
-            .tickSize(3)
             .tickFormat("")
         , brush = d3.svg.brush()
             .x(x)
@@ -26,7 +25,7 @@ function progressbar() {
         my.width(container.node().offsetWidth);
         my.height(container.node().offsetHeight);
     
-        brush.on("brush", brushend);
+        brush.on("brush", brushed);
 
         var svg = container.append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -35,15 +34,23 @@ function progressbar() {
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             ;
 
-        svg.append("g")
-            .attr("class", "progressbar axis")
+        var x_axis = svg.append("g")
+            .attr("class", "axis")
             .attr("transform", "translate(0," + height / 2 + ")")
-          .call(axis)
+          .call(axis);
+
+		x_axis
             .select(".domain")
             .select(function() {
                 return this.parentNode.appendChild(this.cloneNode(true));
             })
             .attr("class", "halo");
+
+		x_axis.selectAll(".tick")
+			.style("cursor", "pointer")
+			.on("click", function(d) {
+				console.log(d);
+			});
 
         slider = svg.append("g")
             .attr("class", "slider")
@@ -62,17 +69,17 @@ function progressbar() {
         /*
          * Callback for the brush
          */
-        function brushend() {
+        function brushed() {
             var value = brush.extent()[0];
 
             if(d3.event.sourceEvent) { // not programmatic
                 value = x.invert(d3.mouse(this)[0]);
                 brush.extent([value,value]);
-                callback(Math.floor(value));
+                callback(Math.round(value));
             }
 
             handle.attr("cx", x(value));
-        } // brushend()
+        } // brushed()
     } // my()
 
     /*
@@ -111,8 +118,8 @@ function progressbar() {
 
         x.domain(d3.extent(value));
         brush.x(x);
-        d3.select(".progressbar.axis")
-            .call(axis.scale(x).ticks(value.length));
+        d3.select(".axis")
+            .call(axis.scale(x).tickValues(value));
 
         return my;
     } // my.domain()
