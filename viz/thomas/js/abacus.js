@@ -74,31 +74,38 @@ queue()
 
         d3.select("#chooser")
           .insert("select")
-            .on("change", function s3load() {
-                // Show the progress bar
-                d3.select("#loader").style("display", null);
-
-                // Load the file and update the progress bar
-                d3.json(uri.base + uri.results + this.value)
-                    .on("progress", function() {
-                        var percentage = Math.round(d3.event.loaded * 100 / d3.event.total);
-                        d3.select("#loader").select(".progress-bar")
-                            .attr("aria-valuenow", percentage)
-                            .style("width", percentage + "%")
-                            .select(".sr-only")
-                            .text(percentage + "% Complete");
-                    })
-                    .get(function(error, incdata) {
-                        if(typeof incdata !== "undefined") {
-                            simulate(error, incdata);
-                        }
-                    });
-            })
+            .on("change", function() { s3load(this.value); })
             .selectAll("option")
             .data(listing)
           .enter().append("option")
             .attr("value", function(d) { return d; })
             .text(function(d) { return d.slice(0, -5); });
+
+        s3load(d3.select("select").node().value);
+
+        // the s3load() callback
+        function s3load(simfile) {
+            // Show the progress bar
+            d3.select("#loader").style("display", null);
+
+            // Load the file and update the progress bar
+            d3.json(uri.base + uri.results + simfile)
+                .on("progress", function() {
+                    var percentage = Math.round(d3.event.loaded * 100 / d3.event.total);
+                    d3.select("#loader").select(".progress-bar")
+                        .attr("aria-valuenow", percentage)
+                        .style("width", percentage + "%")
+                        .select(".sr-only")
+                        .text(percentage + "% Complete");
+                })
+                .get(function(error, incdata) {
+                    if(typeof incdata !== "undefined") {
+                        simulate(error, incdata);
+                    }
+                });
+        }
+
+
     });
 
 /*
@@ -127,7 +134,8 @@ function update(dataset) {
     world.selectAll("rect").data(dataset, function(d) { return d[0]; })
         .attr("class", function(d) { return dict[d[1]]; });
 
-    d3.select("#legend-title").text("Iterations: " + anim.index + "/" + anim.dest);
+    d3.select("#legend-title")
+        .text("Iterations: " + anim.index + "/" + (iters.length - 1));
 } // update()
 
 
