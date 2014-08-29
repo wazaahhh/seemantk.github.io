@@ -59,7 +59,9 @@ var uri = {
 // Populate the drop-down list with the S3 bucket contents
 queue()
     .defer(d3.xml, uri.base) // directory listing in XML
-    .await(function(error, stuff) {
+    // .defer(d3.csv, "font.csv") // to try later
+    .await(function(error, stuff, font) {
+        console.log(font);
         var dirs = stuff.getElementsByTagName("Key"),
             listing = [];
 
@@ -85,6 +87,10 @@ queue()
 
         // the s3load() callback
         function s3load(simfile) {
+            // Stop the current animation
+            d3.select("#pause").node().click();
+            // Reset the world grid
+            world.selectAll("rect").attr("class", "empty");
             // Show the progress bar
             d3.select("#loader").style("display", null);
 
@@ -101,6 +107,7 @@ queue()
                 .get(function(error, incdata) {
                     if(typeof incdata !== "undefined") {
                         simulate(error, incdata);
+                        d3.select("#play").node().click();
                     }
                 });
         }
