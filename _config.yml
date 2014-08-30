@@ -13,8 +13,8 @@ markdown: kramdown
 #
 title : Seemant Kulleen
 tagline: Making toys, telling stories.
-author : Seemant Kulleen
-  name : seemantk
+author :
+  name : Seemant Kulleen 
   email : seemantk@gmail.com
   github : seemantk
   twitter : seemantk
