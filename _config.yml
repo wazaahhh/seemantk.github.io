@@ -13,7 +13,7 @@ markdown: kramdown
 #
 title : Seemant Kulleen
 tagline: Making toys, telling stories.
-author :
+author : seemantk
   name : Seemant Kulleen
   email : seemantk@gmail.com
   github : seemantk
@@ -27,7 +27,7 @@ author :
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://seemantk.github.io
+production_url : http://seemantk.com
 
 bootswatch: cosmo
 
