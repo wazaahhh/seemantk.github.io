@@ -6,16 +6,19 @@
 			</div><!--.viz-->
 			<div class="viz-nav panel col-lg-6 col-sm-12 text-center">
 				<div class="panel-heading">
-					{% include viz/player.html %}
+					<ul id="legend" class="text-left list-unstyled"></ul>
 					<h3 class="panel-title" id="legend-title"></h3>
-					<div id="ager"></div><!--/#ager-->
-				</div><!--.panel-heading-->
+
 				<div class="panel-body">
+					{% include viz/player.html %}
+					<div id="ager"></div><!--/#ager-->
+				</div><!--panel-body-->
+				<div class="panel-footer">
 					<div id="chooser"></div>
 					<div id="loader">
 						{% include viz/progress.html %}
 					</div><!--/#loader-->
-				</div>
+				</div><!--.panel-footer-->
 			</div><!--.viz-nav-->
 		</div><!--.row-->
 	</div><!--.container-->
