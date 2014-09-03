@@ -18,8 +18,8 @@ rect {
 .empty {
 	fill: white;
 	fill: #669999;
-	fill: plum;
-	fill-opacity: 0.2;
+	fill: gray;
+	fill-opacity: 0.1;
 }
 
 

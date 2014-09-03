@@ -92,26 +92,32 @@ queue()
                         .map(function(e) { return +e; });
 
                 while(d["Col" + i].length < 8) {
-                    d["Col" + i].push(0);
+                    d["Col" + i].unshift(0);
                 }
                 d.matrix.push(d["Col" + i]);
             }
-            d3.transpose(d.matrix);
         });
 
-        window.font = font;
+		font_table = d3.nest()
+			.key(function(d) { return d.Letter; })
+			.rollup(function(leaves) { return leaves[0].matrix; })
+			.map(font, d3.map);
+        window.font = font_table;
 
-        var dirs = stuff.getElementsByTagName("Key"),
-            listing = [];
+        var dirs = stuff.getElementsByTagName("Key")
+            , listing = []
+			;
 
         for(var i = 0; i < dirs.length; ++i) {
             if(dirs[i].textContent) {
                 var txt = dirs[i].textContent.split("/");
                 if(txt[0] === "results" && txt[1] === "json") {
-                    listing.push(txt[2]);
+					listing.push(txt[2]);
                 }
             }
         }
+
+
 
         d3.select("#chooser")
           .insert("select")
@@ -124,7 +130,9 @@ queue()
 
         s3load(d3.select("select").node().value);
 
-        // the s3load() callback
+        /*
+		 * CALLBACK: s3load()
+		 */
         function s3load(simfile) {
             // Stop the current animation
             d3.select("#pause").node().click();
@@ -133,6 +141,7 @@ queue()
             // Show the progress bar
             d3.select("#loader").style("display", null);
 
+			progressgrid(49);
             // Load the file and update the progress bar
             d3.json(uri.base + uri.results + simfile)
                 .on("progress", function() {
@@ -152,7 +161,7 @@ queue()
         }
 
 
-    });
+    }); // queue()
 
 /*
  * CALLBACK: step forward to the next iteration.
@@ -240,10 +249,11 @@ function simulate(error, incdata) {
     // Enter
     cell.enter().append("rect")
         .attr("class", "empty")
+		.attr("id", function(d, i) { return "cell" + i; })
         .attr("width", length)
         .attr("height", length)
-        .attr("y",    function(d) { return loc((d[0] / grid_size) >> 0); })
-        .attr("x",    function(d) { return loc( d[0] % grid_size      ); });
+        .attr("y", function(d) { return loc((d[0] / grid_size) >> 0); })
+        .attr("x", function(d) { return loc( d[0] % grid_size      ); });
 
     // Update
     cell.attr("class", function(d) { return dict[d[1]]; })
@@ -256,8 +266,37 @@ function simulate(error, incdata) {
         });
 
         anim.index = dest;
-        update(d3.values(incdata.output.strategies_iter[dest]).map(function(d, i) {
-            return [i, d];
-        }));
-    }
-} // queue()
+        update(d3.values(incdata.output.strategies_iter[dest])
+			.map(function(d, i) {
+            	return [i, d];
+        	}));
+    } // warp()
+} // simulate()
+
+function progressgrid(grid_size) {
+	// Put the word "loading" starting at row 14
+	var message = [];
+	"Loading".split('')
+		.map(function(l) {
+			return message.push(font_table.get(l));
+		});
+
+	var letter_width = message[0].length + 1,
+		width = message.length * (letter_width)
+		, height = message[0][0].length
+		offset = {
+			col: Math.floor((grid_size - width)/2),
+			row: Math.floor((grid_size / 2) - (height + 2))
+		}
+	;
+
+	console.log(message, offset, letter_width);
+
+	message.forEach(function(m, i) {
+		console.log("letter #: " + i, "letter is: " + m);
+		m.forEach(function(n, j) {
+			console.log("Row: " + (j + offset.row) + "Col: " + (i * letter_width));
+		});
+	});
+
+}
