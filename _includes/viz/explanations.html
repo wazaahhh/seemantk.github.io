@@ -1,33 +1,31 @@
     <!-- The explanations -->
     <section id="description">
-        <div class="content-section-a">
-            <div class="container">
-                <div class="row">
-                    <div class="list-group col-lg-4 col-sm-6" id="vizabout">
-                        <h3><small>About This Viz</small></h3>
-						<div class="list-group-item">
-                        	{{ content }}
-						</div><!--.list-group-item-->
-                    </div><!--/#vizabout-->
-                    <div class="list-group col-lg-4 col-sm-6" id="vizhow">
-                        <h3><small>How it Works</small></h3>
-                        {% for step in page.howto %}
-                        <div class="list-group-item">
-                            <h4>{{ step.component }}</h4>
-                            {{ step.step | markdownify }}
-                        </div><!--.list-group-item-->
-                        {% endfor %}
-                    </div><!--.list-group #vizhow-->
-                    <div class="list-group col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-3" id="related">
-						<h3><small>See Also</small></h3>
-						{% for resource in page.also %}
-						<div class="list-group-item">
-							<a href="{{ resource.href }}">{{ resource.title }}</a>
-						</div><!--.list-group-item-->
-						{% endfor %}
-                    </div><!--/#related-->
-                </div><!--.row-->
-            </div><!--.container-->
+        <div class="content-section-a" id="explanation">
+            <div class="row">
+                <div class="list-group col-lg-4 col-sm-6" id="vizabout">
+                    <h3><small>About This Viz</small></h3>
+                    <div class="list-group-item">
+                        {{ content }}
+                    </div><!--.list-group-item-->
+                </div><!--/#vizabout-->
+                <div class="list-group col-lg-4 col-sm-6" id="vizhow">
+                    <h3><small>How it Works</small></h3>
+                    {% for step in page.howto %}
+                    <div class="list-group-item">
+                        <h4>{{ step.component }}</h4>
+                        {{ step.step | markdownify }}
+                    </div><!--.list-group-item-->
+                    {% endfor %}
+                </div><!--.list-group #vizhow-->
+                <div class="list-group col-lg-4 col-lg-offset-0 col-sm-6 col-sm-offset-3" id="related">
+                    <h3><small>See Also</small></h3>
+                    {% for resource in page.also %}
+                    <div class="list-group-item">
+                        <a href="{{ resource.href }}">{{ resource.title }}</a>
+                    </div><!--.list-group-item-->
+                    {% endfor %}
+                </div><!--/#related-->
+            </div><!--.row-->
         </div><!--.content-section-a #explanation-->
     </section><!--/#description-->
 </article><!-- the bookend for the article -->
