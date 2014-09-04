@@ -97,8 +97,10 @@ function galactify(error, developers, gentoo) {
  	dev = rollcall.get(getParameterByName("dev"));
 	dev = dev ? dev[0] : null;
 
-	if(dev)
-		d3.select("h1").text(d3.select("h1").text() + " for " + dev.fullname);
+	if(dev) {
+		d3.select("h1")
+			.text(d3.select("h1").text() + " for " + dev.fullname);
+	}
 
 	// Activity by developer
 	var bydev = d3.nest()
