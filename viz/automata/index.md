@@ -4,7 +4,7 @@ includes: progressbar.js
 title: Agent-Based Property Game
 viztitle: Agent-Based Property Game
 tagline: Social anthropology through game theory.
-toy: cellular-automata
+toy: cellular automata
 description: Cellular automata; agent-based property simulation model.
 category: game theory
 item: abm
