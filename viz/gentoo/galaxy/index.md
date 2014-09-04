@@ -3,7 +3,7 @@ layout: viz/timeywimey
 title: Gentoo Developers
 toy: twinkly+timey-wimey
 viztitle: Gentoo Linux Galaxy
-tagline: Visualization of Gentoo Developers over the years.
+tagline: Gentoo Developers over the years.
 commissioned: false
 category: gentoo
 also:
