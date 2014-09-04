@@ -5,7 +5,7 @@ function progressbar() {
     var callback
         , height 
         , width = 960 // by default, assume a full-width slider
-        , margin = { top:20, right:50, bottom: 20, left:50 }
+        , margin = { top:20, right:15, bottom:20, left:15 }
         , x = d3.scale.linear()
             .domain([0,100])
             .clamp(true)
@@ -22,51 +22,51 @@ function progressbar() {
 
     // The main function object, which generates the chart
     function my(selection) {
-		selection.each(function(d, i) { 
-        	my.width(d3.select(this).node().offsetWidth);
-        	my.height(d3.select(this).node().offsetHeight);
-    	
-        	brush.on("brush", brushed);
+        selection.each(function(d, i) { 
+            my.width(d3.select(this).node().offsetWidth);
+            my.height(d3.select(this).node().offsetHeight);
+        
+            brush.on("brush", brushed);
 
-        	var svg = d3.select(this).append("svg")
-            	.attr("width", width + margin.left + margin.right)
-            	.attr("height", height + margin.top + margin.bottom)
-          	  .append("g")
-            	.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-            	;
+            var svg = d3.select(this).append("svg")
+                .attr("width", width)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                ;
 
-        	var x_axis = svg.append("g")
-            	.attr("class", "axis")
-            	.attr("transform", "translate(0," + height / 2 + ")")
-          	  .call(axis);
+            var x_axis = svg.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(0," + height / 2 + ")")
+                .call(axis);
 
-			x_axis
-            	.select(".domain")
-            	.select(function() {
-                	return this.parentNode.appendChild(this.cloneNode(true));
-            	})
-            	.attr("class", "halo");
+            x_axis
+                .select(".domain")
+                .select(function() {
+                    return this.parentNode.appendChild(this.cloneNode(true));
+                })
+                .attr("class", "halo");
 
-			x_axis.selectAll(".tick")
-				.style("cursor", "pointer")
-				.on("click", function(d) {
-					console.log(d);
-				});
+            x_axis.selectAll(".tick")
+                .style("cursor", "pointer")
+                .on("click", function(d) {
+                    console.log(d);
+                });
 
-        	slider = svg.append("g")
-            	.attr("class", "slider")
-            	.call(brush);
+            slider = svg.append("g")
+                .attr("class", "slider")
+                .call(brush);
 
-        	slider.selectAll(".extent,.resize")
-            	.remove();
+            slider.selectAll(".extent,.resize")
+                .remove();
 
-        	handle = slider.append("circle")
-            	.attr("class", "handle")
-            	.attr("transform", "translate(0," + height / 2 + ")")
-            	.attr("r", 5);
+            handle = slider.append("circle")
+                .attr("class", "handle")
+                .attr("transform", "translate(0," + height / 2 + ")")
+                .attr("r", 5);
 
-        	slider.call(brush.event);
-		});
+            slider.call(brush.event);
+        });
 
         /*
          * Callback for the brush
