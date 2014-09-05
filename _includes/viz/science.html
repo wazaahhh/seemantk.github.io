@@ -3,7 +3,11 @@
 		<div class="row">
 			<div class="panel panel-default col-lg-7 col-sm-12 text-center" id="mainviz">
 				<div class="panel-heading" id="chooser"></div><!--.panel-heading-->
-				<div class="panel-body" id="viz"> </div>
+				<div class="panel-body" id="viz"></div><!--.panel-body#viz-->
+				<div class="panel-footer text-left">
+					<h5>Share this simulation:</h5>
+					<p class="permalink">{{ site.production_url }}{{ page.url }}&nbsp;<span id="permalink"></span></p>
+				</div><!--.panel-footer-->
 			</div><!--/#mainviz .panel-->
 			<div class="viz-nav panel panel-default col-lg-5 col-sm-6">
 				<div class="panel-body">
