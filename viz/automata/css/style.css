@@ -53,4 +53,6 @@ rect {
   pointer-events: none;
 }
 
-
+.permalink {
+	font-size: 70%;
+}
