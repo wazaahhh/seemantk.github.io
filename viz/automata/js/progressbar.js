@@ -27,7 +27,7 @@ function slider()
             .append("g").attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
         svg.append("g")
-           .attr("class","x axis")
+           .attr("class","axis")
            .attr("transform", "translate(0,"+height/2+")")
            .call(axis);
 
@@ -65,7 +65,7 @@ function slider()
 	chart.domain   = function(_) {
 		if (!arguments.length) return x.domain();
 		x.domain(_);
-		d3.select(".x.axis").call(axis.scale(x));
+		d3.select(".axis").call(axis.scale(x));
 
 		return chart;
 	};
