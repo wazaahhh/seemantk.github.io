@@ -160,7 +160,12 @@ queue()
                     if(typeof incdata !== "undefined") {
                         simulate(error, incdata);
                         d3.select("#play").node().click();
-                        d3.select("#permalink").text("?" + simfile.slice(0,-5));
+                        d3.select("#permalink")
+							.attr("value",
+									"http://" + window.location.host + "/"
+										+ window.location.pathname
+										+ "?sim=" + simfile.split('.json')[0]
+							)
                     }
                 });
         } // s3load()
