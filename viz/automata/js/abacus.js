@@ -17,7 +17,7 @@ var width = 500
     ;
 
 
-d3.select("#ager").append("svg");
+d3.select("#ager").append("svg").call(ager_progress);
 
 /*
  * Connect the player buttons up to the animation.
@@ -216,7 +216,6 @@ function simulate(error, incdata) {
           }) // callback function()
         ;
     ager_progress.value(0);
-    d3.select("#ager").select("svg").call(ager_progress);
 
 
     // Reset the world grid
