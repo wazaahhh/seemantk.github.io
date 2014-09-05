@@ -1,36 +1,32 @@
 	<!-- The Visualization -->
 	<div class="container" id="visualization">
 		<div class="row">
-			<div class="col-lg-6 col-sm-12 text-center" id="viz">
-				<h4 id="viz-title"></h4>
-			</div><!--.viz-->
-			<div class="viz-nav panel col-lg-6 col-sm-12 text-center">
-				<div class="panel-heading">
-					<ul id="legend" class="text-left list-unstyled"></ul>
-					<h3 class="panel-title" id="legend-title"></h3>
-
+			<div class="panel panel-default col-lg-7 col-sm-12 text-center" id="mainviz">
+				<div class="panel-heading" id="chooser"></div><!--.panel-heading-->
+				<div class="panel-body" id="viz"> </div>
+			</div><!--/#mainviz .panel-->
+			<div class="viz-nav panel panel-default col-lg-5 col-sm-6">
 				<div class="panel-body">
+					<ul id="legend" class="list-unstyled"></ul>
+					<h3 class="panel-title" id="legend-title"></h3>
 					{% include viz/player.html %}
-					<div id="ager"></div><!--/#ager-->
 				</div><!--panel-body-->
-				<div class="panel-footer">
-					<div id="chooser"></div>
-					<div id="loader">
-						{% include viz/progress.html %}
-					</div><!--/#loader-->
-				</div><!--.panel-footer-->
+				<div class="panel-footer" id="ager">
+				</div><!--/#ager.panel-footer-->
 			</div><!--.viz-nav-->
 		</div><!--.row-->
 	</div><!--.container-->
 	<div class="tooltip"></div>
 
-<!-- Auxiliary files needed for this viz -->
+	<!-- Javascript libraries -->
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 
+<!-- Javascript files -->
 {% for inc in page.includes %}
 <script src="js/{{ inc }}" charset="utf-8"></script>
 {% endfor %}
+<!-- the default script -->
 <script src="js/abacus.js" charset="utf-8"></script>
 
 <link href="css/style.css" rel="stylesheet">
