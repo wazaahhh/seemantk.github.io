@@ -107,9 +107,10 @@ queue()
             .key(function(d) { return d.Letter; })
             .rollup(function(leaves) { return leaves[0].matrix; })
             .map(font, d3.map);
-        window.font = font_table;
 
+		// Initialize the blinkengrid
         progressgrid();
+
         /*
          * Construct a select box dropdown to hold the names of the available
          * sims in the S3 bucket.
