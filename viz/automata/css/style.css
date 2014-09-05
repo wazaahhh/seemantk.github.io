@@ -50,7 +50,7 @@ rect {
   stroke: #000;
   stroke-opacity: .5;
   stroke-width: 1.25px;
- /* pointer-events: none; */
+  pointer-events: none;
 }
 
 
