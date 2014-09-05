@@ -5,7 +5,8 @@ function progressbar() {
     var callback
         , height 
         , width = 960 // by default, assume a full-width slider
-        , margin = { top:20, right:15, bottom:20, left:15 }
+        , margin = { top: 20, right: 15, bottom: 20, left: 15 }
+        , brush
         , x = d3.scale.linear()
             .domain([0,100])
             .clamp(true)
@@ -13,32 +14,25 @@ function progressbar() {
             .scale(x)
             .orient("bottom")
             .tickFormat("")
-        , brush = d3.svg.brush()
-            .x(x)
-            .extent([0,0])
-        , slider
-        , handle
     ;
 
     // The main function object, which generates the chart
     function my(selection) {
         selection.each(function(d, i) { 
-            my.width(d3.select(this).node().offsetWidth);
-            my.height(d3.select(this).node().offsetHeight);
+            my.width(this.offsetWidth);
+            my.height(this.offsetHeight);
         
-            brush.on("brush", brushed);
-
             var svg = d3.select(this).append("svg")
-                .attr("width", width)
-                .attr("height", height + margin.top + margin.bottom)
-                .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-                ;
-
-            var x_axis = svg.append("g")
-                .attr("class", "axis")
-                .attr("transform", "translate(0," + height / 2 + ")")
-                .call(axis);
+                    .attr("width", width - margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .append("g")
+                    .attr("transform"
+                        , "translate(" + margin.left + "," + (margin.top / 2) + ")")
+            , x_axis = svg.append("g")
+                    .attr("class", "axis")
+                    .attr("transform", "translate(0," + height / 2 + ")")
+                    .call(axis)
+            ;
 
             x_axis
                 .select(".domain")
@@ -47,41 +41,35 @@ function progressbar() {
                 })
                 .attr("class", "halo");
 
-            x_axis.selectAll(".tick")
-                .style("cursor", "pointer")
-                .on("click", function(d) {
-                    console.log(d);
-                });
+            brush = d3.svg.brush()
+                    .x(x)
+                    .extent([0,0])
+                    .on("brush", function() {
+                        var value = brush.extent()[0];
 
-            slider = svg.append("g")
-                .attr("class", "slider")
-                .call(brush);
+                        if(d3.event.sourceEvent) { // not programmatic
+                            value = x.invert(d3.mouse(this)[0]);
+                            brush.extent([value,value]);
+                            callback(Math.round(value));
+                        }
+
+                        handle.attr("cx", x(value));
+                    }) // brush callback()
+                , slider = svg.append("g")
+                    .attr("class", "slider")
+                    .call(brush)
+            ;
 
             slider.selectAll(".extent,.resize")
                 .remove();
 
-            handle = slider.append("circle")
+            var handle = slider.append("circle")
                 .attr("class", "handle")
                 .attr("transform", "translate(0," + height / 2 + ")")
                 .attr("r", 5);
 
             slider.call(brush.event);
         });
-
-        /*
-         * Callback for the brush
-         */
-        function brushed() {
-            var value = brush.extent()[0];
-
-            if(d3.event.sourceEvent) { // not programmatic
-                value = x.invert(d3.mouse(this)[0]);
-                brush.extent([value,value]);
-                callback(Math.round(value));
-            }
-
-            handle.attr("cx", x(value));
-        } // brushed()
     } // my()
 
     /*
