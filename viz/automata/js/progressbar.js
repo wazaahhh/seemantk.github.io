@@ -1,6 +1,6 @@
 function slider()
 {
-    var margin = {top: 5, left: 15, right: 10, bottom: 5},
+    var margin = {top: 5, left: 15, right: 15, bottom: 5},
         width  = 300 - margin.left - margin.right,
         height = 40  - margin.top  - margin.bottom,
         brush  = d3.svg.brush(),
@@ -22,7 +22,7 @@ function slider()
 		axis.scale(x)
 			.tickFormat("");
 
-        var svg = el.attr("width",  width  + margin.left + margin.right)
+        var svg = el.attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top  + margin.bottom)
             .append("g").attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
