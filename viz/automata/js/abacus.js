@@ -14,8 +14,21 @@ var width = 500
     }
     , iters
     , ager_progress = slider()
+	, coords = d3.scale.linear()
+            .domain([0,grid_size])
+            .range([0,width])
     ;
 
+world.selectAll("rect")
+	.data(d3.range(grid_size * grid_size), function(d, i) { return i; })
+  .enter().append("rect")
+    .attr("class", "empty")
+    .attr("id", function(d, i) { return "cell" + i; })
+    .attr("width",  width / grid_size)
+    .attr("height", width / grid_size)
+    .attr("y", function(d, i) { return coords((i / grid_size) >> 0); })
+    .attr("x", function(d, i) { return coords( i % grid_size)      ; })
+;
 
 d3.select("#ager").append("svg").call(ager_progress);
 
@@ -34,7 +47,6 @@ d3.select("#play").on("click", function() {
 d3.select("#yalp").on("click", function() {
     anim.fwd = false;
     anim.dest = 0;
-
     anim.pause = false;
     d3.timer(step);
 });
@@ -62,6 +74,7 @@ items.append("svg")
     .attr("width", 10)
     .attr("height", 10)
     .attr("class", function(d) { return d; });
+
 items.append("text")
     .text(function(d) { return d; })
     .style("margin-left", "1em");
@@ -96,6 +109,7 @@ queue()
             .map(font, d3.map);
         window.font = font_table;
 
+		progressgrid();
         /*
          * Construct a select box dropdown to hold the names of the available
          * sims in the S3 bucket.
@@ -139,8 +153,9 @@ queue()
 
             d3.json(uri.base + uri.results + simfile)
                 .on("progress", function() {
-                    // Update the progress bar as the file loads
-                })
+					var ratio = Math.round(d3.event.loaded * 100 / d3.event.total);
+					progress(ratio);
+				  })
                 .get(function(error, incdata) {
                     if(typeof incdata !== "undefined") {
                         simulate(error, incdata);
@@ -223,10 +238,9 @@ function simulate(error, incdata) {
 
 
     progressgrid();
-    var loc = d3.scale.linear()
-            .domain([0,grid_size])
-            .range([0,width])
-        , cell = world.selectAll("rect")
+    coords.domain([0,grid_size])
+
+    var cell = world.selectAll("rect")
             .data(iters[anim.index], function(d) { return d[0]; });
 
     // Remove old cells first
@@ -238,8 +252,8 @@ function simulate(error, incdata) {
         .attr("id", function(d, i) { return "cell" + i; })
         .attr("width", length)
         .attr("height", length)
-        .attr("y", function(d) { return loc((d[0] / grid_size) >> 0); })
-        .attr("x", function(d) { return loc( d[0] % grid_size      ); });
+        .attr("y", function(d) { return coords((d[0] / grid_size) >> 0); })
+        .attr("x", function(d) { return coords( d[0] % grid_size      ); });
 
     // Update
     cell.attr("class", function(d) { return dict[d[1]]; })
@@ -274,3 +288,28 @@ function progressgrid() {
     msg.attr("class", function(d) { return dict[d[1]]; });
     msg.exit().attr("class", function(d) { return "empty"; });
 } // progressgrid()
+
+
+function progress(percent) {
+	if(percent === 0) {
+		d3.selectAll(".progbar").attr("class", "empty")
+		return;
+	}
+	// Number of cells to fill in
+	var message = d3.range(Math.round(percent * grid_size / 100))
+				.map(function(r) { return [1,1,1]; })
+        , offset = {
+            col: 0,
+            row: Math.ceil((grid_size / 2) + ((message[0] == undefined ? 0 : message[0].length) + 2))
+          }
+        , hm = d3.merge(message.map(function(columns, i) {
+                return columns.map(function(value, j) {
+                    return [(offset.row + j) * grid_size + i + offset.col, 0];
+                });
+            }))
+    ;
+
+    var msg = world.selectAll("rect").data(hm, function(d) { return d[0]; });
+    msg.attr("class", function(d) { return "progbar " + dict[d[1]]; });
+
+} // progress()
