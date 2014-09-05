@@ -14,13 +14,13 @@ var width = 500
     }
     , iters
     , ager_progress = slider()
-	, coords = d3.scale.linear()
+    , coords = d3.scale.linear()
             .domain([0,grid_size])
             .range([0,width])
     ;
 
 world.selectAll("rect")
-	.data(d3.range(grid_size * grid_size), function(d, i) { return i; })
+    .data(d3.range(grid_size * grid_size), function(d, i) { return i; })
   .enter().append("rect")
     .attr("class", "empty")
     .attr("id", function(d, i) { return "cell" + i; })
@@ -109,7 +109,7 @@ queue()
             .map(font, d3.map);
         window.font = font_table;
 
-		progressgrid();
+        progressgrid();
         /*
          * Construct a select box dropdown to hold the names of the available
          * sims in the S3 bucket.
@@ -153,13 +153,14 @@ queue()
 
             d3.json(uri.base + uri.results + simfile)
                 .on("progress", function() {
-					var ratio = Math.round(d3.event.loaded * 100 / d3.event.total);
-					progress(ratio);
-				  })
+                    var ratio = Math.round(d3.event.loaded * 100 / d3.event.total);
+                    progress(ratio);
+                  })
                 .get(function(error, incdata) {
                     if(typeof incdata !== "undefined") {
                         simulate(error, incdata);
                         d3.select("#play").node().click();
+                        d3.select("#permalink").text("?" + simfile.slice(0,-5));
                     }
                 });
         } // s3load()
@@ -291,13 +292,13 @@ function progressgrid() {
 
 
 function progress(percent) {
-	if(percent === 0) {
-		d3.selectAll(".progbar").attr("class", "empty")
-		return;
-	}
-	// Number of cells to fill in
-	var message = d3.range(Math.round(percent * grid_size / 100))
-				.map(function(r) { return [1,1,1]; })
+    if(percent === 0) {
+        d3.selectAll(".progbar").attr("class", "empty")
+        return;
+    }
+    // Number of cells to fill in
+    var message = d3.range(Math.round(percent * grid_size / 100))
+                .map(function(r) { return [1,1,1]; })
         , offset = {
             col: 0,
             row: Math.ceil((grid_size / 2) + ((message[0] == undefined ? 0 : message[0].length) + 2))
