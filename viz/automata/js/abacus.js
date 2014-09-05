@@ -6,44 +6,37 @@ var width = 500
         .attr("height", width)
     , dict = {"-1": "empty", "0": "defector", "1": "cooperator" }
     , world = svg.append("g").attr("class", "world")
-    , grid_size
+    , grid_size = 49 // default, based on Thomas' datasets
     , anim = {
         fwd:   true,
         pause: false,
         index: 1
     }
     , iters
-    , ager_progress = progressbar()
+    , ager_progress = slider()
     ;
 
 
-d3.select("#ager").call(ager_progress);
+d3.select("#ager").append("svg");
 
 /*
  * Connect the player buttons up to the animation.
  */
-d3.select("#pause").on("click", function() {
-    d3.select("#legend-title")
-        .text(d3.select("#legend-title").text() + " (Paused)");
-    anim.pause = true;
-});
+d3.select("#pause").on("click", function() { anim.pause = true; });
 
 d3.select("#play").on("click", function() {
     anim.fwd = true;
     anim.dest = iters.length - 1;
-    if(anim.pause) {
-        anim.pause = false;
-        d3.timer(step);
-    }
+    anim.pause = false;
+    d3.timer(step);
 });
 
 d3.select("#yalp").on("click", function() {
     anim.fwd = false;
     anim.dest = 0;
-    if(anim.pause) {
-        anim.pause = false;
-        d3.timer(step);
-    }
+
+    anim.pause = false;
+    d3.timer(step);
 });
 
 // Populate the menu of available simulations
@@ -129,6 +122,10 @@ queue()
         // Load the selected sim
         s3load(d3.select("select").node().value);
 
+        // Draw the initial grid
+
+
+
 
         /*
          * CALLBACK: s3load()
@@ -136,14 +133,13 @@ queue()
         function s3load(simfile) {
             // Stop the current animation
             d3.select("#pause").node().click();
-            // Reset the world grid
-            //world.selectAll("rect").attr("class", "empty");
-            // Show the progress bar
 
+            // Show the progress bar
             progressgrid();
-            // Load the file and update the progress bar
+
             d3.json(uri.base + uri.results + simfile)
                 .on("progress", function() {
+                    // Update the progress bar as the file loads
                 })
                 .get(function(error, incdata) {
                     if(typeof incdata !== "undefined") {
@@ -151,9 +147,7 @@ queue()
                         d3.select("#play").node().click();
                     }
                 });
-        }
-
-
+        } // s3load()
     }); // queue()
 
 /*
@@ -166,7 +160,7 @@ function step() {
 
     // Perform the update
     update(iters[anim.index]);
-    ager_progress.move(anim.index);
+    ager_progress.value(anim.index);
 
     if(anim.pause) return true;
 
@@ -185,7 +179,7 @@ function update(dataset) {
         .attr("class", function(d) { return dict[d[1]]; });
 
     d3.select("#legend-title")
-        .text("Iteration: " + anim.index + "/" + (iters.length - 1));
+        .text(anim.index + "/" + (iters.length - 1));
 } // update()
 
 
@@ -197,8 +191,19 @@ function simulate(error, incdata) {
     var epochs = d3.keys(incdata.output.strategies_iter)
                 .map(function(d) { return +d; });
 
+    grid_size = incdata.input.grid_size;
+    var length = width / grid_size;
+
+    iters = incdata.output.mv;
+    iters.unshift(d3.values(incdata.input.strategy_init)
+        .map(function(d, i) { return [i, d]; }));
+
+    anim.fwd   = true;
+    anim.index = 0;
+    anim.dest  = iters.length - 1;
+
+    ager_progress.domain([0,iters.length - 1]);
     ager_progress
-        .domain(epochs)
         .callback(function(near) {
             anim.index = epochs
                     .reduce(function(prev, curr) {
@@ -210,27 +215,15 @@ function simulate(error, incdata) {
                 .map(function(d, i) { return [i, d]; }));
           }) // callback function()
         ;
-    ager_progress.move(0);
+    ager_progress.value(0);
+    d3.select("#ager").select("svg").call(ager_progress);
 
-
-    d3.select("#legend-title")
-        .text("Iterations: 0" + anim.paused ? " (Paused)" : "");
 
     // Reset the world grid
     world.selectAll("rect").attr("class", "empty");
 
-    grid_size = incdata.input.grid_size;
-    var length = width / grid_size;
 
     progressgrid();
-    iters = incdata.output.mv;
-    iters.unshift(d3.values(incdata.input.strategy_init)
-        .map(function(d, i) { return [i, d]; }));
-
-    anim.fwd   = true;
-    anim.index = 0;
-    anim.dest  = iters.length - 1;
-
     var loc = d3.scale.linear()
             .domain([0,grid_size])
             .range([0,width])
