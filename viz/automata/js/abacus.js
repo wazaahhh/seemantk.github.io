@@ -18,10 +18,6 @@ var width = 500
 
 
 d3.select("#ager").call(ager_progress);
-// Label the loading progress bar
-d3.select("#loader").select(".progresstitle").text("Loading Simulation...");
-// Hide the loader
-d3.select("#loader").style("display", "none");
 
 /*
  * Connect the player buttons up to the animation.
@@ -143,18 +139,11 @@ queue()
             // Reset the world grid
             //world.selectAll("rect").attr("class", "empty");
             // Show the progress bar
-            d3.select("#loader").style("display", null);
 
             progressgrid();
             // Load the file and update the progress bar
             d3.json(uri.base + uri.results + simfile)
                 .on("progress", function() {
-                    var ratio = Math.round(d3.event.loaded * 100 / d3.event.total);
-                    d3.select("#loader").select(".progress-bar")
-                        .attr("aria-valuenow", ratio)
-                        .style("width", ratio+ "%")
-                        .select(".sr-only")
-                        .text(ratio + "% Complete");
                 })
                 .get(function(error, incdata) {
                     if(typeof incdata !== "undefined") {
@@ -189,6 +178,8 @@ function step() {
     return true;
 } // step()
 
+
+
 function update(dataset) {
     world.selectAll("rect").data(dataset, function(d) { return d[0]; })
         .attr("class", function(d) { return dict[d[1]]; });
@@ -200,33 +191,24 @@ function update(dataset) {
 
 
 function simulate(error, incdata) {
-    if(typeof incdata === "undefined") return;
+    if(incdata == undefined) return;
 
-    // Hide the loading progress bar
-    d3.select("#loader")
-        .style("display", "none")
-        .select(".progress-bar")
-        .attr("aria-valuenow", 0)
-        .style("width", "0%")
-        .select(".sr-only")
-        .text('');
- 
     // Reset the iteration progress
-    var epochs = d3.keys(incdata.output.strategies_iter).map(function(d) {
-            return +d;
-        });
+    var epochs = d3.keys(incdata.output.strategies_iter)
+                .map(function(d) { return +d; });
 
     ager_progress
         .domain(epochs)
         .callback(function(near) {
-            anim.index = epochs.reduce(function(prev, curr) {
-                return Math.abs(curr - near) < Math.abs(prev - near) ? curr: prev;
-            });
+            anim.index = epochs
+                    .reduce(function(prev, curr) {
+                        return Math.abs(curr - near) < Math.abs(prev - near)
+                            ? curr: prev;
+                    });
 
             update(d3.values(incdata.output.strategies_iter[anim.index])
-                .map(function(d, i) { return [i, d]; })
-            );
-        }) // callback function()
+                .map(function(d, i) { return [i, d]; }));
+          }) // callback function()
         ;
     ager_progress.move(0);
 
@@ -243,8 +225,7 @@ function simulate(error, incdata) {
     progressgrid();
     iters = incdata.output.mv;
     iters.unshift(d3.values(incdata.input.strategy_init)
-        .map(function(d, i) { return [i, d]; })
-    );
+        .map(function(d, i) { return [i, d]; }));
 
     anim.fwd   = true;
     anim.index = 0;
@@ -270,9 +251,8 @@ function simulate(error, incdata) {
 
     // Update
     cell.attr("class", function(d) { return dict[d[1]]; })
-
-
 } // simulate()
+
 
 // Capture URL query param
 function getParameterByName(name) {
@@ -284,23 +264,21 @@ function getParameterByName(name) {
 
 function progressgrid() {
     var word = "Loading";
-    var message = d3.merge(word.split('')
-            .map(function(l) { return font_table.get(l); })
-        )
+    var message = d3.merge(word.split('').map(function(l) {
+            return font_table.get(l); }))
         , offset = {
             col: Math.floor((grid_size - message.length)/2),
             row: Math.floor((grid_size / 2) - (message[0].length + 2))
-        }
+          }
         , hm = d3.merge(message.map(function(columns, i) {
-            return columns.map(function(value, j) {
-                return [(offset.row + j) * grid_size + i + offset.col, value];
-            });
-        }))
-        .filter(function(d) { return d[1] > 0; }) // only need the filled-in cells
+                return columns.map(function(value, j) {
+                    return [(offset.row + j) * grid_size + i + offset.col, value];
+                });
+            }))
+            .filter(function(d) { return d[1] > 0; }) // don't need empty cells
     ;
 
     var msg = world.selectAll("rect").data(hm, function(d) { return d[0]; });
-
     msg.attr("class", function(d) { return dict[d[1]]; });
     msg.exit().attr("class", function(d) { return "empty"; });
 } // progressgrid()
