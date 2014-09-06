@@ -108,7 +108,7 @@ queue()
             .rollup(function(leaves) { return leaves[0].matrix; })
             .map(font, d3.map);
 
-		// Initialize the blinkengrid
+        // Initialize the blinkengrid
         progressgrid();
 
         /*
@@ -162,11 +162,11 @@ queue()
                         simulate(error, incdata);
                         d3.select("#play").node().click();
                         d3.select("#permalink")
-							.attr("value",
-									"http://" + window.location.host + "/"
-										+ window.location.pathname
-										+ "?sim=" + simfile.split('.json')[0]
-							)
+                            .attr("value",
+                                    "http://" + window.location.host + "/"
+                                        + window.location.pathname
+                                        + "?sim=" + simfile.split('.json')[0]
+                            )
                     }
                 });
         } // s3load()
@@ -224,8 +224,8 @@ function simulate(error, incdata) {
     anim.index = 0;
     anim.dest  = iters.length - 1;
 
-    ager_progress.domain([0,iters.length - 1]);
     ager_progress
+        .domain([0,iters.length - 1])
         .callback(function(near) {
             anim.index = epochs
                     .reduce(function(prev, curr) {
@@ -292,7 +292,7 @@ function progressgrid() {
     ;
 
     var msg = world.selectAll("rect").data(hm, function(d) { return d[0]; });
-    msg.attr("class", function(d) { return dict[d[1]]; });
+    msg.attr("class", "defector");
     msg.exit().attr("class", function(d) { return "empty"; });
 } // progressgrid()
 
@@ -317,6 +317,6 @@ function progress(percent) {
     ;
 
     var msg = world.selectAll("rect").data(hm, function(d) { return d[0]; });
-    msg.attr("class", function(d) { return "progbar " + dict[d[1]]; });
+    msg.attr("class", "progbar cooperator");
 
 } // progress()
