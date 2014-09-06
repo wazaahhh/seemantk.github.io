@@ -1,6 +1,5 @@
 ---
 layout: viz/science
-includes: progressbar.js
 title: Agent-Based Property Game
 viztitle: Agent-Based Property Game
 tagline: Social anthropology through game theory.
@@ -9,6 +8,9 @@ description: Cellular automata; agent-based property simulation model.
 category: game theory
 item: abm
 commissioned: true
+includes:
+  - progressbar.js
+  - blinkengrid.js
 also:
   - href: "http://www.ischool.berkeley.edu/people/visitors/thomasmaillart"
     title: "Thomas Maillart's Page at UC Berkeley"
