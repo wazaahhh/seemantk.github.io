@@ -1,11 +1,7 @@
 // Initialize the visualization by drawing the world grid
 var width = 500
-    , svg = d3.select("#viz").append("svg")
-        .attr("class", "mainviz")
-        .attr("width", width)
-        .attr("height", width)
     , dict = {"-1": "empty", "0": "defector", "1": "cooperator" }
-    , world = svg.append("g").attr("class", "world")
+    , world = blinkengrid()
     , grid_size = 49 // default, based on Thomas' datasets
     , anim = {
         fwd:   true,
@@ -19,17 +15,7 @@ var width = 500
             .range([0,width])
     ;
 
-world.selectAll("rect")
-    .data(d3.range(grid_size * grid_size), function(d, i) { return i; })
-  .enter().append("rect")
-    .attr("class", "empty")
-    .attr("id", function(d, i) { return "cell" + i; })
-    .attr("width",  width / grid_size)
-    .attr("height", width / grid_size)
-    .attr("y", function(d, i) { return coords((i / grid_size) >> 0); })
-    .attr("x", function(d, i) { return coords( i % grid_size)      ; })
-;
-
+d3.select("#viz").call(world);
 d3.select("#ager").append("svg").call(ager_progress);
 
 /*
@@ -83,33 +69,12 @@ items.append("text")
 // Populate the drop-down list with the S3 bucket contents
 queue()
     .defer(d3.xml, uri.base) // directory listing in XML
-    .defer(d3.csv, "font.csv")
-    .await(function(error, xml, font) {
+    .await(function(error, xml) {
         var loc = "results/json/"
           , listing = [].slice.call(xml.getElementsByTagName("Key"))
                 .filter(function(d) { return !d.textContent.indexOf(loc); })// == 0
                 .map(function(d) { return d.textContent.slice(loc.length); })
-          , columns = d3.keys(font[0])
         ;
-        columns.shift();
-
-        font.forEach(function(f) {
-            f.matrix = columns.map(function(c) {
-                return ("0000000" + parseInt(f[c],16).toString(2))
-                    .slice(-8)
-                    .split('')
-                    .map(function(bit) { return +bit; });
-            })
-            f.matrix.push([0,0,0,0,0,0,0,0]); // Letter spacing to the next one
-        });
-
-        font_table = d3.nest()
-            .key(function(d) { return d.Letter; })
-            .rollup(function(leaves) { return leaves[0].matrix; })
-            .map(font, d3.map);
-
-        // Initialize the blinkengrid
-        progressgrid();
 
         /*
          * Construct a select box dropdown to hold the names of the available
@@ -149,13 +114,10 @@ queue()
             // Stop the current animation
             d3.select("#pause").node().click();
 
-            // Show the progress bar
-            progressgrid();
-
             d3.json(uri.base + uri.results + simfile)
                 .on("progress", function() {
                     var ratio = Math.round(d3.event.loaded * 100 / d3.event.total);
-                    progress(ratio);
+                    // progress(ratio);
                   })
                 .get(function(error, incdata) {
                     if(typeof incdata !== "undefined") {
@@ -197,7 +159,7 @@ function step() {
 
 
 function update(dataset) {
-    world.selectAll("rect").data(dataset, function(d) { return d[0]; })
+    world.grid().selectAll("rect").data(dataset, function(d) { return d[0]; })
         .attr("class", function(d) { return dict[d[1]]; });
 
     d3.select("#legend-title")
@@ -240,14 +202,7 @@ function simulate(error, incdata) {
     ager_progress.value(0);
 
 
-    // Reset the world grid
-    world.selectAll("rect").attr("class", "empty");
-
-
-    progressgrid();
-    coords.domain([0,grid_size])
-
-    var cell = world.selectAll("rect")
+    var cell = world.grid().selectAll("rect")
             .data(iters[anim.index], function(d) { return d[0]; });
 
     // Remove old cells first
@@ -316,7 +271,7 @@ function progress(percent) {
             }))
     ;
 
-    var msg = world.selectAll("rect").data(hm, function(d) { return d[0]; });
+    var msg = world.grid().selectAll("rect").data(hm, function(d) { return d[0]; });
     msg.attr("class", "progbar cooperator");
 
 } // progress()
