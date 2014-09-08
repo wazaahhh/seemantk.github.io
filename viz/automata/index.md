@@ -2,9 +2,9 @@
 layout: viz/science
 title: Agent-Based Property Game
 viztitle: Agent-Based Property Game
-tagline: Social anthropology through game theory.
-toy: blinken-grid
-description: Cellular automata; agent-based property simulation model.
+tagline: Real estate property simulation.
+toy: blinkengrid+cellular automata
+description: Property gains/losses due to competition/cooperation among agents.
 category: game theory
 item: abm
 commissioned: true
