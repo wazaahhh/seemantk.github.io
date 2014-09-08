@@ -84,6 +84,10 @@ queue()
          * Construct a select box dropdown to hold the names of the available
          * sims in the S3 bucket.
          */
+		d3.select("#chooser")
+			.append("text")
+			.text("Choose a sim: ");
+
         d3.select("#chooser")
           .insert("select")
             .on("change", function() { s3load(this.value); })
@@ -92,6 +96,9 @@ queue()
           .enter().append("option")
             .attr("value", function(d) { return d; })
             .text(function(d) { return d.slice(0, -5); });
+
+		d3.select(".permalink").select("h5")
+			.text("Copy this link to share the simulation:");
 
         // See if a sim (without the ".json" extension) has been requested
         // in the URL.  If so, load it into the select box.
