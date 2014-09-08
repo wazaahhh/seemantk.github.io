@@ -18,6 +18,17 @@ also:
     title: "Wikipedia: The Evolution of Cooperation"
   - href: "http://en.wikipedia.org/wiki/Prisoner%27s_dilemma"
     title: "Wikipedia: Prisoner's Dilemma"
+howto:
+  - component: r
+    step: The probability that an agent will *not* copy the best strategy from their neighbors.
+  - component: q
+    step: The probability of spontaneous cooperation between the agent and a neighbor.
+  - component: m
+    step: The probability of migrating to an empty cell in the neighborhood with highest payoff.
+  - component: M
+    step: The radius of the neighborhood (# of cells in each direction).
+  - component: s
+    step: If another occupied cell has higher payoff, this is the probability of dispacing that agent into a neighboring cell with the next highest payoff.
 ---
 Game theoretical _agent-based models_ (ABM), also called _public good games_, have been used for decades to investigate the emergence of cooperation in biology as well as in animal and human societies.
 
