@@ -1,17 +1,21 @@
 	<!-- The Visualization -->
 	<div class="container" id="visualization">
 		<div class="row">
+			<div class="col-lg-12 col-sm-12 text-center" id="chooser"></div><!--/#chooser-->
+		</div>
+		<div class="row">
 			<div class="panel panel-default col-lg-7 col-sm-12 text-center" id="mainviz">
-				<div class="panel-heading" id="chooser"></div><!--.panel-heading-->
 				<div class="panel-body" id="viz"></div><!--.panel-body#viz-->
-				<div class="panel-footer text-left">
-					<h5>Copy the link to share this simulation:</h5>
+				<div class="panel-footer text-left permalink">
+					<h5></h5>
 					<input class="form-control" id="permalink" type="text" readonly="readonly" data-url="{{ site.production_url }}{{ page.url }}" style="cursor: text;">
 				</div><!--.panel-footer-->
 			</div><!--/#mainviz .panel-->
 			<div class="viz-nav panel panel-default col-lg-5 col-sm-6">
-				<div class="panel-body">
+				<div class="panel-heading">
 					<ul id="legend" class="list-unstyled"></ul>
+				</div><!--.panel-header-->
+				<div class="panel-body">
 					{% include viz/player.html %}
 					<h3 class="panel-title" id="legend-title"></h3>
 				</div><!--panel-body-->
