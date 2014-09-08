@@ -236,25 +236,3 @@ function getParameterByName(name) {
             decodeURIComponent(match[1].replace(/\+/g, ' ').replace(/\//g, ''));
 } // getParameterByName()
 
-
-function progressgrid() {
-    var word = "Loading";
-    var message = d3.merge(word.split('').map(function(l) {
-            return font_table.get(l); }))
-        , offset = {
-            col: Math.floor((grid_size - message.length)/2),
-            row: Math.floor((grid_size / 2) - (message[0].length + 2))
-          }
-        , hm = d3.merge(message.map(function(columns, i) {
-                return columns.map(function(value, j) {
-                    return [(offset.row + j) * grid_size + i + offset.col, value];
-                });
-            }))
-            .filter(function(d) { return d[1] > 0; }) // don't need empty cells
-    ;
-
-    var msg = world.selectAll("rect").data(hm, function(d) { return d[0]; });
-    msg.attr("class", "defector");
-    msg.exit().attr("class", function(d) { return "empty"; });
-} // progressgrid()
-
