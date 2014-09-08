@@ -13,7 +13,7 @@ var width = 500
     , coords = d3.scale.linear()
             .domain([0,grid_size])
             .range([0,width])
-	, fontfile = "font.csv"
+    , fontfile = "font.csv"
     ;
 
 d3.select("#viz").call(world);
@@ -69,7 +69,7 @@ items.append("text")
 
 // Populate the drop-down list with the S3 bucket contents
 queue()
-	.defer(d3.csv, fontfile) // bitmap font for blinkenwriting
+    .defer(d3.csv, fontfile) // bitmap font for blinkenwriting
     .defer(d3.xml, uri.base) // directory listing in XML
     .await(function(error, font, xml) {
         var loc = "results/json/"
@@ -78,7 +78,7 @@ queue()
                 .map(function(d) { return d.textContent.slice(loc.length); })
         ;
 
-		world.font(font);
+        world.font(font);
 
         /*
          * Construct a select box dropdown to hold the names of the available
@@ -115,14 +115,18 @@ queue()
             d3.select("#pause").node().click();
 
             d3.json(uri.base + uri.results + simfile)
-				.on("beforesend", function() {
-					world.title("Loading");
-				})
+                .on("beforesend", function() {
+                    // Clear the grid and put up a message
+                    world.blank();
+                    world.title("Loading");
+                })
                 .on("progress", function() {
-					// Update the progress bar
-                    world.progress(Math.round(d3.event.loaded*100/d3.event.total));
+                    // Update the progress bar
+                    world.progress(d3.event.loaded/d3.event.total);
                 })
                 .get(function(error, incdata) {
+                    world.blank();
+
                     if(incdata == undefined) return;
                     simulate(error, incdata);
                     d3.select("#play").node().click();

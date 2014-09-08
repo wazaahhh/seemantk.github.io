@@ -25,7 +25,7 @@ function blinkengrid() {
 
 
     /*
-     * Main function object, which draws/updates the progress bar
+     * Main function object
      */
     function blinken(selection) {
         viz = selection;
@@ -41,7 +41,11 @@ function blinkengrid() {
         ;
 
         var length = d3.min([width, height]); // length of a cell's side
-        draw(d3.range(cell_count * cell_count).map(function(d, i) { return [i, 0]; }), true);
+        draw(d3.range(cell_count * cell_count)
+                .map(function(d, i) { return [i, 0]; }), true);
+
+        blanken();
+
     } // blinken
 
 
@@ -53,30 +57,19 @@ function blinkengrid() {
      * Build the font bitmap arrays
      */
     function build_font_table(hexmap) {
-        bitmap = hexmap.map(function(f) {
-            f.matrix = d3.keys(hexmap[0])
-                .map(function(c) {
-                    return ("0000000" + parseInt(f[c],16).toString(2))
-                        .slice(-8)
-                        .split('')
-                        .map(function(bit) { return +bit; });
-                });
+        bitmap = hexmap.map(function(h) {
+            h.matrix = ["Col1", "Col2", "Col3", "Col4", "Col5"]
+                    .map(function(c) {
+                        return ("00000000" + parseInt(h[c],16).toString(2))
+                            .slice(-8)
+                            .split('')
+                            .map(function(bit) { return +bit; });
+                    });
 
-            switch(f.Letter) {
-                case "i":
-                case "j":
-                case "k":
-                case "l":
-                case "1":
-                case "!":
-                case "(":
-                case ")":
-                    break;
-                default:
-                    // right-pad each letter
-                    f.matrix.push([0,0,0,0,0,0,0,0]);
-            }
-            return f;
+            // right-pad each letter
+            h.matrix.push([0,0,0,0,0,0,0,0]);
+
+            return h;
         });
 
         font = d3.nest()
@@ -91,41 +84,52 @@ function blinkengrid() {
      * convert the word into bitmaps
      */
     function wordmap(sentence) {
-        var word = d3.merge(sentence.split('')
-                    .map(function(l) {
+        var message = d3.merge(sentence.split('').map(function(l) {
                         return font.get(l);
                     }))
             , offset = {
-                col: Math.floor((cell_count - word.length)/2),
-                row: Math.floor((cell_count / 2) - (word[0].length + 2))
+                col: Math.floor((cell_count - message.length)/2),
+                row: Math.floor((cell_count / 2) - (message[0].length + 2))
             }
         ;
-        return d3.merge(word.map(function(columns, i) {
+        var ret = d3.merge(message.map(function(columns, i) {
             return columns.map(function(value, j) {
                 return [(offset.row + j) * cell_count + i + offset.col, value];
             });
-        }));
+        }))
+        .filter(function(d) { return d[1] > 0; })
+        ;
+        return ret;
     } // wordmap()
 
-    function draw(data, blank) {
+    function draw(data, clear) {
         var length = d3.min([width, height]), // length of a cell's side
-            cells = svg.selectAll("rect").data(data, function(d, i) { return i; });
+            cells = svg.selectAll("rect").data(data, function(d) { return d[0]; });
 
+        // Enter
         cells
           .enter().append("rect")
             .attr("id", function(d, i) { return "cell" + i; })
-            .attr("x", function(d, i) { return coords( i % cell_count)      ; })
-            .attr("y", function(d, i) { return coords((i / cell_count) >> 0); })
-            .attr("width",  function() { console.log(length / cell_count); return length / cell_count; })
+            .attr("x",  function(d, i) { return coords( i % cell_count)      ; })
+            .attr("y",  function(d, i) { return coords((i / cell_count) >> 0); })
+            .attr("width",  function() { return length / cell_count; })
             .attr("height", length / cell_count)
+        ;
+
+        // Update
+        cells
             .attr("class", "on")
         ;
 
-        if(blank) { cells.exit().attr("class", "off"); }
+        // Exit
+        if(clear) { cells.exit().attr("class", "off"); }
     } // draw()
 
 
-
+    function blanken() {
+        svg.selectAll("rect")
+            .attr("class", "off");
+    } // blanken()
 
     /*
      * Getter/Setter closure functions
@@ -169,7 +173,7 @@ function blinkengrid() {
         if(!value) return;
 
         draw(wordmap(value), true);
-        return;
+        return blinken;
     } // blinken.title()
 
     /*
@@ -178,7 +182,7 @@ function blinkengrid() {
     blinken.progress = function(value) {
         if(!value) return;
 
-        var message = d3.range(Math.round(value * cell_count / 100))
+        var message = d3.range(Math.round(value * cell_count))
                 .map(function() { return [1,1,1]; })
             , offset = Math.ceil((cell_count / 2)
                     + ((message[0] == undefined ? 0 : message[0].length) + 2))
@@ -197,6 +201,11 @@ function blinkengrid() {
     } // blinken.progress()
 
 
+    blinken.blank = function(value) {
+        blanken();
+
+        return blinken;
+    } // blinken.blank()
 
     // Return the function object as the final thing
     return blinken;
