@@ -97,9 +97,6 @@ queue()
             .attr("value", function(d) { return d; })
             .text(function(d) { return d.slice(0, -5); });
 
-		d3.select(".permalink").select("h5")
-			.text("Copy this link to share the simulation:");
-
         // See if a sim (without the ".json" extension) has been requested
         // in the URL.  If so, load it into the select box.
         var sim = getParameterByName("sim");
@@ -133,15 +130,16 @@ queue()
                 })
                 .get(function(error, incdata) {
                     world.blank();
-
                     if(incdata == undefined) return;
+
                     simulate(error, incdata);
                     d3.select("#play").node().click();
                     d3.select("#permalink")
-                        .attr("value", function(d) {
+                        .attr("href", function(d) {
                             return d3.select(this).attr("data-url")
                                 + "?sim=" + simfile.split('.json')[0];
                         })
+						.append("Direct link to this sim.");
                 });
         } // s3load()
     })
