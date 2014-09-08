@@ -3,7 +3,7 @@ rect {
 	stroke-width: 0.5;
 }
 
-.cooperator {
+.cooperator, .on {
 	fill: green;
 	fill: #567714;
 	fill: darkgreen;
@@ -15,7 +15,7 @@ rect {
 	fill: brown;
 }
 
-.empty {
+.empty, .off {
 	fill: white;
 	fill: #669999;
 	fill: gray;
