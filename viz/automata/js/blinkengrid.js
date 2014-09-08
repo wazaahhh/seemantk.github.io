@@ -15,13 +15,12 @@ function blinkengrid() {
         , cell_count = 49 // default based on Thomas' abm automata
         , coords = d3.scale.linear()
                 .range([0, width])
+                .domain([0, cell_count])
     ;
 
-    var fontfile = "fonts.csv"
-		, font
-		, message
-        , offset = {}
-        , lights
+    var title
+        , bitmap
+        , font
     ;
 
 
@@ -29,75 +28,103 @@ function blinkengrid() {
      * Main function object, which draws/updates the progress bar
      */
     function blinken(selection) {
-		viz = selection;
-
-		build_font_table();
-		initialize();
-    } // blinken
-
-	function build_font_table() {
-		queue()
-			.defer(d3.csv, fontfile)
-			.await(function(error, bitmap) {
-				var columns = d3.keys(bitmap[0]);
-
-				columns.shift();
-
-        		bitmap.forEach(function(f) {
-            		f.matrix = columns.map(function(c) {
-                		return ("0000000" + parseInt(f[c],16).toString(2))
-                    		.slice(-8)
-                    		.split('')
-                    		.map(function(bit) { return +bit; });
-            		})
-					switch(f.Letter) {
-						case "i":
-						case "j":
-						case "k":
-						case "l":
-						case "1":
-						case "!":
-						case "(":
-						case ")":
-							break;
-						default:
- 	 	 	 	 	 	 	 // right-pad each letter
-            				f.matrix.push([0,0,0,0,0,0,0,0]);
-					}
-        		});
-
-        		font = d3.nest()
-            		.key(function(d) { return d.Letter; })
-            		.rollup(function(leaves) { return leaves[0].matrix; })
-            		.map(font, d3.map);
-			});
-	} // build_font_table
-
-	function initialize() {
+        viz = selection;
         viz.selectAll(id).remove();
 
         svg = viz 
           .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
-			.attr("id", id)
-		  .append("g")
-			.attr("transform", "translate(" + margin.left +","+ margin.top + ")")
-		;
+            .attr("id", id)
+          .append("g")
+            .attr("transform", "translate(" + margin.left +","+ margin.top + ")")
+        ;
 
-		var length = d3.min([width, height]); // length of a cell's side
+        var length = d3.min([width, height]); // length of a cell's side
+        draw(d3.range(cell_count * cell_count).map(function(d, i) { return [i, 0]; }), true);
+    } // blinken
 
-		svg.selectAll("rect")
-    		.data(d3.range(cell_count * cell_count), function(d, i) { return i; })
-  	  	  .enter().append("rect")
-    		.attr("class", "off") // by default all lights are off
-    		.attr("id", function(d, i) { return "cell" + i; })
-    		.attr("x", function(d, i) { return coords( i % cell_count)      ; })
-    		.attr("y", function(d, i) { return coords((i / cell_count) >> 0); })
-    		.attr("width",  length / cell_count)
-    		.attr("height", length / cell_count)
-		;
-	} // initialize()
+
+    /*
+     * Helper functions
+     */
+
+    /*
+     * Build the font bitmap arrays
+     */
+    function build_font_table(hexmap) {
+        bitmap = hexmap.map(function(f) {
+            f.matrix = d3.keys(hexmap[0])
+                .map(function(c) {
+                    return ("0000000" + parseInt(f[c],16).toString(2))
+                        .slice(-8)
+                        .split('')
+                        .map(function(bit) { return +bit; });
+                });
+
+            switch(f.Letter) {
+                case "i":
+                case "j":
+                case "k":
+                case "l":
+                case "1":
+                case "!":
+                case "(":
+                case ")":
+                    break;
+                default:
+                    // right-pad each letter
+                    f.matrix.push([0,0,0,0,0,0,0,0]);
+            }
+            return f;
+        });
+
+        font = d3.nest()
+            .key(function(d) { return d.Letter; })
+            .rollup(function(leaves) { return leaves[0].matrix; })
+            .map(bitmap, d3.map)
+        ;
+    } // build_font_table()
+
+
+    /*
+     * convert the word into bitmaps
+     */
+    function wordmap(sentence) {
+        var word = d3.merge(sentence.split('')
+                    .map(function(l) {
+                        return font.get(l);
+                    }))
+            , offset = {
+                col: Math.floor((cell_count - word.length)/2),
+                row: Math.floor((cell_count / 2) - (word[0].length + 2))
+            }
+        ;
+        return d3.merge(word.map(function(columns, i) {
+            return columns.map(function(value, j) {
+                return [(offset.row + j) * cell_count + i + offset.col, value];
+            });
+        }));
+    } // wordmap()
+
+    function draw(data, blank) {
+        var length = d3.min([width, height]), // length of a cell's side
+            cells = svg.selectAll("rect").data(data, function(d, i) { return i; });
+
+        cells
+          .enter().append("rect")
+            .attr("id", function(d, i) { return "cell" + i; })
+            .attr("x", function(d, i) { return coords( i % cell_count)      ; })
+            .attr("y", function(d, i) { return coords((i / cell_count) >> 0); })
+            .attr("width",  function() { console.log(length / cell_count); return length / cell_count; })
+            .attr("height", length / cell_count)
+            .attr("class", "on")
+        ;
+
+        if(blank) { cells.exit().attr("class", "off"); }
+    } // draw()
+
+
 
 
     /*
@@ -128,9 +155,48 @@ function blinkengrid() {
         return blinken;
     } // blinken.cell_count()
 
-	blinken.grid = function(value) {
-		return svg;
-	} // blienken.grid()
+    blinken.grid = function(value) {
+        return svg;
+    } // blinken.grid()
+
+    blinken.font = function(value) {
+        if(!arguments.length) return font;
+
+        build_font_table(value);
+    } // blinken.font()
+
+    blinken.title = function(value) {
+        if(!value) return;
+
+        draw(wordmap(value), true);
+        return;
+    } // blinken.title()
+
+    /*
+     * Public API functions
+     */
+    blinken.progress = function(value) {
+        if(!value) return;
+
+        var message = d3.range(Math.round(value * cell_count / 100))
+                .map(function() { return [1,1,1]; })
+            , offset = Math.ceil((cell_count / 2)
+                    + ((message[0] == undefined ? 0 : message[0].length) + 2))
+            , hm = d3.merge(message.map(function(columns, i) {
+                    return columns.map(function (bit, j) {
+                        return [(offset + j) * cell_count + i, 0];
+                    });
+            }))
+        ;
+
+        var msg = svg.selectAll("rect")
+                .data(hm, function(d) { return d[0]; })
+                .attr("class", "progbar cooperator");
+
+        return blinken;
+    } // blinken.progress()
+
+
 
     // Return the function object as the final thing
     return blinken;

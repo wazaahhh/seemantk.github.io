@@ -13,6 +13,7 @@ var width = 500
     , coords = d3.scale.linear()
             .domain([0,grid_size])
             .range([0,width])
+	, fontfile = "font.csv"
     ;
 
 d3.select("#viz").call(world);
@@ -68,13 +69,16 @@ items.append("text")
 
 // Populate the drop-down list with the S3 bucket contents
 queue()
+	.defer(d3.csv, fontfile) // bitmap font for blinkenwriting
     .defer(d3.xml, uri.base) // directory listing in XML
-    .await(function(error, xml) {
+    .await(function(error, font, xml) {
         var loc = "results/json/"
           , listing = [].slice.call(xml.getElementsByTagName("Key"))
                 .filter(function(d) { return !d.textContent.indexOf(loc); })// == 0
                 .map(function(d) { return d.textContent.slice(loc.length); })
         ;
+
+		world.font(font);
 
         /*
          * Construct a select box dropdown to hold the names of the available
@@ -102,10 +106,6 @@ queue()
         // Load the selected sim
         s3load(d3.select("select").node().value);
 
-        // Draw the initial grid
-
-
-
 
         /*
          * CALLBACK: s3load()
@@ -115,24 +115,27 @@ queue()
             d3.select("#pause").node().click();
 
             d3.json(uri.base + uri.results + simfile)
+				.on("beforesend", function() {
+					world.title("Loading");
+				})
                 .on("progress", function() {
-                    var ratio = Math.round(d3.event.loaded * 100 / d3.event.total);
-                    // progress(ratio);
-                  })
+					// Update the progress bar
+                    world.progress(Math.round(d3.event.loaded*100/d3.event.total));
+                })
                 .get(function(error, incdata) {
-                    if(typeof incdata !== "undefined") {
-                        simulate(error, incdata);
-                        d3.select("#play").node().click();
-                        d3.select("#permalink")
-                            .attr("value",
-                                    "http://" + window.location.host + "/"
-                                        + window.location.pathname
-                                        + "?sim=" + simfile.split('.json')[0]
-                            )
-                    }
+                    if(incdata == undefined) return;
+                    simulate(error, incdata);
+                    d3.select("#play").node().click();
+                    d3.select("#permalink")
+                        .attr("value", function(d) {
+                            return d3.select(this).attr("data-url")
+                                + "?sim=" + simfile.split('.json')[0];
+                        })
                 });
         } // s3load()
-    }); // queue()
+    })
+; // queue()
+
 
 /*
  * CALLBACK: step forward to the next iteration.
@@ -251,27 +254,3 @@ function progressgrid() {
     msg.exit().attr("class", function(d) { return "empty"; });
 } // progressgrid()
 
-
-function progress(percent) {
-    if(percent === 0) {
-        d3.selectAll(".progbar").attr("class", "empty")
-        return;
-    }
-    // Number of cells to fill in
-    var message = d3.range(Math.round(percent * grid_size / 100))
-                .map(function(r) { return [1,1,1]; })
-        , offset = {
-            col: 0,
-            row: Math.ceil((grid_size / 2) + ((message[0] == undefined ? 0 : message[0].length) + 2))
-          }
-        , hm = d3.merge(message.map(function(columns, i) {
-                return columns.map(function(value, j) {
-                    return [(offset.row + j) * grid_size + i + offset.col, 0];
-                });
-            }))
-    ;
-
-    var msg = world.grid().selectAll("rect").data(hm, function(d) { return d[0]; });
-    msg.attr("class", "progbar cooperator");
-
-} // progress()
