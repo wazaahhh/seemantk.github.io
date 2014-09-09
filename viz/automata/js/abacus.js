@@ -139,7 +139,7 @@ queue()
                             return d3.select(this).attr("data-url")
                                 + "?sim=" + simfile.split('.json')[0];
                         })
-						.append("Direct link to this sim.");
+						.text("Direct link to this sim.");
                 });
         } // s3load()
     })
