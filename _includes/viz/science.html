@@ -8,7 +8,7 @@
 			</div><!--/#mainviz .panel-->
 			<div class="viz-nav panel panel-default col-lg-5 col-sm-6">
 				<div class="panel-heading text-center">
-					<a id="permalink" data-url="{{ site.production_url }}{{ page.url }}">
+					<a id="permalink" data-url="{{ site.production_url }}{{ page.url | remove: '/index.html' }}">
 						Direct link to this sim.
 					</a>
 				</div><!--.panel-footer-->
